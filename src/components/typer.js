@@ -8,6 +8,7 @@ function Cursor(props) {
 
 class Typer extends Component {
   static defaultProps = {
+    startDelay: 500,
     delay: 50,
     endDelay: 500
   }
@@ -17,17 +18,20 @@ class Typer extends Component {
 
     this.state = {
       text: '',
-      isUnmounted: false
+      isUnmounted: false,
+      hideCursor: false
+    }
+
+    this.handleFinish = () => {
+      this.setState({hideCursor: true});
+      this.props.onFinish();
     }
   }
 
   componentDidMount() {
     if(this.props.start === "onmount") {
-      setTimeout(this.handleType, this.props.delay);
+      setTimeout(this.handleType, this.props.startDelay);
     }
-  }
-
-  componentWillUnmount() {
   }
 
   handleType = () => {
@@ -37,16 +41,19 @@ class Typer extends Component {
     this.setState({
       text: children.substring(0, text.length + 1),
       isFinished: text === children
+    }, () => {
+      if(this.state.isFinished) {
+        console.log("Calculating...");
+        setTimeout(this.handleFinish, endDelay);
+      } else {
+        setTimeout(this.handleType, delay);
+      }
     });
-
-    if(text === children) {
-      setTimeout(this.props.onFinish, endDelay);
-    } else {
-      setTimeout(this.handleType, delay);
-    }
   };
 
   render() {
-    return (<span>{ this.state.text }<Cursor /></span>);
+    return (<span>{ this.state.text }{ !this.state.hideCursor && <Cursor /> }</span>);
   }
 }
+
+export { Typer, Cursor };

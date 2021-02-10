@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { Typer, Cursor } from './typer';
 
 class TerminalBase extends Component {
     render() {
@@ -18,6 +19,14 @@ class TerminalBase extends Component {
 }
 
 class Terminal extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            children: this.props.children,
+            command: this.props.command,
+        }
+    }
     render() {
         return (
             <TerminalBase className={this.props.className}>
@@ -27,15 +36,38 @@ class Terminal extends Component {
                         :<span className="text-terminal-blue">~</span>$
                     </span>
                     
-                    <span> {this.props.command}</span>
+                    <span> {this.state.command}</span>
                 </div>
 
                 <div>
-                    {this.props.children}
+                    {this.state.children}
                 </div>
             </TerminalBase>
         );
     }
 }
 
-export default Terminal;
+class TerminalAnimated extends Terminal {
+    constructor(props) {
+        super(props);
+
+        this.showContent = () => {
+            console.log("Done");
+            this.setState({children: (
+                <div>
+                    {this.props.children}
+                    <Cursor />    
+                </div>
+            )});
+        }
+
+        this.state = {
+            children: (<></>),
+            command: (
+                <Typer start="onmount" onFinish={() => this.showContent()}>{this.props.command}</Typer>
+            )
+        }
+    }
+}
+
+export { Terminal, TerminalAnimated };

@@ -10,7 +10,7 @@ module.exports = {
         'french-blue': '#8FAFD9',
         'max-green': '#708D53',
         'almond': '#FDEAC4',
-        'terminal-green': '#488310',
+        'terminal-green': '#5ea61b',
         'terminal-gray': '#333333',
         'terminal-blue': '#3465A4'
       },
