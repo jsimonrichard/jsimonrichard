@@ -1,57 +1,41 @@
 import { Component } from 'react';
 
-function Cursor(props) {
-    return (
-        <span className="cursor" id={this.props.id}>&#9608;</span>
-    );
-}
-
-class Typer extends Component {
-  static defaultProps = {
-    delay: 50,
-    endDelay: 500
-  }
-
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      text: '',
-      isUnmounted: false
+class TerminalBase extends Component {
+    render() {
+        return (
+            <div className={this.props.className+" bg-terminal-gray rounded-lg text-white"}>
+                <div className="p-3 flex flex-row-reverse">
+                    <div className="rounded-full bg-red-500 w-3.5 h-3.5 ml-2" />
+                    <div className="rounded-full bg-yellow-500 w-3.5 h-3.5 ml-2" />
+                    <div className="rounded-full bg-green-500 w-3.5 h-3.5 ml-2" />
+                </div>
+                <div className="p-6 pt-0">
+                    {this.props.children}
+                </div>
+            </div>
+        );
     }
-  }
-
-  componentDidMount() {
-    if(this.props.start === "onmount") {
-      setTimeout(this.handleType, this.props.delay);
-    }
-  }
-
-  componentWillUnmount() {
-  }
-
-  handleType = () => {
-    const { children, delay, endDelay } = this.props;
-    const { text } = this.state;
-
-    this.setState({
-      text: children.substring(0, text.length + 1),
-      isFinished: text === children
-    });
-
-    if(text === children) {
-      setTimeout(this.props.onFinish, endDelay);
-    } else {
-      setTimeout(this.handleType, delay);
-    }
-  };
-
-  render() {
-    return (<span>{ this.state.text }<Cursor /></span>);
-  }
 }
 
 class Terminal extends Component {
+    render() {
+        return (
+            <TerminalBase className={this.props.className}>
+                <div>
+                    <span className="font-bold">
+                        <span className="text-terminal-green">jsimonrichard</span>
+                        :<span className="text-terminal-blue">~</span>$
+                    </span>
+                    
+                    <span> {this.props.command}</span>
+                </div>
 
+                <div>
+                    {this.props.children}
+                </div>
+            </TerminalBase>
+        );
+    }
 }
+
 export default Terminal;

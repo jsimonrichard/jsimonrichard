@@ -4,9 +4,9 @@ import Terminal from './components/terminal';
 function App() {
   return (
     <div className="App overflow-x-hidden p-10 min-h-screen bg-almond">
-      <div className="w-full max-w-screen-lg mx-auto h-full p-10 bg-terminal-gray text-white font-bold">
-      asdfasdfasdf
-      </div>
+      <Terminal className="w-full max-w-screen-lg mx-auto h-full" command="whoami">
+      Hi, my name is J. Simon Richard.
+      </Terminal>
     </div>
   );
 }
