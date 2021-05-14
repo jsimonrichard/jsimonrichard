@@ -43,7 +43,7 @@ function App() {
 
           <br/><br/>
 
-          I'm only graduating high school this year, but I've already had some great <TerminalLink>education</TerminalLink> and <TerminalLink>work</TerminalLink> experiences. 
+          I'm graduating high school this year, but I've already had some great <TerminalLink>education</TerminalLink> and <TerminalLink>work</TerminalLink> experiences. 
         
         </TerminalAnimated>
       </section>
