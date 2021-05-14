@@ -11,7 +11,7 @@ module.exports = {
         'max-green': '#708D53',
         'almond': '#FDEAC4',
         'terminal-green': '#5ea61b',
-        'terminal-gray': '#333333',
+        'terminal-gray': '#142137',
         'terminal-blue': '#3465A4'
       },
 
