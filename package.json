@@ -1,6 +1,6 @@
 {
-  "name": "resume-react-app",
-  "homepage": "http://jsimonrichard.github.io/resume-react-app",
+  "name": "jsimonrichard.com",
+  "homepage": "http://jsimonrichard.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

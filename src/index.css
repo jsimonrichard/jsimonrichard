@@ -7,6 +7,10 @@ html {
   overflow-x: hidden;
 }
 
+header {
+  transition: background-color 500ms;
+}
+
 @keyframes blink {
   0%  {opacity: 1;}
   40% {opacity: 1;}
@@ -24,11 +28,16 @@ html {
 
 .about-bg-shape {
   -webkit-clip-path: polygon(0 4%, 100% 0, 100% 100%, 0% 96%);
-  clip-path: polygon(0 4%, 100% 0, 100% 100%, 0% 96%);
+  clip-path: polygon(0 4%, 100% 0, 100% 100%, 0% 100%);
   padding-top: 5rem;
-  padding-bottom: 5rem;
+  padding-bottom: 1rem;
 }
 
 .min-h-75-screen {
   min-height: 75vh
+}
+
+.harsh-shadow {
+  -webkit-box-shadow: 0px 0px 50px 5px white; 
+  box-shadow: 0px 0px 50px 5px white;
 }
