@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import './index.css';
 import { TerminalAnimated, TerminalLink } from './components/terminal';
+
 import profile from "./img/simon.jpg";
 import jungleBackground from './img/jungleBackground.jpg';
+import jungleBackgroundMobile from './img/jungleBackgroundMobile.jpg';
 
 function App() {
+  // Get background image
+  const backgroundImage = window.innerWidth >= 650 ? jungleBackground : jungleBackgroundMobile;
+
   // Handle scrolling
   const [fillHeaderBG, setFillHeaderBG] = useState(false)
   const headerScrollHandler = e => {
@@ -28,8 +33,10 @@ function App() {
       
 
 
-      <section className="w-screen min-h-75-screen p-6 grid bg-cover bg-left-top bg-no-repeat" style={{backgroundImage: `url(${jungleBackground})` }}>
-        <TerminalAnimated className="place-self-center w-full max-w-screen-lg mx-auto min-h-96 mt-20 mb-20" command="whoami">
+      <section className="w-screen min-h-75-screen p-6 grid bg-cover bg-left-top bg-no-repeat"
+        style={{backgroundImage: `url(${backgroundImage})`}}>
+        <TerminalAnimated className="place-self-center w-full max-w-screen-lg mx-auto min-h-96 mt-20 mb-20"
+          command="whoami" startDelay={1000}>
           
           <br />
           Hi, my name is J. Simon Richard. I'm an aspiring full-stack developer with a wide range of <TerminalLink>interests</TerminalLink> and <TerminalLink>skills</TerminalLink>. There's a lot I don't know, but when I'm faced with something new I'm good at learning it quickly.

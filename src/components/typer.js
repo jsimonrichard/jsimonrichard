@@ -43,7 +43,6 @@ class Typer extends Component {
       isFinished: text === children
     }, () => {
       if(this.state.isFinished) {
-        console.log("Calculating...");
         setTimeout(this.handleFinish, endDelay);
       } else {
         setTimeout(this.handleType, delay);
