@@ -70,4 +70,12 @@ class TerminalAnimated extends Terminal {
     }
 }
 
-export { Terminal, TerminalAnimated };
+function TerminalLink(props) {
+    return (
+        <a className="" href={props.href}>
+            [<span className="text-green-500 hover:text-green-300 hover:underline cursor-pointer uppercase">{ props.children }</span>]
+        </a>
+    );
+}
+
+export { Terminal, TerminalAnimated, TerminalLink };

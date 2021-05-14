@@ -3,6 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  overflow-x: hidden;
+}
+
 @keyframes blink {
   0%  {opacity: 1;}
   40% {opacity: 1;}
@@ -16,4 +20,15 @@
   animation-name: blink;
   animation-duration: 1s;
   animation-iteration-count: infinite;
+}
+
+.about-bg-shape {
+  -webkit-clip-path: polygon(0 4%, 100% 0, 100% 100%, 0% 96%);
+  clip-path: polygon(0 4%, 100% 0, 100% 100%, 0% 96%);
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.min-h-75-screen {
+  min-height: 75vh
 }
