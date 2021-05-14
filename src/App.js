@@ -16,7 +16,7 @@ function App() {
     setFillHeaderBG( window.scrollY != 0 );
   }
 
-  // Add the event listener
+  // Add the scrolling event listener
   useEffect(()=>{
     window.addEventListener("scroll", headerScrollHandler);
   },[]);
@@ -36,7 +36,7 @@ function App() {
       <section className="w-screen min-h-75-screen p-6 grid bg-cover bg-left-top bg-no-repeat"
         style={{backgroundImage: `url(${backgroundImage})`}}>
         <TerminalAnimated className="place-self-center w-full max-w-screen-lg mx-auto min-h-96 mt-20 mb-20"
-          command="whoami" startDelay={1000}>
+          command="whoami" start="onload">
           
           <br />
           Hi, my name is J. Simon Richard. I'm an aspiring full-stack developer with a wide range of <TerminalLink>interests</TerminalLink> and <TerminalLink>skills</TerminalLink>. There's a lot I don't know, but when I'm faced with something new I'm good at learning it quickly.

@@ -38,7 +38,7 @@ export function TerminalAnimated(props) {
   const [isRunning, setIsRunning] = useState(true);
 
   return <Terminal command={(
-    <Typer start="onmount" onFinish={()=>setIsRunning(false)} startDelay={props.startDelay}>
+    <Typer start={props.start} onFinish={()=>setIsRunning(false)} startDelay={props.startDelay}>
       {props.command}
     </Typer>
   )} className={props.className}>
