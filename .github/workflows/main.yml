@@ -25,7 +25,7 @@ jobs:
           node-version: 15.x
       - run: npm ci
       - run: npm run predeploy --if-present
-      - run: npm test
+      - run: npm test --passWithNoTests
 
       - name: Deploy
         uses: s0/git-publish-subdir-action@develop
