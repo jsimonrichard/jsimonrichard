@@ -13,14 +13,13 @@ on:
 
 
 jobs:
-  strategy:
-    max-parallel: 1
   # Build the app using craco build
   build:
     name: Build the App (craco build)
     runs-on: ubuntu-latest
 
     strategy:
+      max-parallel: 1
       matrix:
         node-version: [15.x]
 
