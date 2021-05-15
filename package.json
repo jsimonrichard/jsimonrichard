@@ -15,7 +15,8 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-google-recaptcha": "^2.1.0",
-    "react-hook-form": "^6.15.1",
+    "react-hook-form": "^7.6.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.2",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.3",
     "web-vitals": "^1.1.0"
@@ -25,7 +26,6 @@
     "build": "craco build",
     "test": "craco test",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

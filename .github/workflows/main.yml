@@ -1,6 +1,4 @@
-# This is a basic workflow to help you get started with Actions
-
-name: Deploy to Hostinger
+name: Build and Deploy to Hostinger
 
 # Controls when the action will run. 
 on:
@@ -15,6 +13,26 @@ on:
 
 
 jobs:
+  # Build the app using craco build
+  build:
+    name: Build the App (craco build)
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x, 14.x, 15.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
+      - run: npm run predeploy --if-present
+      - run: npm test
+
+  # Push the build folder to the public branch
   deploy:
     name: Deploy to Hostinger
     runs-on: ubuntu-latest    
