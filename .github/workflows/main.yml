@@ -13,37 +13,25 @@ on:
 
 
 jobs:
-  # Build the app using craco build
-  build:
-    name: Build the App (craco build)
-    runs-on: ubuntu-latest
-
-    strategy:
-      max-parallel: 1
-      matrix:
-        node-version: [15.x]
-
+  build-and-deploy:
+    name: Build and Deploy to Hostinger
+    runs-on: ubuntu-latest    
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
+      - uses: actions/checkout@main
+
+      - name: Use Node.js 15.x
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 15.x
       - run: npm ci
       - run: npm run predeploy --if-present
       - run: npm test
 
-  # Push the build folder to the public branch
-  deploy:
-    name: Deploy to Hostinger
-    runs-on: ubuntu-latest    
-    steps:
-    - uses: actions/checkout@main
+      - name: Deploy
+        uses: s0/git-publish-subdir-action@develop
+        env:
+          REPO: self
+          BRANCH: public
+          FOLDER: build
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Deploy
-      uses: s0/git-publish-subdir-action@develop
-      env:
-        REPO: self
-        BRANCH: public
-        FOLDER: build
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
