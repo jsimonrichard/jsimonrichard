@@ -50,7 +50,7 @@ export default function ContentForm(props) {
           alert("The mail client had a problem. Try emailing directly instead.");
       });
     } else {
-      // Except no captcha
+      alert("Please submit the ReCAPTCHA");
     }
   }
 
@@ -73,8 +73,7 @@ export default function ContentForm(props) {
         <ReCAPTCHA
             sitekey="6Lfl01IaAAAAADQresrgnV4SLqi5JTOkeXh14kuw"
             onChange={value=>{
-              console.log(value);
-              setIsVerified(true);
+              setIsVerified(!!value);
             }}/>
 
         <button type="submit" name="send"
