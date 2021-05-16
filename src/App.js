@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './index.css';
-import { TerminalAnimated, TerminalLink } from './components/terminal';
+import { Switch, BrowserRouter, Route } from 'react-router-dom';
 
-import profile from "./img/simon.jpg";
-import jungleBackground from './img/jungleBackground.jpg';
-import jungleBackgroundMobile from './img/jungleBackgroundMobile.jpg';
+import { StyledLink } from './components/core';
+import Home from './Home';
+import ContentForm from './components/contactForm';
 
 function App() {
-  // Get background image
-  const backgroundImage = window.innerWidth >= 650 ? jungleBackground : jungleBackgroundMobile;
-
   // Handle scrolling
   const [fillHeaderBG, setFillHeaderBG] = useState(false)
   const headerScrollHandler = e => {
@@ -24,50 +21,34 @@ function App() {
   // Render the app
   return (
     <div className="App min-h-screen">
-      <header className={"fixed p-6 w-screen text-3xl font-bold z-10 "
-                                   + (fillHeaderBG ? "bg-white" : "bg-transparent")}>
+      <BrowserRouter>
+        <header className={"fixed p-6 w-screen text-3xl font-bold z-10 "
+                                    + (fillHeaderBG ? "bg-white" : "bg-transparent")}>
+            J. Simon Richard
+        </header>
 
-          J. Simon Richard
+        <Switch>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
 
-      </header>
-      
+        <footer className="flex flex-col lg:flex-row justify-between flex-wrap bg-gray-200">
+          <div className="p-10 flex-shrink">
+            <StyledLink to="/" className="text-xl font-bold">Home</StyledLink>
 
-
-      <section className="w-screen min-h-75-screen p-6 grid bg-cover bg-left-top bg-no-repeat"
-        style={{backgroundImage: `url(${backgroundImage})`}}>
-        <TerminalAnimated className="place-self-center w-full max-w-screen-lg mx-auto min-h-96 mt-20 mb-20"
-          command="whoami" start="onload">
-          
-          <br />
-          Hi, my name is J. Simon Richard. I'm an aspiring full-stack developer with a wide range of <TerminalLink>interests</TerminalLink> and <TerminalLink>skills</TerminalLink>. There's a lot I don't know, but when I'm faced with something new I'm good at learning it quickly.
-
-          <br/><br/>
-
-          I'm graduating high school this year, but I've already had some great <TerminalLink>education</TerminalLink> and <TerminalLink>work</TerminalLink> experiences. 
-        
-        </TerminalAnimated>
-      </section>
-
-
-
-      <section className="w-screen bg-white about-bg-shape -mt-8">
-        <div className="container mx-auto grid md:grid-cols-2 p-10 gap-8">
-          <div className="self-center">
-            <img src={profile} className="mx-auto w-auto h-auto max-h-96 rounded-full" />
+            <StyledLink to="/#about">About</StyledLink>
+            <StyledLink to="/#education">Education</StyledLink>
+            <StyledLink to="/#work">Work Experiences</StyledLink>
+            <StyledLink to="/#skills">Skills</StyledLink>
+            <StyledLink to="/#interest">Interests</StyledLink>
           </div>
-          <div className="">
-            <h1 className="text-3xl">About</h1>
 
-            <br />
-            This website is a work-in-progress. Come back later to see more content.
-          </div>
-        </div>
-      </section>
+          <ContentForm className="flex-initial p-10"/>
+        </footer>
+      </BrowserRouter>
     </div>
   );
 }
 
-export default App;
-
-//Photo by <a href="https://unsplash.com/@conscious_design?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Conscious Design</a> on <a href="https://unsplash.com/s/photos/4k-background-willough-tree?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-  
+export default App;  

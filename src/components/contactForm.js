@@ -1,56 +1,87 @@
-import { useState, createRef } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import emailjs from 'emailjs-com';
 import ReCAPTCHA from 'react-google-recaptcha';
 
-function onSubmit(data) {
-    
+function Input(props) {
+  return (
+    <input
+      type="text"
+      className={"p-2 rounded-lg border-2 " +
+                 (props.register.name in props.errors ? "border-red-500" : "")}
+      placeholder={props.placeholder}
+      {...props.register}/>
+  );
 }
 
-export default function ContentForm() {
-    const { register, handleSubmit, errors } = useForm();
-    console.log(errors);
+function TextArea(props) {
+  return (
+    <textarea
+      className={"col-span-2 p-2 rounded-lg border-2 " + 
+                  (props.register.name in props.errors ? "border-red-500" : "")}
+      placeholder={props.placeholder}
+      {...props.register}/>
+  );
+}
 
-    let [isLoading, setLoading] = useState(false);
-    let recaptchaRef = createRef();
+export default function ContentForm(props) {
+  const { register, handleSubmit, formState: { errors }  } = useForm();
 
-    let onSubmit = (data) => {
-        if(recaptchaRef.current.getValue()) {
-            const service_id = "service_6gdy3yv";
-            const template_id = "template_jsrw1d3";
-            const user_id = "user_nnmvkZk8RnT1RpeoxW5AR";
+  const [isLoading, setLoading] = useState(false);
+  const [isVerified, setIsVerified] = useState(false);
 
-            this.setState({isLoading: true});
+  const onSubmit = data => {
+    setLoading(true);
+    if(isVerified) {
+      const service_id = "service_6gdy3yv";
+      const template_id = "template_jsrw1d3";
+      const user_id = "user_nnmvkZk8RnT1RpeoxW5AR";
 
-            emailjs.send(service_id, template_id, {
-                "user_name": this.state.name,
-                "email": this.state.email,
-                "message": this.state.message,
-
-            }, user_id).then((response) => {
-                this.setState({isLoading: false});
-            }, (err) => {
-                console.log(err);
-                this.setState({isLoading: false});
-
-                alert("The mail client had a problem. Try emailing directly instead.");
-            });
-        } else {
-            // Except no captcha
-        }
+      emailjs.send(service_id, template_id, {
+        user_name: data.name,
+        user_email: data.email,
+        message: data.message,
+        site_name: "jsimonrichard.com"
+      }, user_id).then(() => {
+          setLoading(false);
+      }, (err) => {
+          console.log(err);
+          setLoading(false);
+          alert("The mail client had a problem. Try emailing directly instead.");
+      });
+    } else {
+      // Except no captcha
     }
+  }
 
-    return (
-        <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-2 gap-4">
-            <input type="text" placeholder="Name" name="Name" ref={register({required: true, maxLength: 80})} className="p-4 rounded-lg" />
-            <input type="text" placeholder="Email" name="Email" ref={register({required: true, pattern: /^\S+@\S+\.\S+$/i})} className="p-4 rounded-lg" />
-            <textarea name="Message" placeholder="Message" ref={register({required: true})} className="col-span-2 p-4 rounded-lg"/>
+  return (
+    <div {...props}>
+      <h2 className="text-xl font-bold mb-2">Contact Me</h2>
+      <form id="contact-form"
+        onSubmit={handleSubmit(onSubmit)}
+        className="flex flex-col md:grid md:grid-cols-2 gap-2">
 
-            <ReCAPTCHA 
-                ref={recaptchaRef}
-                sitekey="6Lfl01IaAAAAADQresrgnV4SLqi5JTOkeXh14kuw"/>
+        <Input placeholder="Name" errors={errors}
+          register={register("name", {required: true, maxLength: 80})} />
+ 
+        <Input placeholder="Email" errors={errors}
+          register={register("email", {required: true, pattern: /^\S+@\S+\.\S+$/i})} />
+        
+        <TextArea placeholder="Message" errors={errors}
+          register={register("message", {required: true})} />
 
-            <input type="submit" name="Send" className="bg-blue-500 text-white rounded-lg"/>
-        </form>
-    );
+        <ReCAPTCHA
+            sitekey="6Lfl01IaAAAAADQresrgnV4SLqi5JTOkeXh14kuw"
+            onChange={value=>{
+              console.log(value);
+              setIsVerified(true);
+            }}/>
+
+        <button type="submit" name="send"
+          className="bg-blue-500 hover:bg-blue-600 focus:bg-blue-700 p-4 text-white rounded-lg">
+          {isLoading ? <span>Loading...</span> : <span>Send</span>}
+        </button>
+      </form>
+    </div>
+  );
 }
