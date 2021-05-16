@@ -51,6 +51,7 @@ export default function ContentForm(props) {
       });
     } else {
       alert("Please submit the ReCAPTCHA");
+      setLoading(false);
     }
   }
 
