@@ -4,7 +4,6 @@ import { Switch, BrowserRouter, Route } from 'react-router-dom';
 
 import { StyledLink } from './components/core';
 import Home from './Home';
-import ContentForm from './components/contactForm';
 
 function App() {
   // Handle scrolling
@@ -33,7 +32,7 @@ function App() {
           </Route>
         </Switch>
 
-        <footer className="flex flex-col lg:flex-row justify-between flex-wrap bg-gray-200">
+        <footer className="flex flex-col lg:flex-row flex-wrap bg-gray-200">
           <div className="p-10 flex-shrink">
             <StyledLink to="/" className="text-xl font-bold">Home</StyledLink>
 
@@ -44,7 +43,10 @@ function App() {
             <StyledLink to="/#interest">Interests</StyledLink>
           </div>
 
-          <ContentForm className="flex-initial p-10"/>
+          <div className="flex-initial p-10">
+            <h2 className="text-xl font-bold">Contact Me</h2>
+            <StyledLink to="mailto: jsimonrichard@gmail.com">jsimonrichard@gmail.com</StyledLink>
+          </div>
         </footer>
       </BrowserRouter>
     </div>
