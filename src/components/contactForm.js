@@ -82,6 +82,7 @@ export default function ContentForm(props) {
           {isLoading ? <span>Loading...</span> : <span>Send</span>}
         </button>
       </form>
+      Alternatively, you can email me at <a href="mailto: jsimonrichard@gmail.com">jsimonrichard@gmail.com</a>
     </div>
   );
 }
