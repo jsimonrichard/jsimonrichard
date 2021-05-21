@@ -28,7 +28,7 @@ function Hero(props) {
     <section className="w-screen min-h-75-screen p-6 grid bg-cover bg-left-top bg-no-repeat"
       style={{backgroundImage: `url(${backgroundImage})`}}>
       <TerminalAnimated
-        className="place-self-center w-full max-w-screen-lg mx-auto min-h-96 mt-20 mb-20"
+        className="place-self-center max-w-screen-md mx-auto  min-h-96 mt-20 mb-20"
         command="whoami" start="onload">
 
         <br />
@@ -59,7 +59,7 @@ function About(props) {
         <div className="self-center">
           <img src={profile} className="mx-auto w-auto h-auto max-h-96 rounded-full" />
         </div>
-        <div className="">
+        <div className="my-auto">
           <h1 className="text-3xl">About</h1>
 
           <br />

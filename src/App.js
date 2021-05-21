@@ -32,21 +32,24 @@ function App() {
           </Route>
         </Switch>
 
-        <footer className="flex flex-col lg:flex-row flex-wrap bg-gray-200">
-          <div className="p-10 flex-shrink">
-            <StyledLink to="/" className="text-xl font-bold">Home</StyledLink>
+        <footer className="bg-gray-200">
+          <div className="flex flex-row lg:flex-row flex-wrap container mx-auto">
+            <div className="p-10 flex-shrink">
+              <StyledLink to="/" className="text-xl font-bold">Home</StyledLink>
 
-            <StyledLink to="/#about">About</StyledLink>
-            <StyledLink to="/#education">Education</StyledLink>
-            <StyledLink to="/#work">Work Experiences</StyledLink>
-            <StyledLink to="/#skills">Skills</StyledLink>
-            <StyledLink to="/#interest">Interests</StyledLink>
-          </div>
+              <StyledLink to="/#about">About</StyledLink>
+              <StyledLink to="/#education">Education</StyledLink>
+              <StyledLink to="/#work">Work Experiences</StyledLink>
+              <StyledLink to="/#skills">Skills</StyledLink>
+              <StyledLink to="/#interest">Interests</StyledLink>
+            </div>
 
-          <div className="flex-initial p-10">
-            <h2 className="text-xl font-bold">Contact Me</h2>
-            <StyledLink to="mailto: jsimonrichard@gmail.com">jsimonrichard@gmail.com</StyledLink>
+            <div className="flex-initial p-10">
+              <h2 className="text-xl font-bold">Contact Me</h2>
+              <StyledLink to="mailto: jsimonrichard@gmail.com">jsimonrichard@gmail.com</StyledLink>
+            </div>
           </div>
+          
         </footer>
       </BrowserRouter>
     </div>
