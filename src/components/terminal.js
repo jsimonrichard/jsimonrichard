@@ -3,7 +3,7 @@ import { Typer, Cursor } from './typer';
 
 export function TerminalBase(props) {
   return (
-    <div className={props.className+" bg-terminal-gray rounded-lg text-white"}>
+    <div className={props.className+" bg-terminal-dark-blue rounded-lg text-white"}>
       <div className="p-3 flex flex-row-reverse">
         <div className="rounded-full bg-red-500 w-3.5 h-3.5 ml-2" />
         <div className="rounded-full bg-yellow-500 w-3.5 h-3.5 ml-2" />

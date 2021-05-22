@@ -33,6 +33,10 @@ header {
   padding-bottom: 1rem;
 }
 
-.min-h-75-screen {
-  min-height: 75vh
+.hero-height {
+  min-height: 85vh
+}
+
+.indent {
+  text-indent: 4ch;
 }

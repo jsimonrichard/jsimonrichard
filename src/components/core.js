@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 
 export function StyledLink(props) {
@@ -7,4 +7,9 @@ export function StyledLink(props) {
       {props.children}
     </Link>
   );
+}
+
+export function DynamicAge(props) {
+  const age = useMemo(() => new Date(Date.now() - props.startDate).getUTCFullYear() - 1970, [props.startDate]);
+  return <span>{age}</span>;
 }
