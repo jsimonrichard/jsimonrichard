@@ -19,7 +19,7 @@ function App() {
 
   // Render the app
   return (
-    <div className="App min-h-screen">
+    <div className="App min-h-screen bg-green-900">
       <BrowserRouter>
         <header className={"fixed p-6 w-screen text-3xl font-bold z-10 "
                                     + (fillHeaderBG ? "bg-white" : "bg-transparent")}>
@@ -46,7 +46,7 @@ function App() {
 
             <div className="flex-initial p-10">
               <h2 className="text-xl font-bold">Contact Me</h2>
-              <StyledLink to="mailto: jsimonrichard@gmail.com">jsimonrichard@gmail.com</StyledLink>
+              jsimonrichard@gmail.com
             </div>
           </div>
           

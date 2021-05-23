@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Typer, Cursor } from './typer';
+import { HashLink as Link } from 'react-router-hash-link'; 
 
 export function TerminalBase(props) {
   return (
@@ -52,10 +53,10 @@ export function TerminalAnimated(props) {
 
 export function TerminalLink(props) {
     return (
-        <a className="" href={props.href}>
+        <Link to={props.to}>
             [<span className="text-green-500 hover:text-green-300 hover:underline cursor-pointer uppercase">
               { props.children }
             </span>]
-        </a>
+        </Link>
     );
 }

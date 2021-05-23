@@ -1,21 +1,38 @@
-import React from 'react';
-import { TerminalAnimated, TerminalLink } from './components/terminal';
+import React, { useState } from 'react';
+import VisibilitySensor from 'react-visibility-sensor';
 
+import { TerminalAnimated, TerminalLink } from './components/terminal';
 import { DynamicAge } from './components/core';
+
 import jungleBackground from './img/jungleBackground.jpg';
 import jungleBackgroundMobile from './img/jungleBackgroundMobile.jpg';
 import profile from "./img/simon.jpg";
+import pythonLogo from './img/skills/python.png';
+import javaScriptLogo from './img/skills/javascript.png';
+import linuxLogo from './img/skills/linux.png';
+import gitLogo from './img/skills/git.png';
+import reactJSLogo from './img/skills/react.png';
+import HTMLCSSLogo from './img/skills/html-css.png';
+import webDesignLogo from './img/skills/web-design.png';
+import dockerLogo from './img/skills/docker.png';
+import mongoDBLogo from './img/skills/mongodb.png';
+import djangoLogo from './img/skills/django.png';
+import micropythonLogo from './img/skills/micropython.png';
+import cppLogo from './img/skills/c++.png';
 
 export default function Home(props) {
   return (
     <>
       <Hero />
-      <About />
 
-      <Education />
-      <Work />
-      <Skills />
-      <Interests />
+      <div className="container mx-auto">
+        <About />
+
+        <Education />
+        <Work />
+        <Skills />
+        <Interests />
+      </div>
     </>
   );
 }
@@ -26,23 +43,23 @@ function Hero(props) {
 
   // Render
   return (
-    <section className="w-screen hero-height p-4 grid bg-cover bg-left-top bg-no-repeat"
+    <section className="w-screen min-h-screen p-4 grid bg-cover bg-left-top bg-no-repeat hero-bg-fade"
       style={{backgroundImage: `url(${backgroundImage})`}}>
       <TerminalAnimated
-        className="place-self-center max-w-screen-md mx-auto  min-h-96 mt-20 mb-20"
+        className="place-self-center max-w-screen-md mx-auto min-h-96 mt-20 mb-28 border-4"
         command="whoami" start="onload">
 
         <br />
         Hi, my name is J. Simon Richard. I'm an aspiring full-stack developer
         with a wide range 
-        of <TerminalLink>interests</TerminalLink> and <TerminalLink>skills</TerminalLink>.
+        of <TerminalLink to="#interests">interests</TerminalLink> and <TerminalLink to="#skills">skills</TerminalLink>.
         There's a lot I don't know, but when I'm faced with something new
         I'm good at learning it quickly.
 
         <br/><br/>
 
         I'm graduating high school this year, but I've already had some
-        great <TerminalLink>education</TerminalLink> and <TerminalLink>work</TerminalLink> experiences.
+        great <TerminalLink to="#education">education</TerminalLink> and <TerminalLink to="#work">work</TerminalLink> experiences.
       </TerminalAnimated>
     </section>
   );
@@ -55,10 +72,10 @@ function Hero(props) {
 
 function About(props) {
   return (
-    <section id="about" className="w-screen bg-white about-bg-shape -mt-12">
+    <section id="about" className="w-full bg-white about-bg-shape -mt-28">
       <div className="container mx-auto grid lg:grid-cols-2 p-10 gap-8">
         <div className="self-center">
-          <img src={profile} className="mx-auto w-auto h-auto max-h-96 rounded-full" />
+          <img src={profile} className="mx-auto w-auto h-auto max-h-96 rounded-full " />
         </div>
         <div className="my-auto">
           <h1 className="text-3xl">About</h1>
@@ -94,10 +111,12 @@ function About(props) {
 
 function SectionTemplate(props) {
   return (
-    <section id={props.id} className="pt-4 mb-18">
+    <section id={props.id} className="pb-18 md:pb-24 bg-white">
       <div className="bg-terminal-dark-blue text-white">
         <div className="container mx-auto px-10 py-4">
-          <h1 className="text-5xl sm:text-7xl">{props.title}</h1>
+          <h1 className="text-4xl sm:text-5xl">
+            {props.title}
+          </h1>
         </div>
       </div>
 
@@ -112,14 +131,14 @@ function Education(props) {
   return (
     <SectionTemplate id="education" title="Education">
       <div className="mb-8 text-center">
-        <h2 className="text-4xl">Associate of Science</h2>
+        <h2 className="text-3xl sm:text-4xl">Associate of Science</h2>
         <h4 className="text-xl text-gray-500">Lakeland Community College -&nbsp;May&nbsp;2021</h4>
 
         Outstanding Mathematics Student Award<br />
         Finalist for the Provost’s Award
       </div>
       
-      <div className=" text-center">
+      <div className="text-center">
         <h2 className="text-3xl sm:text-4xl">High School Honors Diploma</h2>
         <h4 className="text-xl text-gray-500">iSTEM Geauga Early College High School -&nbsp;May&nbsp;2021</h4>
       </div>
@@ -131,15 +150,67 @@ function Education(props) {
 function Work(props) {
   return (
     <SectionTemplate id="work" title="Employment">
-
+      Coming soon...
     </SectionTemplate>
   );
 }
 
+function Skill(props) {
+  return (
+    <div className="flex-initial p-4 w-36 h-full text-center">
+      <img src={props.img}
+        className="mx-auto w-24 mb-2"/>
+      <div className="mx-auto bg-green-600"
+        style={{width: "5rem", height: `${props.level*4}rem`}}/>
+
+      <span className="font-bold text-xl">{props.name}</span>
+    </div>
+  )
+}
+
 function Skills(props) {
+  const [isVisible, setIsVisible] = useState(false);
   return (
     <SectionTemplate id="skills" title="Skills">
+      <VisibilitySensor onChange={isVisible => setIsVisible(isVisible)}>
+        <div className="flex flex-row items-end overflow-x-auto">
+          <Skill name="Python" img={pythonLogo} level={5}
+            isVisible={isVisible} />
 
+          <Skill name="Linux" img={linuxLogo} level={4}
+            isVisible={isVisible} />
+
+          <Skill name="Git" img={gitLogo} level={4}
+            isVisible={isVisible} />
+            
+          <Skill name="JavaScript" img={javaScriptLogo} level={4}
+            isVisible={isVisible} />
+
+          <Skill name="ReactJS" img={reactJSLogo} level={3}
+            isVisible={isVisible} />
+
+          <Skill name="HTML/CSS" img={HTMLCSSLogo} level={3}
+            isVisible={isVisible} />
+
+          <Skill name="Web&nbsp;Design" img={webDesignLogo} level={3}
+            isVisible={isVisible} />
+
+          <Skill name="Docker" img={dockerLogo} level={3}
+            isVisible={isVisible} />
+
+          <Skill name="MongoDB" img={mongoDBLogo} level={3}
+            isVisible={isVisible} />
+
+          <Skill name="Django/MVC" img={djangoLogo} level={2}
+            isVisible={isVisible} />
+
+          <Skill name="MicroPython" img={micropythonLogo} level={2}
+            isVisible={isVisible} />
+
+          <Skill name="C++" img={cppLogo} level={2}
+            isVisible={isVisible} />
+        </div>
+      </VisibilitySensor>
     </SectionTemplate>
   );
 }
@@ -147,7 +218,7 @@ function Skills(props) {
 function Interests(props) {
   return (
     <SectionTemplate id="interests" title="Interests">
-      
+      Coming soon...
     </SectionTemplate>
   );
 }
