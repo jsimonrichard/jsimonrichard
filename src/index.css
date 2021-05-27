@@ -40,3 +40,16 @@ header {
 .indent {
   text-indent: 4ch;
 }
+
+.transition-bounce {
+  transition: all 1s cubic-bezier(.69,-0.11,.4,1.11);
+}
+
+
+@keyframes cycle {
+  0% {opacity: 1;}
+  50% {opacity: 0;}
+}
+.scroll-arrow {
+  animation: cycle 2.5s infinite;
+}

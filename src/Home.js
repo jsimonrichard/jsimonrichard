@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import VisibilitySensor from 'react-visibility-sensor';
 
 import { TerminalAnimated, TerminalLink } from './components/terminal';
-import { DynamicAge } from './components/core';
+import { DynamicAge, ScrollArrow } from './components/core';
 
 import jungleBackground from './img/jungleBackground.jpg';
 import jungleBackgroundMobile from './img/jungleBackgroundMobile.jpg';
@@ -120,7 +120,7 @@ function SectionTemplate(props) {
         </div>
       </div>
 
-      <div className="container mx-auto p-10">
+      <div className={"container mx-auto p-10 "+props.className}>
         {props.children}
       </div>
     </section>
@@ -157,11 +157,12 @@ function Work(props) {
 
 function Skill(props) {
   return (
-    <div className="flex-initial p-4 w-36 h-full text-center">
+    <div className="flex-initial p-4 w-36 h-full text-center transition-bounce"
+      style={{opacity: props.isVisible ? "1" : "0"}}>
       <img src={props.img}
-        className="mx-auto w-24 mb-2"/>
-      <div className="mx-auto bg-green-600"
-        style={{width: "5rem", height: `${props.level*4}rem`}}/>
+        className="mx-auto w-24 mb-2" />
+      <div className="mx-auto bg-green-600 transition-bounce"
+        style={{width: "5rem", height: props.isVisible ? `${props.level*4}rem` : "0px"}}/>
 
       <span className="font-bold text-xl">{props.name}</span>
     </div>
@@ -170,10 +171,20 @@ function Skill(props) {
 
 function Skills(props) {
   const [isVisible, setIsVisible] = useState(false);
+  const [noOverflow, setNoOverflow] = useState(true);
+
   return (
-    <SectionTemplate id="skills" title="Skills">
-      <VisibilitySensor onChange={isVisible => setIsVisible(isVisible)}>
+    <SectionTemplate id="skills" title="Skills" className="relative">
+      <VisibilitySensor onChange={newValue => {
+          if(!isVisible) {
+            setIsVisible(newValue);
+          }
+        }}>
+
         <div className="flex flex-row items-end overflow-x-auto">
+          {!noOverflow && <ScrollArrow
+            className="absolute right-12 top-60 p-2 bg-gray-600 text-white rounded-md scroll-arrow"/>}
+
           <Skill name="Python" img={pythonLogo} level={5}
             isVisible={isVisible} />
 
@@ -207,8 +218,11 @@ function Skills(props) {
           <Skill name="MicroPython" img={micropythonLogo} level={2}
             isVisible={isVisible} />
 
-          <Skill name="C++" img={cppLogo} level={2}
+          <VisibilitySensor onChange={setNoOverflow}>
+            <Skill name="C++" img={cppLogo} level={2}
             isVisible={isVisible} />
+          </VisibilitySensor>
+          
         </div>
       </VisibilitySensor>
     </SectionTemplate>
