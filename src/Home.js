@@ -8,9 +8,6 @@ import jungleBackground from './img/jungleBackground.jpg';
 import jungleBackgroundMobile from './img/jungleBackgroundMobile.jpg';
 import profile from "./img/simon.jpg";
 
-import lakeland from "./img/work/lakeland.png";
-import ims from "./img/work/ims.png";
-
 import pythonLogo from './img/skills/python.png';
 import javaScriptLogo from './img/skills/javascript.png';
 import linuxLogo from './img/skills/linux.png';
