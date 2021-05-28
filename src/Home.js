@@ -2,11 +2,15 @@ import React, { useState } from 'react';
 import VisibilitySensor from 'react-visibility-sensor';
 
 import { TerminalAnimated, TerminalLink } from './components/terminal';
-import { DynamicAge, ScrollArrow } from './components/core';
+import { DynamicAge, StyledLink, Timeline, TimelineItem, Skill, ScrollArrow } from './components/core';
 
 import jungleBackground from './img/jungleBackground.jpg';
 import jungleBackgroundMobile from './img/jungleBackgroundMobile.jpg';
 import profile from "./img/simon.jpg";
+
+import lakeland from "./img/work/lakeland.png";
+import ims from "./img/work/ims.png";
+
 import pythonLogo from './img/skills/python.png';
 import javaScriptLogo from './img/skills/javascript.png';
 import linuxLogo from './img/skills/linux.png';
@@ -150,23 +154,48 @@ function Education(props) {
 function Work(props) {
   return (
     <SectionTemplate id="work" title="Employment">
-      Coming soon...
+      <Timeline>
+        <TimelineItem date="July 2020 - Present">
+          <h2 className="text-3xl sm:text-4xl">Internship</h2>
+          <h4 className="text-xl text-gray-500 mb-4">Integrated Mill Systems - The IMS Innovation Group</h4>
+          <p className="mb-2">
+
+            Since last August, I have been working with the IMS Innovation Group
+            at Integrated Mill Systems Inc. on the development of a stand-alone
+            data-logging device. This device, which has incorporated python scripting,
+            web design, networking, and containerization, will hopefully be released
+            at the end of this summer. 
+          </p>
+          
+          <a className="block text-blue-700 hover:text-blue-900 hover:underline hover:cursor-pointer"
+            href="http://integratedmillsystems.com">
+            Integrated Mill Systems
+          </a>
+
+          <a className="block text-blue-700 hover:text-blue-900 hover:underline hover:cursor-pointer"
+            to="http://integratedmillsystems.com/all-services/innovation-group/">
+            IMS Innovation Group
+          </a>
+        </TimelineItem>
+
+        <TimelineItem date="December 2019 - Apr 2021">
+          <h2 className="text-3xl sm:text-4xl">Peer Math Tutoring</h2>
+          <h4 className="text-xl text-gray-500 mb-4">Lakeland Community College</h4>
+          <p className="mb-2">
+            As a math tutor at Lakeland Community College, I helped other students
+            work on math homework and study for exams. We were initially able tutor
+            in person. After COVID hit, however, we had to shutdown. In
+            September, we were able to resume tutoring in a virtual capacity.
+          </p>
+
+          <a className="block text-blue-700 hover:text-blue-900 hover:underline hover:cursor-pointer"
+            href="https://www.lakelandcc.edu/">
+            Lakeland Community College
+          </a>
+        </TimelineItem>
+      </Timeline>
     </SectionTemplate>
   );
-}
-
-function Skill(props) {
-  return (
-    <div className="flex-initial p-4 w-36 h-full text-center transition-bounce"
-      style={{opacity: props.isVisible ? "1" : "0"}}>
-      <img src={props.img}
-        className="mx-auto w-24 mb-2" />
-      <div className="mx-auto bg-green-600 transition-bounce"
-        style={{width: "5rem", height: props.isVisible ? `${props.level*4}rem` : "0px"}}/>
-
-      <span className="font-bold text-xl">{props.name}</span>
-    </div>
-  )
 }
 
 function Skills(props) {
@@ -182,7 +211,7 @@ function Skills(props) {
         }}>
 
         <div className="flex flex-row items-end overflow-x-auto">
-          {!noOverflow && <ScrollArrow
+          {!noOverflow && isVisible && <ScrollArrow
             className="absolute right-12 top-60 p-2 bg-gray-600 text-white rounded-md scroll-arrow"/>}
 
           <Skill name="Python" img={pythonLogo} level={5}
