@@ -54,8 +54,8 @@ function Hero(props) {
         command="whoami" start="onload">
 
         <br />
-        Hi, my name is J. Simon Richard. I'm an aspiring full-stack developer
-        with a wide range 
+        Hi, my name is J. Simon Richard. I'm an aspiring full-stack developer /
+        DevOps Engineer / entrepreneur with a wide range 
         of <TerminalLink to="#interests">interests</TerminalLink> and <TerminalLink to="#skills">skills</TerminalLink>.
         There's a lot I don't know, but when I'm faced with something new
         I'm good at learning it quickly.
