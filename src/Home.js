@@ -267,7 +267,7 @@ function Interests(props) {
 
         <p class="mt-8">
           Check out some of my work
-          on <a className="text-green-500 hover:text-green-300 hover:underline cursor-pointer uppercase"
+          on <a className="text-blue-700 hover:text-blue-900 hover:underline hover:cursor-pointer"
             target="_blank" href="https://github.com/jsimonrichard">GitHub</a>.
         </p>
       </div>
