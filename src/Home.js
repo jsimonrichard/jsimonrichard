@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import VisibilitySensor from 'react-visibility-sensor';
 
 import { TerminalAnimated, TerminalLink } from './components/terminal';
-import { DynamicAge, StyledLink, Timeline, TimelineItem, Skill, ScrollArrow } from './components/core';
+import { DynamicAge, Timeline, TimelineItem, Skill, ScrollArrow } from './components/core';
 
 import jungleBackground from './img/jungleBackground.jpg';
 import jungleBackgroundMobile from './img/jungleBackgroundMobile.jpg';
@@ -258,7 +258,19 @@ function Skills(props) {
 function Interests(props) {
   return (
     <SectionTemplate id="interests" title="Interests">
-      Coming soon...
+      <div className="md:w-3/4 lg:w-1/2 mx-auto">
+        <p>
+          I am very interested in mathematics and have
+          been for a very long time. I am also interested in robotics, 3D printing,
+          engineering, and music (I play the piano and sing).
+        </p>
+
+        <p class="mt-8">
+          Check out some of my work
+          on <a className="text-green-500 hover:text-green-300 hover:underline cursor-pointer uppercase"
+            target="_blank" href="https://github.com/jsimonrichard">GitHub</a>.
+        </p>
+      </div>
     </SectionTemplate>
   );
 }
