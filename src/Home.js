@@ -11,6 +11,7 @@ import profile from "./img/simon.jpg";
 import pythonLogo from './img/skills/python.png';
 import javaScriptLogo from './img/skills/javascript.png';
 import linuxLogo from './img/skills/linux.png';
+import rustLogo from './img/skills/rust.png';
 import gitLogo from './img/skills/git.png';
 import reactJSLogo from './img/skills/react.png';
 import HTMLCSSLogo from './img/skills/html-css.png';
@@ -215,6 +216,9 @@ function Skills(props) {
             isVisible={isVisible} />
 
           <Skill name="Linux" img={linuxLogo} level={4}
+            isVisible={isVisible} />
+
+          <Skill name="Rust" img={rustLogo} level={4}
             isVisible={isVisible} />
 
           <Skill name="Git" img={gitLogo} level={4}
