@@ -157,7 +157,7 @@ function Work(props) {
           <h4 className="text-xl text-gray-500 mb-4">Integrated Mill Systems - The IMS Innovation Group</h4>
           <p className="mb-2">
 
-            Since last August, I have been working with the IMS Innovation Group
+            Since August 2020, I have been working with the IMS Innovation Group
             at Integrated Mill Systems Inc. on the development of a stand-alone
             data-logging device. This device, which has incorporated python scripting,
             web design, networking, and containerization, will hopefully be released
@@ -170,7 +170,7 @@ function Work(props) {
           </a>
 
           <a className="block text-blue-700 hover:text-blue-900 hover:underline hover:cursor-pointer"
-            to="http://integratedmillsystems.com/all-services/innovation-group/">
+            href="http://integratedmillsystems.com/all-services/innovation-group/">
             IMS Innovation Group
           </a>
         </TimelineItem>
