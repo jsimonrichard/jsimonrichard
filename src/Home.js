@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import VisibilitySensor from 'react-visibility-sensor';
 
 import { TerminalAnimated, TerminalLink } from './components/terminal';
-import { DynamicAge, Timeline, TimelineItem, Skill, ScrollArrow } from './components/core';
+import { DynamicAge, Timeline, TimelineItem, Skill, SkillScale, ScrollArrow } from './components/core';
 
 import jungleBackground from './img/jungleBackground.jpg';
 import jungleBackgroundMobile from './img/jungleBackgroundMobile.jpg';
@@ -60,7 +60,7 @@ function Hero(props) {
 
         <br/><br/>
 
-        I'm graduating high school this year, but I've already had some
+        I'm only a freshman in college, but I've already had some
         great <TerminalLink to="#education">education</TerminalLink> and <TerminalLink to="#work">work</TerminalLink> experiences.
       </TerminalAnimated>
     </section>
@@ -86,9 +86,9 @@ function About(props) {
           <p className="mb-2 indent">
             Welcome to my online resume! My name is Simon Richard, and I’m
             a <DynamicAge startDate={new Date(2003, 7, 3)} /> year-old self-taught programmer.
-            I live in North-East Ohio and currently have an internship at Integrated
-            Mill Systems Inc. In the fall, I’m also planning to attend Cleveland
-            State University.
+            I live in North-East Ohio and am currently attending Cleveland State University as a
+            Computer Science and Mathematics Major. I am also a sotware development intern
+            at Integrated Mill Systems Inc.
           </p>
           
           <p className="mb-2 indent">
@@ -102,7 +102,7 @@ function About(props) {
             about <DynamicAge startDate={new Date(2012, 2, 15)}/> years ago. My
             first language was Processing (on Khan Academy), but since then I
             have added many more languages and frameworks to my programming tool
-            box. Keep scrolling to learn more...
+            box.
           </p>
 
         </div>
@@ -133,6 +133,11 @@ function Education(props) {
   return (
     <SectionTemplate id="education" title="Education">
       <div className="mb-8 text-center">
+        <h2 className="text-3xl sm:text-4xl">Bachelor's Degree in Computer Science and Mathematics</h2>
+        <h4 className="text-xl text-gray-500">Cleveland State University -&nbsp;Expected&nbsp;graduation:&nbsp;May&nbsp;2025</h4>
+      </div>
+
+      <div className="mb-8 text-center">
         <h2 className="text-3xl sm:text-4xl">Associate of Science</h2>
         <h4 className="text-xl text-gray-500">Lakeland Community College -&nbsp;May&nbsp;2021</h4>
 
@@ -154,7 +159,7 @@ function Work(props) {
     <SectionTemplate id="work" title="Employment">
       <Timeline>
         <TimelineItem date="July 2020 - Present">
-          <h2 className="text-3xl sm:text-4xl">Internship</h2>
+          <h2 className="text-3xl sm:text-4xl">Software Development Internship</h2>
           <h4 className="text-xl text-gray-500 mb-4">Integrated Mill Systems - The IMS Innovation Group</h4>
           <p className="mb-2">
 
@@ -208,51 +213,55 @@ function Skills(props) {
           }
         }}>
 
-        <div className="flex flex-row items-end overflow-x-auto">
-          {!noOverflow && isVisible && <ScrollArrow
-            className="absolute right-12 top-60 p-2 bg-gray-600 text-white rounded-md scroll-arrow"/>}
+        <div className="flex flex-row items-end">
+          <SkillScale isVisible={isVisible}/>
+          <div className="flex flex-row items-end overflow-x-auto">
+            {!noOverflow && isVisible && <ScrollArrow
+              className="absolute right-12 top-60 p-2 bg-terminal-dark-blue text-white rounded-full scroll-arrow"/>}
 
-          <Skill name="Python" img={pythonLogo} level={5}
-            isVisible={isVisible} />
+            <Skill name="Python" img={pythonLogo} level={5}
+              isVisible={isVisible} />
 
-          <Skill name="Linux" img={linuxLogo} level={4}
-            isVisible={isVisible} />
+            <Skill name="Linux" img={linuxLogo} level={4}
+              isVisible={isVisible} />
 
-          <Skill name="Rust" img={rustLogo} level={4}
-            isVisible={isVisible} />
+            <Skill name="Git" img={gitLogo} level={4}
+              isVisible={isVisible} />
+              
+            <Skill name="JavaScript" img={javaScriptLogo} level={4}
+              isVisible={isVisible} />
 
-          <Skill name="Git" img={gitLogo} level={4}
-            isVisible={isVisible} />
-            
-          <Skill name="JavaScript" img={javaScriptLogo} level={4}
-            isVisible={isVisible} />
+            <Skill name="Rust" img={rustLogo} level={3}
+              isVisible={isVisible} />
 
-          <Skill name="ReactJS" img={reactJSLogo} level={3}
-            isVisible={isVisible} />
+            <Skill name="ReactJS" img={reactJSLogo} level={3}
+              isVisible={isVisible} />
 
-          <Skill name="HTML/CSS" img={HTMLCSSLogo} level={3}
-            isVisible={isVisible} />
+            <Skill name="HTML/CSS" img={HTMLCSSLogo} level={3}
+              isVisible={isVisible} />
 
-          <Skill name="Web&nbsp;Design" img={webDesignLogo} level={3}
-            isVisible={isVisible} />
+            <Skill name="Web&nbsp;Design" img={webDesignLogo} level={3}
+              isVisible={isVisible} />
 
-          <Skill name="Docker" img={dockerLogo} level={3}
-            isVisible={isVisible} />
+            <Skill name="Docker" img={dockerLogo} level={3}
+              isVisible={isVisible} />
 
-          <Skill name="MongoDB" img={mongoDBLogo} level={3}
-            isVisible={isVisible} />
+            <Skill name="MongoDB" img={mongoDBLogo} level={3}
+              isVisible={isVisible} />
 
-          <Skill name="Django/MVC" img={djangoLogo} level={2}
-            isVisible={isVisible} />
+            <Skill name="Django/MVC" img={djangoLogo} level={2}
+              isVisible={isVisible} />
 
-          <Skill name="MicroPython" img={micropythonLogo} level={2}
-            isVisible={isVisible} />
+            <Skill name="MicroPython" img={micropythonLogo} level={2}
+              isVisible={isVisible} />
 
-          <VisibilitySensor onChange={setNoOverflow}>
             <Skill name="C++" img={cppLogo} level={2}
-            isVisible={isVisible} />
-          </VisibilitySensor>
-          
+              isVisible={isVisible} />
+
+            <VisibilitySensor onChange={setNoOverflow}>
+              <div class="flex-initial p-1" />
+            </VisibilitySensor>          
+          </div>
         </div>
       </VisibilitySensor>
     </SectionTemplate>
@@ -269,7 +278,7 @@ function Interests(props) {
           engineering, and music (I play the piano and sing).
         </p>
 
-        <p class="mt-8">
+        <p className="mt-8">
           Check out some of my work
           on <a className="text-blue-700 hover:text-blue-900 hover:underline hover:cursor-pointer"
             target="_blank" href="https://github.com/jsimonrichard">GitHub</a>.

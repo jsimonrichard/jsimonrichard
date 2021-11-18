@@ -48,8 +48,8 @@ header {
 
 @keyframes cycle {
   0% {opacity: 1;}
-  50% {opacity: 0;}
+  50% {opacity: 0.2;}
 }
 .scroll-arrow {
-  animation: cycle 2.5s infinite;
+  animation: cycle 2s infinite;
 }

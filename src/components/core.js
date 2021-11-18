@@ -38,7 +38,7 @@ export function TimelineItem(props) {
 
 export function Skill(props) {
   return (
-    <div className="flex-initial p-4 w-36 h-full text-center transition-bounce"
+    <div className="flex-initial p-4 w-36 text-center transition-bounce"
       style={{opacity: props.isVisible ? "1" : "0"}}>
       <img src={props.img}
         className="mx-auto w-24 mb-2" />
@@ -46,6 +46,34 @@ export function Skill(props) {
         style={{width: "5rem", height: props.isVisible ? `${props.level*4}rem` : "0px"}}/>
 
       <span className="font-bold text-xl">{props.name}</span>
+    </div>
+  )
+}
+
+export function SkillScale(props) {
+  return (
+    <div className="flex-initial h-96 pr-2 text-right border-black border-r-2 transition-bounce"
+      style={{opacity: props.isVisible ? "1" : "0"}}>
+
+      <div className="mb-10">
+        Expert
+      </div>
+
+      <div className="mb-10">
+        Advanced
+      </div>
+
+      <div className="mb-10">
+        Intermediate
+      </div>
+
+      <div className="mb-10">
+        Some&nbsp;Knowledge
+      </div>
+
+      <div>
+        Novice
+      </div>
     </div>
   )
 }

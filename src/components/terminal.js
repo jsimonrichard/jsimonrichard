@@ -22,7 +22,7 @@ export function Terminal(props) {
     <TerminalBase className={props.className}>
       <div>
         <span className="font-bold">
-          <span className="text-terminal-green">jsimonrichard</span>
+          <span className="text-terminal-green">jsimonrichard@jsimonrichard.com</span>
           :<span className="text-terminal-blue">~</span>$
         </span>
         
