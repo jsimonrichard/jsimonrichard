@@ -22,5 +22,6 @@ yarn-error.log*
 /src/img/skills/old
 
 
-# Build directory
+# Build directorys
+/.cache
 /public
