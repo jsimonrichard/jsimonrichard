@@ -1,5 +1,9 @@
 import * as React from "react"
 import { Link } from "gatsby"
+import { Layout } from "../components/layout"
+import Helmet from "react-helmet"
+import { FullScreen } from "../components/core";
+import { css } from "@emotion/react";
 
 // styles
 const pageStyles = {
@@ -27,27 +31,22 @@ const codeStyles = {
 // markup
 const NotFoundPage = () => {
   return (
-    <main style={pageStyles}>
-      <title>Not found</title>
-      <h1 style={headingStyles}>Page not found</h1>
-      <p style={paragraphStyles}>
-        Sorry{" "}
-        <span role="img" aria-label="Pensive emoji">
-          😔
-        </span>{" "}
-        we couldn’t find what you were looking for.
-        <br />
-        {process.env.NODE_ENV === "development" ? (
-          <>
-            <br />
-            Try creating a page in <code style={codeStyles}>src/pages/</code>.
-            <br />
-          </>
-        ) : null}
-        <br />
-        <Link to="/">Go home</Link>.
-      </p>
-    </main>
+    <Layout>
+      <Helmet>
+        <title>Not Found - J. Simon Richard</title>
+      </Helmet>
+
+      <FullScreen css={css`
+        justify-content: center;
+        align-content: center;
+      `}>
+        <h1 css={css`
+          width: fit-content;
+          height: fit-content;
+        `}>404 Not Found :(</h1>
+      </FullScreen>
+      
+    </Layout>
   )
 }
 

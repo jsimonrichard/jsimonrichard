@@ -47,7 +47,7 @@ export const Terminal = ({styles, command, children}) => (
   <TerminalBase styles={styles}>
     <div>
       <span css={css`font-weight: bold`}>
-        <span css={css`color: #5ea61b`}>jsimonrichard@jsimonrichard.com</span>
+        <span css={css`color: #5ea61b`}>jsimonrichard<wbr/>@jsimonrichard<wbr/>.com</span>
         :<span css={css`color: #3465A4`}>~</span>$
       </span>
 
@@ -58,10 +58,10 @@ export const Terminal = ({styles, command, children}) => (
   </TerminalBase>
 );
 
-export const AnimatedTerminal = ({styles, command, start, startDelay, children}) => {
+export const AnimatedTerminal = ({styles, command, startDelay, children}) => {
   const [isRunning, setIsRunning] = useState(true);
   return <Terminal command={(
-    <Typer start={start} onFinish={()=>setIsRunning(false)} startDelay={startDelay}>
+    <Typer onFinish={()=>setIsRunning(false)} startDelay={startDelay}>
       {command}
     </Typer>
   )} styles={styles}>

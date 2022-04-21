@@ -44,11 +44,7 @@ export class Typer extends Component {
   }
 
   componentDidMount() {
-    if(this.props.start === "onmount") {
-      setTimeout(this.handleType, this.props.startDelay);
-    } else if(this.props.start === "onload") {
-      window.onload = () => setTimeout(this.handleType, this.props.startDelay);
-    }
+    setTimeout(this.handleType, this.props.startDelay);
   }
 
   handleType = () => {
