@@ -44,6 +44,7 @@ const IndexPage = () => {
     django: "https://www.djangoproject.com/",
     docker: "https://www.docker.com/",
     git: "https://git-scm.com/",
+    java: "https://www.java.com/en/",
     linux: "https://www.linux.org/",
     micropython: "https://micropython.org/",
     mongodb: "https://www.mongodb.com/",
@@ -73,11 +74,8 @@ const IndexPage = () => {
         `}>
           <AnimatedTerminal command="whoami" startDelay={800} styles={tightContainerStyles}>
             <br />
-            Hi, my name is J. Simon Richard. I'm an aspiring full-stack developer /
-            DevOps Engineer / entrepreneur with a wide range 
+            Hi, my name is J. Simon Richard. I'm an aspiring entrepreneur / full-stack developer with a wide range 
             of <TerminalLink to="#interests">interests</TerminalLink> and <TerminalLink to="#skills">skills</TerminalLink>.
-            There's a lot I don't know, but when I'm faced with something new
-            I'm good at learning it quickly.
 
             <br/><br/>
 
@@ -139,8 +137,8 @@ const IndexPage = () => {
             Welcome to my online resume! My name is Simon Richard, and I’m
             an <DynamicAge startDate={new Date(2003, 7, 3)} /> year-old self-taught programmer.
             I live in North-East Ohio and am currently attending Cleveland State University as a
-            Computer Science and Mathematics Major. I am also a sotware development intern
-            at Integrated Mill Systems Inc.
+            Computer Science and Mathematics Major. I will also be starting as a
+            software engineering intern at MIM Software Inc. within the next month.
           </Paragraph>
 
           <Paragraph>
@@ -231,16 +229,18 @@ const IndexPage = () => {
 
         <div css={css`
           display: grid;
-          grid-gap: 4rem;
+          grid-gap: 2rem;
           justify-content: center;
-          grid-template-columns: repeat(3, minmax(0, 1fr));;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
 
           ${mediaQueryMedium(css`
-            grid-template-columns: repeat(4, minmax(0, 1fr));;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            grid-gap: 3rem;
           `)}
 
           ${mediaQueryLarge(css`
-            grid-template-columns: repeat(5, minmax(0, 1fr));;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            grid-gap: 4rem;
           `)}
         `}>
           
