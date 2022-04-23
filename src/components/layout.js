@@ -102,12 +102,11 @@ export const Layout = ({fillHeader=true, children}) => {
             <StyledLink to="/blog">Blog</StyledLink>
           </NavItem>
 
-          <NavItem>
+          <NavItem css={expanded && css`display: flex`}>
             <StyledExternalLink
               href="https://github.com/jsimonrichard"
               target="_blank"
-              rel="noreferrer"
-              css={expanded && css`display: flex`}>
+              rel="noreferrer">
                 GitHub
             </StyledExternalLink>
           </NavItem>
@@ -164,6 +163,11 @@ export const Layout = ({fillHeader=true, children}) => {
               font-size: 1.4rem;
               margin-top: 0px;
             `}>Social</h2>
+
+
+            <StyledExternalLink href="https://github.com/jsimonrichard" target="_blank" rel="noreferrer">
+                GitHub
+            </StyledExternalLink>
 
             <StyledExternalLink href="https://www.linkedin.com/in/jsimonrichard/" target="_blank" rel="noreferrer">
               LinkedIn
