@@ -1,0 +1,14 @@
+name: ci
+on:
+  push:
+    branches: [ main ]
+    paths-ignore: [ "/dist" ]
+  pull_request:
+    branches: [ main ]
+    paths-ignore: [ "/dist" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: 'echo "Nothing to push to public branch" '
