@@ -10,7 +10,8 @@ module.exports = {
       options: {
         defaultLayouts: {
           default: require.resolve("./src/templates/post-template.js")
-        }
+        },
+        remarkPlugins: [require('remark-math'), require('remark-html-katex')]
       }
     },
     {
