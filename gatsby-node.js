@@ -30,7 +30,7 @@ exports.onPostBuild = () => {
 }
 
 
-//
+// Create tag pages
 exports.createPages = async ({actions, graphql}) => {
   const { createPage } = actions;
 
