@@ -31,6 +31,6 @@ jobs:
         env:
           REPO: self
           BRANCH: public
-          FOLDER: public
+          FOLDER: dist
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
