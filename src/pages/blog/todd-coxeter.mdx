@@ -15,3 +15,12 @@ Here's some math:
 $$
 \sum_{i=0}^n{A_n}
 $$
+
+...and here's some more math:
+
+$$
+\int{\frac{1}{\prod_{i=1}^{n}{(x+i)}} dx}
+= \int \sum_{i=1}^{n}{\frac{(-1)^{i-1}}{(x+i)(i-1)! (n-i)!}}
+= \sum_{i=1}^{n} \Bigg[ \frac{(-1)^{k-1}}{(k-1)! (n-k)!} \int{\frac{1}{x+i} dx} \Bigg]
+= \sum_{i=1}^{n} \Bigg[ \frac{(-1)^{i-1} \text{ ln}(x+i)}{(i-1)! (n-i)!} \Bigg]
+$$
