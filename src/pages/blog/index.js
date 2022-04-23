@@ -10,7 +10,7 @@ const BlogHomePage = ({data}) => {
     <Layout>
       <div css={css`
         ${tightContainerStyles}
-        padding-top: 15rem;
+        padding-top: 7rem;
       `}>
         <LineHeader>Posts</LineHeader>
         

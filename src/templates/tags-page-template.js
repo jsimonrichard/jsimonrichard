@@ -10,7 +10,7 @@ const TagPage = ({pageContext: { tag }, data}) => {
     <Layout>
       <div css={css`
         ${tightContainerStyles}
-        padding-top: 15rem;
+        padding-top: 7rem;
       `}>
         <LineHeader>
           Posts with the <Tag tag={tag}/> tag

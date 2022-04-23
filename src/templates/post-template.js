@@ -19,7 +19,7 @@ const DefaultBlogTemplate = ({children, pageContext: {frontmatter}}) => {
     <Layout>
       <div css={css`
         ${tightContainerStyles}
-        padding-top: 15rem;
+        padding-top: 7rem;
       `}>
         <Header {...frontmatter} />
         {children}
