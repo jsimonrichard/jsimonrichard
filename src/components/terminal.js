@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import React, { useState } from "react";
-import { css, jsx } from "@emotion/react";
+import { css } from "@emotion/react";
 import { Link } from 'gatsby';
 
 import { Typer, Cursor } from "./typer";
@@ -11,6 +11,7 @@ const TerminalWrapper = styled.div`
   border-radius: 8px;
   color: white;
   border: white 4px solid;
+  font-family: "Fira Code", monospace;
 `;
 
 const TerminalHeader = styled.div`
@@ -71,8 +72,6 @@ export const AnimatedTerminal = ({styles, command, startDelay, children}) => {
   </Terminal>;
 }
 
-
-const TerminalInnerLink = styled.a
 
 export const TerminalLink = (props) => <span>
   [<Link css={css`

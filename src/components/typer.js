@@ -1,4 +1,4 @@
-import { css, jsx } from '@emotion/react';
+import { css } from '@emotion/react';
 import React, { Component } from 'react';
 
 export const Cursor = ()=>(

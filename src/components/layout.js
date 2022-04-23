@@ -15,11 +15,6 @@ const navItemStyles = css`
   display: none;
   align-items: center;
 
-  text-decoration: none;
-  :hover {
-    text-decoration: underline;
-  }
-
   padding-top: 1rem;
 
   @media (min-width: 620px) {
@@ -36,8 +31,7 @@ const navItemStyles = css`
 
 `;
 
-const NavItem = styled(Link)`${navItemStyles}`;
-const ExternalNavItem = styled.a`${navItemStyles}`;
+const NavItem = styled.div`${navItemStyles}`;
 
 const FooterColumn = styled.div`
   padding: 3rem;
@@ -60,7 +54,7 @@ export const Layout = ({fillHeader=true, children}) => {
         width: 100vw;
         box-sizing: border-box;
         z-index: 10;
-        background-color: ${fillHeader ? "white" : "transparent"};
+        background-color: ${fillHeader ? "#dcdddf" : "transparent"};
         border-bottom: ${fillHeader ? "1px solid black" : "none"};
         transition: background-color 500ms;
         transision: border-bottom 500ms;
@@ -79,11 +73,17 @@ export const Layout = ({fillHeader=true, children}) => {
             align-items: center;
           `}>
             <NavItem css={css`
-              font-weight: bold;
-              font-size: 1.6rem;
-              text-decoration: none !important;
               display: flex;
-            `} to="/">J. Simon Richard</NavItem>
+            `}>
+              <Link css={css`
+                text-decoration: none;
+                color: black;
+                font-weight: bold;
+                font-size: 1.6rem;
+              `} to="/">
+                J. Simon Richard
+              </Link>
+            </NavItem>
 
             <div css={css`flex: 1 0 auto`} />
 
@@ -98,17 +98,32 @@ export const Layout = ({fillHeader=true, children}) => {
             `} onClick={()=>setExpanded(!expanded)} />
           </div>
 
-          <NavItem to="/blog" css={expanded && css`display: flex`}>Blog</NavItem>
+          <NavItem css={expanded && css`display: flex`}>
+            <StyledLink to="/blog">Blog</StyledLink>
+          </NavItem>
 
-          <ExternalNavItem href="https://github.com/jsimonrichard" target="_blank" css={expanded && css`display: flex`}>GitHub</ExternalNavItem>
+          <NavItem>
+            <StyledExternalLink
+              href="https://github.com/jsimonrichard"
+              target="_blank"
+              rel="noreferrer"
+              css={expanded && css`display: flex`}>
+                GitHub
+            </StyledExternalLink>
+          </NavItem>
+
       </header>
 
-      <main>
+      <main css={css`
+        width: 100vw;
+        max-width: 100%;
+        min-height: 100vh;
+      `}>
         {children}
       </main>
 
       <footer css={css`
-        background-color: #EEE;
+        background-color: #CCC;
       `}>
         <div css={css`
           display: flex;
@@ -150,11 +165,11 @@ export const Layout = ({fillHeader=true, children}) => {
               margin-top: 0px;
             `}>Social</h2>
 
-            <StyledExternalLink href="https://www.linkedin.com/in/jsimonrichard/" target="_blank">
+            <StyledExternalLink href="https://www.linkedin.com/in/jsimonrichard/" target="_blank" rel="noreferrer">
               LinkedIn
             </StyledExternalLink>
 
-            <StyledExternalLink href="https://www.instagram.com/jsimonrichard/" target="_blank">
+            <StyledExternalLink href="https://www.instagram.com/jsimonrichard/" target="_blank" rel="noreferrer">
               Instagram
             </StyledExternalLink>
           </FooterColumn>

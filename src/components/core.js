@@ -10,7 +10,7 @@ export const StyledLink = styled(Link)`
 
   :hover {
     text-decoration: underline;
-    color: #666;
+    color: #555;
   }
 `;
 
@@ -21,7 +21,7 @@ export const StyledExternalLink = styled.a`
 
   :hover {
     text-decoration: underline;
-    color: #666;
+    color: #555;
   }
 `;
 
@@ -72,10 +72,17 @@ export const tightContainerStyles = css`
   margin: auto;
   width: 90%;
   box-sizing: border-box;
-  ${mediaQueryMedium(css`
-    width: ${0.9*620}px;
-  `)}
+  @media (min-width: 800px) {
+    width: ${0.9*800}px;
+  }
 `;
+
+export const blogContainerStyles = css`
+  ${tightContainerStyles}
+  ${mediaQueryMedium(css`
+    padding-top: 15rem;
+  `)}
+`
 
 export const Container = styled.section`${containerStyles}`
 
@@ -120,5 +127,4 @@ export const FullScreen = styled.section`
   width: 100vw;
   max-width: 100%;
   min-height: 100vh;
-  display: grid;
 `;

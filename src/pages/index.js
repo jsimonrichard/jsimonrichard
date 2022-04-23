@@ -15,7 +15,7 @@ const IndexPage = () => {
   // Catch when the page scrolls
   const [fillHeader, setFillHeader] = useState(false);
   const headerScrollHandler = e => {
-    setFillHeader( window.scrollY != 0 );
+    setFillHeader( window.scrollY !== 0 );
   }
 
   useEffect(()=>{
@@ -31,7 +31,7 @@ const IndexPage = () => {
             id
             name
             childImageSharp {
-              gatsbyImageData
+              gatsbyImageData(transformOptions: {grayscale: true})
             }
           }
         }
@@ -55,7 +55,7 @@ const IndexPage = () => {
 
   return (
     <Layout fillHeader={fillHeader}>
-      <FullScreen>
+      <FullScreen css={css`display: grid`}>
 
         {/* modified from https://unsplash.com/photos/enK1Q14Dt6s */}
         <StaticImage css={css`
@@ -63,8 +63,9 @@ const IndexPage = () => {
           mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
         `}
           alt=""
-          src="../images/jungleBackground.jpg"
-          objectPosition="0% 0%"/>
+          src="../images/jungleBackground2.jpg"
+          objectPosition="0% 0%"
+          placeholder="blurred"/>
 
         <div css={css`
           grid-area: 1/1;
@@ -115,7 +116,6 @@ const IndexPage = () => {
         <StaticImage
           src="../images/profile.jpg"
           alt="J. Simon Richard"
-          aspectRatio={1}
           width={550}
           height={550}
           css={css`
@@ -252,7 +252,7 @@ const IndexPage = () => {
                 justify-items: center;
                 align-items: center;
               `}>
-                <a href={skillsURLs[name]} target="_blank">
+                <a href={skillsURLs[name]} target="_blank" rel="noreferrer">
                   <GatsbyImage image={gatsbyImageData} alt={name}/>
                 </a>
               </div>

@@ -1,11 +1,18 @@
 module.exports = {
   siteMetadata: {
-    title: `jsimonrichard-resume`,
-    siteUrl: `https://www.yourdomain.tld`
+    title: `J. Simon Richard`,
+    siteUrl: `https://jsimonrichard.com`
   },
   plugins: [
     "gatsby-plugin-emotion",
-    "gatsby-plugin-mdx",
+    {
+      resolve: "gatsby-plugin-mdx",
+      options: {
+        defaultLayouts: {
+          default: require.resolve("./src/templates/post-template.js")
+        }
+      }
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
