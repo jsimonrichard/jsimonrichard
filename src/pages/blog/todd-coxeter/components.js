@@ -1,0 +1,43 @@
+import Graph from 'react-graph-vis';
+import { css } from '@emotion/react';
+import React from 'react';
+
+export const DemoGraph1 = () => (
+  <div css={css`height: 400px`}>
+    <Graph
+      graph={{
+        nodes: [
+          {id: 1, label: "(1,2,3)"},
+          {id: 2, label: "(2,3,1)"},
+          {id: 3, label: "(3,1,2)"},
+          {id: 4, label: "(1,3,2)"},
+          {id: 5, label: "(3,2,1)"},
+          {id: 6, label: "(2,1,3)"},
+        ],
+        edges: [
+          {from: 1, to: 4, label: "s", color: "#00f"},
+          {from: 2, to: 6, label: "s", color: "#00f"},
+          {from: 3, to: 5, label: "s", color: "#00f"},
+          {from: 4, to: 1, label: "s", color: "#00f"},
+          {from: 6, to: 2, label: "s", color: "#00f"},
+          {from: 5, to: 3, label: "s", color: "#00f"},
+
+          {from: 1, to: 2, label: "r", color: "#f00"},
+          {from: 2, to: 3, label: "r", color: "#f00"},
+          {from: 3, to: 1, label: "r", color: "#f00"},
+          {from: 4, to: 5, label: "r", color: "#f00"},
+          {from: 5, to: 6, label: "r", color: "#f00"},
+          {from: 6, to: 4, label: "r", color: "#f00"},
+        ]
+      }}
+      options={{
+        edges: {
+          font: {
+            size: 18,
+            strokeWidth: 8
+          },
+          width: 3
+        }
+      }} />
+  </div>
+);

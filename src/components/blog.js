@@ -5,7 +5,7 @@ import { StyledLink } from './core';
 export const PostList = ({nodes}) => (
   <>
     {nodes.map(({slug, frontmatter: {title, date, excerpt, tags}}) => (
-      <div>
+      <div css={css`margin-bottom: 5rem`}>
         <StyledLink css={css`font-size: 1.4rem; font-weight: bold`} to={"/"+slug}>
           {title}
         </StyledLink>
@@ -31,6 +31,7 @@ export const Tag = ({tag}) => (
     background-color: #BBB;
     font-weight: bold;
     padding: 0.4em;
+    margin-right: 0.4rem;
     cursor: pointer;
   `}>
     {tag}
