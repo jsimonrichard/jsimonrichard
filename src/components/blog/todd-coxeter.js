@@ -38,6 +38,10 @@ export const SchreierGraphExample = () => (
             strokeWidth: 8
           },
           width: 3
+        },
+        interaction: {
+          dragView: false,
+          zoomView: false
         }
       }} />
   </div>
@@ -924,6 +928,10 @@ export const ToddCoxeterExample = () => {
             },
             physics: {
               maxVelocity: 6
+            },
+            interaction: {
+              dragView: false,
+              zoomView: false
             }
           }} />
       </div>
