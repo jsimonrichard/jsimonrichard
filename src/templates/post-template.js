@@ -3,9 +3,13 @@ import { Layout } from "../components/layout";
 import React from 'react';
 import { css } from '@emotion/react';
 import { Tag } from "../components/blog";
+import Helmet from "react-helmet";
 
 const Header = ({title, date, tags}) => (
   <div css={css`margin-bottom: 5rem;`}>
+    <Helmet>
+      <title>J. Simon Richard - {title}</title>
+    </Helmet>
     <h1 css={css`margin-bottom: 0px;`}>{title}</h1>
     <div>
       Tags: {tags.map(tag => <Tag tag={tag}/>)}
