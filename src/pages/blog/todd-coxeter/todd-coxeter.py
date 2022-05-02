@@ -178,9 +178,9 @@ class SchreierGraph(PartialSchreierGraph):
     return perms
 
 
-def parseRelation(str) -> List[int]:
+def parseWord(str) -> List[int]:
   """
-  Format input relation string into tuple
+  Format input word string into tuple
   """
   return [int(s) for s in str.split(",")]
 
@@ -188,13 +188,14 @@ def parseRelation(str) -> List[int]:
 if __name__=="__main__":
   # Parse command line arguments
   parser = argparse.ArgumentParser(description='Enumerate the left cosets of H in G using the Todd-Coxeter algorithm')
-  parser.add_argument('--ngens', metavar='N', type=int, required=True,
-                      help="""Number of generators of G (generators will be labeled 1...n
+  required = parser.add_argument_group("required arguments")
+  required.add_argument('--ngens', metavar='N', type=int, required=True,
+                      help="""number of generators of G (generators will be labeled 1...n
                       and their inverses will be labeled -1...-n)""")
-  parser.add_argument('--rels', metavar="a,b,c", type=parseRelation, nargs="+", required=True,
-                      help="""Relations of the form a,b,c where a*b*c = e""")
-  parser.add_argument('--hgens', metavar="a,b,c", type=parseRelation, nargs="+", required=True,
-                      help="""Generators of H (of the form a,b,c meaning a*b*c)""")
+  required.add_argument('--rels', metavar="a,b,c", type=parseWord, nargs="+", required=True,
+                      help="""relations of the form a,b,c where a*b*c = e""")
+  required.add_argument('--hgens', metavar="a,b,c", type=parseWord, nargs="+", required=True,
+                      help="""generators of H (of the form a,b,c meaning a*b*c)""")
 
   args = parser.parse_args()
 
