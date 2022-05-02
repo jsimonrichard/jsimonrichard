@@ -127,7 +127,59 @@ $$
 
 ## 5 Implementation
 
-Coming soon...
+An implementation of this algorithm written in python can be found on GitHub [here](https://github.com/jsimonrichard/jsimonrichard/blob/main/src/pages/blog/todd-coxeter/todd-coxeter.py) or downloaded <a href="https://gitcdn.link/cdn/jsimonrichard/jsimonrichard/main/src/pages/blog/todd-coxeter/todd-coxeter.py" download="todd-coxeter.py">here</a>. Most of its core logic was taken from Kyle Miller's implementation [3], but it was rewritten using classes. This, in my opinion, makes it a lot easier to read. It was also written as a terminal application in order to increase its ease of use.
+
+To use this program, download it and then run the following command to get more usage information.
+
+```
+python3 todd-coxeter.py -h
+```
+
+To run this program for the example above, use the following command.
+```
+python3 todd-coxeter.py --ngens 2 --rels 1,1,1,1,1,1 2,2 1,2,1,2 --hgens 1,1,1
+```
+In this command, `--ngens 2` is used to specify that there are two generators (they will be labeled $1$ and $2$, corresponding to $r$ and $s$ respectively, and their inverses will be labeled $-1$ and $-2$). After the `--rels` flag, the relations in $R$ are specified using the following format: each generator is separated with a comma, and each word in $R$ is separated by a space. After the `--hgens` flag, the generators for $H$ are specified using the same format.
+
+The rest of this section will outline the general structure of this implementation. If you are interested in the exact syntax used, I would encourage you to look directectly at the source code.
+
+
+### Data Structures and Classes
+
+There are two main data structures used within this implementation: a distjoint-set (or union-find) data structure implemented by the `UnionFind` class and a graph represented by an adjecency list (implemented with a list of dictionaries). These two data structures are combined to create the `PartialSchreierGraph` class, which represents the Schreier graph before the Todd-Coxeter Algorithm terminates.
+
+The `SchreierGraph` class inherites from `PartialSchreierGraph` and contains the logic for the Todd-Coxeter Algorithm. This algorithm is executed within the constructor of `SchreierGraph` (i.e. it must terminate for an instance of `SchreierGraph` to finish being constructed) so that all instances are guarunteed to represent a valid Schreier graph for $G/H$. This class, in conjuction with the `Permutation` class, also provides a way to interpret the graph without displaying it in its entirety. Instead, for each generator, it displays a product of cycles that corresponds with how that generator permutes the cosets of $H$.
+
+
+### A Closer Look at `UnionFind` and its Roll in `PartialSchreierGraph`
+
+The distjoint-set (or union-find) data structure represents a set of distjoint sets using disjoint trees. This forest is represented by a single list `parent` with the following constraint.
+
+```
+parent[index/label of child] = index/label of parent
+```
+
+When using distjoint-sets, we have access to two operations.
+
+* **Find:** For any given label, find the root of the tree that contains that label
+* **Union:** For any two labels, if those labels are a part of different trees, combine those two trees. In our implementation, the root with the lower label is used as the root of the new tree.
+
+More information about this data structure can be found [here](https://en.wikipedia.org/wiki/Disjoint-set_data_structure).
+
+Within the `PartialSchreierGraph` class, the distjoint-set data structure is used to keep track of vertex labels. We could just use a single label for each vertex, but if a label is removed (and this happens quite a lot during identification) then all references to that label must be updated or removed. That would require looping through all of the edges of the graph, which is inefficient. With the disjoint-set keeping track of labels, we don't need to worry about this. Instead, whenever we want to run an operation on a vertex label, we first run the **find** operation on that label to get the *actual* (that is, the lowest) label for that vertex. And, whenever we identify two nodes, we run the **union** operation on their labels.
+
+
+### Supporting Inverses
+
+It is not technically necessary to keep track of inverses within the adjacency list for our Schreier graph since every incoming edge is an outgoing edge for some other vertex. However, we would like to be able to include inverses in the words in $R$ and $Y$, and therefore we need to be able to calculate $g^{-1}s$ quickly. For this reason, we do include inverses in our adjacency list.
+
+To keep the inverse edges pointing in the right direction, we add a trivial relation $gg^{-1}$ to $R$ for each $g \in X$. This ensures that, after the completion of the algorithm, we are left with a valid Schreier graph. No other changes are necessary.
+
+
+## 6 Conclusion
+
+I hope this post has been informative...
+
 
 ## Resources and Bibliography
 
