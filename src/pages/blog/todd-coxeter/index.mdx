@@ -147,27 +147,27 @@ The rest of this section will outline the general structure of this implementati
 
 ### Data Structures and Classes
 
-There are two main data structures used within this implementation: a distjoint-set (or union-find) data structure implemented by the `UnionFind` class and a graph represented by an adjecency list (implemented with a list of dictionaries). These two data structures are combined to create the `PartialSchreierGraph` class, which represents the Schreier graph before the Todd-Coxeter Algorithm terminates.
+There are two main data structures used within this implementation: a disjoint-set (or union-find) data structure implemented by the `UnionFind` class and a graph represented by an adjecency list (implemented with a list of dictionaries). These two data structures are combined to create the `PartialSchreierGraph` class, which represents the Schreier graph before the Todd-Coxeter Algorithm terminates.
 
-The `SchreierGraph` class inherites from `PartialSchreierGraph` and contains the logic for the Todd-Coxeter Algorithm. This algorithm is executed within the constructor of `SchreierGraph` (i.e. it must terminate for an instance of `SchreierGraph` to finish being constructed) so that all instances are guarunteed to represent a valid Schreier graph for $G/H$. This class, in conjuction with the `Permutation` class, also provides a way to interpret the graph without displaying it in its entirety. Instead, for each generator, it displays a product of cycles that corresponds with how that generator permutes the cosets of $H$.
+The `SchreierGraph` class inherites from `PartialSchreierGraph` and contains the logic for the Todd-Coxeter Algorithm. This algorithm is executed within the constructor of `SchreierGraph` (i.e. it must terminate for an instance of `SchreierGraph` to finish being constructed) so that all instances are guaranteed to represent a valid Schreier graph for $G/H$. This class, in conjuction with the `Permutation` class, also provides a way to interpret the graph without displaying it in its entirety. Instead, for each generator, it displays a product of cycles that corresponds with how that generator permutes the cosets of $H$.
 
 
-### A Closer Look at `UnionFind` and its Roll in `PartialSchreierGraph`
+### A Closer Look at `UnionFind` and its Role in `PartialSchreierGraph`
 
-The distjoint-set (or union-find) data structure represents a set of distjoint sets using disjoint trees. This forest is represented by a single list `parent` with the following constraint.
+The disjoint-set (or union-find) data structure represents a set of disjoint sets using disjoint trees. This forest is represented by a single list `parent` with the following constraint.
 
 ```
 parent[index/label of child] = index/label of parent
 ```
 
-When using distjoint-sets, we have access to two operations.
+When using disjoint-sets, we have access to two operations.
 
 * **Find:** For any given label, find the root of the tree that contains that label
 * **Union:** For any two labels, if those labels are a part of different trees, combine those two trees. In our implementation, the root with the lower label is used as the root of the new tree.
 
 More information about this data structure can be found [here](https://en.wikipedia.org/wiki/Disjoint-set_data_structure).
 
-Within the `PartialSchreierGraph` class, the distjoint-set data structure is used to keep track of vertex labels. We could just use a single label for each vertex, but if a label is removed (and this happens quite a lot during identification) then all references to that label must be updated or removed. That would require looping through all of the edges of the graph, which is inefficient. With the disjoint-set keeping track of labels, we don't need to worry about this. Instead, whenever we want to run an operation on a vertex label, we first run the **find** operation on that label to get the *actual* (that is, the lowest) label for that vertex. And, whenever we identify two nodes, we run the **union** operation on their labels.
+Within the `PartialSchreierGraph` class, the disjoint-set data structure is used to keep track of vertex labels. We could just use a single label for each vertex, but if a label is removed (and this happens quite a lot during identification) then all references to that label must be updated or removed. That would require looping through all of the edges of the graph, which is inefficient. With the disjoint-set keeping track of labels, we don't need to worry about this. Instead, whenever we want to run an operation on a vertex label, we first run the **find** operation on that label to get the *actual* (that is, the lowest) label for that vertex. And, whenever we identify two nodes, we run the **union** operation on their labels.
 
 
 ### Supporting Inverses
