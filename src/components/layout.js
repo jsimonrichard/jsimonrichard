@@ -188,6 +188,17 @@ export const Layout = ({fillHeader=true, children}) => {
               jsimonrichard@gmail.com
             </StyledExternalLink>
           </FooterColumn>
+
+          <FooterColumn>
+            <h2 css={css`
+              font-size: 1.4rem;
+              margin: 0px;
+            `}>Source Code</h2>
+            
+            <StyledExternalLink href="https://github.com/jsimonrichard/jsimonrichard">
+              GitHub
+            </StyledExternalLink>
+          </FooterColumn>
         </div>
 
         <div css={css`
