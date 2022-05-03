@@ -37,3 +37,5 @@ export const Tag = ({tag}) => (
     {tag}
   </StyledLink>
 );
+
+export const RefLink = ({href, children}) => <sup><a href={href}>{children}</a></sup>;
