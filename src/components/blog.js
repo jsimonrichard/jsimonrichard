@@ -1,5 +1,6 @@
 import React from 'react';
 import { css } from '@emotion/react';
+import styled from '@emotion/styled';
 import { StyledLink } from './core';
 
 export const PostList = ({nodes}) => (
@@ -39,3 +40,8 @@ export const Tag = ({tag}) => (
 );
 
 export const RefLink = ({href, children}) => <sup><a href={href}>{children}</a></sup>;
+
+export const MLAReference = styled.div`
+  margin-left: 2rem;
+  text-indent: -2rem;
+`;
