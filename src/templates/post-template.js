@@ -25,6 +25,7 @@ const DefaultBlogTemplate = ({children, pageContext: {frontmatter}}) => {
         ${tightContainerStyles}
         padding-top: 7rem;
         overflow-wrap: anywhere;
+        padding-bottom: 3rem;
       `}>
         <Header {...frontmatter} />
         {children}
