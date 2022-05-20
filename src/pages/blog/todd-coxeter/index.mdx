@@ -92,7 +92,7 @@ From a theoretical standpoint, we start with the Schreier graph for the free gro
 
 2. For each word $h \in H$, start at vertex $1$ and follow the path defined by $h$. Give the vertices along this path new labels and *identify* the vertex at the end with vertex $1$.
 
-> To identify two vertices, remove the one with the higher label and then merge its edges with the edges of the other vertex. If a conflict between edges with the same label occurs, identify the vertices at the other end those edges as well.
+> To identify two vertices, remove the one with the higher label and then merge its edges with the edges of the other vertex. If there are two outgoing edges with the same label or two incoming edges with the same label, the vertecies at the other end of those edges must also be identified so that we are left with at most one outgoing edge and one incoming edge for each label.
 
 3. For each vertex that is labeled or that will be labeled (including the ones that will be labeled during this step), define a path starting at that vertex for each word in $R$ (so, if $S$ is the set of all vertices that will eventually be labeled, there should be $|S|\cdot|R|$ paths in total). Then, for each path $p$, label the vertices along $p$ and identify starting point of $p$ with the endpoint of $p$.
 
@@ -142,7 +142,7 @@ python3 todd-coxeter.py --ngens 2 --rels 1,1,1,1,1,1 2,2 1,2,1,2 --hgens 1,1,1
 ```
 In this command, `--ngens 2` is used to specify that there are two generators (they will be labeled $1$ and $2$, corresponding to $r$ and $s$ respectively, and their inverses will be labeled $-1$ and $-2$). After the `--rels` flag, the relations in $R$ are specified using the following format: each generator is separated with a comma, and each word in $R$ is separated by a space. After the `--hgens` flag, the generators for $H$ are specified using the same format.
 
-The rest of this section will outline the general structure of this implementation. If you are interested in the exact syntax used, I would encourage you to look directectly at the source code.
+The rest of this section will outline the general structure of this implementation. If you are interested in the exact syntax used, I would encourage you to look directly at the source code.
 
 
 ### Data Structures and Classes
