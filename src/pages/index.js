@@ -41,12 +41,10 @@ const IndexPage = () => {
 
   const skillsURLs = {
     javascript: "https://www.javascript.com/",
-    django: "https://www.djangoproject.com/",
     docker: "https://www.docker.com/",
     git: "https://git-scm.com/",
     java: "https://www.java.com/en/",
     linux: "https://www.linux.org/",
-    micropython: "https://micropython.org/",
     mongodb: "https://www.mongodb.com/",
     python: "https://www.python.org/",
     react: "https://reactjs.org/",
@@ -75,12 +73,12 @@ const IndexPage = () => {
         `}>
           <AnimatedTerminal command="whoami" startDelay={800} styles={tightContainerStyles}>
             <br />
-            Hi, my name is J. Simon Richard. I'm an aspiring entrepreneur / full-stack developer with a wide range 
+            My name is J. Simon Richard. I'm an aspiring entrepreneur / full-stack developer with a wide range 
             of <TerminalLink to="#interests">interests</TerminalLink> and <TerminalLink to="#skills">skills</TerminalLink>.
 
             <br/><br/>
 
-            I'm only a freshman in college, but I've already had some
+            I'm currently working on my bachelor's degree, and I've had some
             great <TerminalLink to="#education">education</TerminalLink> and <TerminalLink to="#work">work</TerminalLink> experiences.
           </AnimatedTerminal>
         </div>
@@ -137,8 +135,7 @@ const IndexPage = () => {
             Welcome to my online resume! My name is Simon Richard, and I’m
             an <DynamicAge startDate={new Date(2003, 7, 3)} /> year-old self-taught programmer.
             I live in North-East Ohio and am currently attending Cleveland State University as a
-            Computer Science and Mathematics Major. I will also be starting as a
-            software engineering intern at MIM Software Inc. within the next month.
+            Computer Science and Mathematics Major.
           </Paragraph>
 
           <Paragraph>
@@ -152,7 +149,7 @@ const IndexPage = () => {
             about <DynamicAge startDate={new Date(2012, 2, 15)}/> years ago. My
             first language was Processing (on Khan Academy), but since then I
             have added many more languages and frameworks to my programming tool
-            box.
+            box. My current favorite is <ClassicLink href="https://www.rust-lang.org/" css={css`display: inline`}>Rust</ClassicLink>.
           </Paragraph>
         </div>
       </Container>
@@ -162,6 +159,21 @@ const IndexPage = () => {
         <LineHeader>Work Experiences</LineHeader>
 
         <Timeline>
+          <TimelineItem date="May 2022 - August 2022">
+            <h2 css={css`margin-top: 0px`}>Software Engineering Internship</h2>
+            <h5>MIM Software Inc.</h5>
+
+            <p>
+              I contributed to a large, 1M+ line code base and made a measurable impact through
+              the features I implemented. One of these features will allow MIM to drop support
+              for a version that is three major versions behind the current release.
+            </p>
+
+            <ClassicLink href="https://www.mimsoftware.com/">
+              MIM Software
+            </ClassicLink>
+          </TimelineItem>
+
           <TimelineItem date="July 2020 - January 2022">
             <h2 css={css`margin-top: 0px`}>Software Development Internship</h2>
             <h5>Integrated Mill Systems Inc. - The IMS Innovation Group</h5>
@@ -271,11 +283,7 @@ const IndexPage = () => {
               Math Conference for Undergrads
             </li>
             <li>
-              I am also the sole member of <strong>ProtoKit Electronics, LLC</strong>, a local
-              startup company that develops educational robots
-            </li>
-            <li>
-              Other interests of mine include amateur rocketry, singing/piano, and math
+              Other interests of mine include amateur rocketry, singing, piano, and math
             </li>
           </ul>
       </Container>
