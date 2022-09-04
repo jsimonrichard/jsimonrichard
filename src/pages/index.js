@@ -8,7 +8,6 @@ import { Timeline, TimelineItem } from "../components/timeline";
 import { useStaticQuery, graphql } from "gatsby";
 
 
-
 // markup
 const IndexPage = () => {
 
@@ -53,7 +52,7 @@ const IndexPage = () => {
 
   return (
     <Layout fillHeader={fillHeader}>
-      <FullScreen css={css`display: grid`}>
+      <FullScreen css={css`display: grid;`}>
 
         {/* modified from https://unsplash.com/photos/enK1Q14Dt6s */}
         <StaticImage css={css`
@@ -149,7 +148,7 @@ const IndexPage = () => {
             about <DynamicAge startDate={new Date(2012, 2, 15)}/> years ago. My
             first language was Processing (on Khan Academy), but since then I
             have added many more languages and frameworks to my programming tool
-            box. My current favorite is <ClassicLink href="https://www.rust-lang.org/" css={css`display: inline`}>Rust</ClassicLink>.
+            box. My current favorite is <ClassicLink href="https://www.rust-lang.org/" css={css`display: inline;`}>Rust</ClassicLink>.
           </Paragraph>
         </div>
       </Container>
@@ -160,8 +159,8 @@ const IndexPage = () => {
 
         <Timeline>
           <TimelineItem date="May 2022 - August 2022">
-            <h2 css={css`margin-top: 0px`}>Software Engineering Internship</h2>
-            <h5>MIM Software Inc.</h5>
+            <h2 css={css`margin: 0px;`}>Software Engineering Internship</h2>
+            <h3 css={css`margin: 0px;`}>MIM Software Inc.</h3>
 
             <p>
               I contributed to a large, 1M+ line code base and made a measurable impact through
@@ -175,8 +174,8 @@ const IndexPage = () => {
           </TimelineItem>
 
           <TimelineItem date="July 2020 - January 2022">
-            <h2 css={css`margin-top: 0px`}>Software Development Internship</h2>
-            <h5>Integrated Mill Systems Inc. - The IMS Innovation Group</h5>
+            <h2 css={css`margin: 0px;`}>Software Development Internship</h2>
+            <h3 css={css`margin: 0px;`}>Integrated Mill Systems Inc. - The IMS Innovation Group</h3>
 
             <p>
               I worked with the IMS Innovation Group at Integrated Mill Systems Inc.
@@ -196,8 +195,8 @@ const IndexPage = () => {
           </TimelineItem>
 
           <TimelineItem date="December 2019 - April 2021">
-            <h2 css={css`margin-top: 0px`}>Peer Math Tutoring</h2>
-            <h5>Lakeland Community College</h5>
+            <h2 css={css`margin: 0px;`}>Peer Math Tutoring</h2>
+            <h3 css={css`margin: 0px;`}>Lakeland Community College</h3>
 
             <p>
               I tutored other students in the area of mathematics up to and including
@@ -215,12 +214,12 @@ const IndexPage = () => {
       <Container id="education">
         <LineHeader>Education</LineHeader>
 
-        <div css={css`margin-bottom: 3rem`}>
+        <div css={css`margin-bottom: 3rem;`}>
           <h2>Bachelor's Degree in Computer Science and Mathematics</h2>
           <p>Cleveland State University -&nbsp;Expected&nbsp;graduation:&nbsp;May&nbsp;2025</p>
         </div>
 
-        <div css={css`margin-bottom: 3rem`}>
+        <div css={css`margin-bottom: 3rem;`}>
           <h2>Associate of Science</h2>
           <p>Lakeland Community College -&nbsp;May&nbsp;2021</p>
           <p>
@@ -229,7 +228,7 @@ const IndexPage = () => {
           </p>
         </div>
 
-        <div css={css`margin-bottom: 3rem`}>
+        <div css={css`margin-bottom: 3rem;`}>
           <h2>High School Honors Diploma</h2>
           <p>iSTEM Geauga Early College High School -&nbsp;May&nbsp;2021</p>
         </div>
@@ -274,7 +273,7 @@ const IndexPage = () => {
         </div>
       </Container>
 
-      <Container id="interests" css={css`margin-bottom: 4rem`}>
+      <Container id="interests" css={css`margin-bottom: 4rem;`}>
           <LineHeader>Other Interests and Accomplishments</LineHeader>
 
           <ul>

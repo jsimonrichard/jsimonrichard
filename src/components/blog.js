@@ -6,16 +6,22 @@ import { StyledLink } from './core';
 export const PostList = ({nodes}) => (
   <>
     {nodes.map(({slug, frontmatter: {title, date, excerpt, tags}}) => (
-      <div css={css`margin-bottom: 5rem`}>
-        <StyledLink css={css`font-size: 1.4rem; font-weight: bold`} to={"/"+slug}>
+      <div css={css`margin-bottom: 5rem;`}>
+        <StyledLink css={css`font-size: 1.4rem; font-weight: bold;`} to={"/"+slug}>
           {title}
         </StyledLink>
 
-        <div>
-          Tags: {tags.map(tag => <Tag tag={tag}/>)}
-        </div>
+        <div css={css`
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+        `}>
+          <div>
+            Tags: {tags.map(tag => <Tag tag={tag}/>)}
+          </div>
 
-        <div css={css`float: right`}>{date}</div>
+          <div>{date}</div>
+        </div>
 
         <p>
           {excerpt}

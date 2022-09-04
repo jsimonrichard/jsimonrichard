@@ -7,14 +7,24 @@ import Helmet from "react-helmet";
 
 const Header = ({title, date, tags}) => (
   <div css={css`margin-bottom: 5rem;`}>
+
     <Helmet>
       <title>J. Simon Richard - {title}</title>
     </Helmet>
     <h1 css={css`margin-bottom: 0px;`}>{title}</h1>
-    <div>
-      Tags: {tags.map(tag => <Tag tag={tag}/>)}
+
+    <div css={css`
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    `}>
+      <div>
+        Tags: {tags.map(tag => <Tag tag={tag}/>)}
+      </div>
+
+      <div>{date}</div>
     </div>
-    <div css={css`float: right`}>{date}</div>
+
   </div>
 );
 
@@ -25,7 +35,7 @@ const DefaultBlogTemplate = ({children, pageContext: {frontmatter}}) => {
         ${tightContainerStyles}
         padding-top: 7rem;
         overflow-wrap: anywhere;
-        padding-bottom: 3rem;
+        padding-bottom: 2rem;
       `}>
         <Header {...frontmatter} />
         {children}

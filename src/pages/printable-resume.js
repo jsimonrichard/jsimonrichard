@@ -1,11 +1,12 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import { ClassicLink } from '../components/core';
-import "./printable-resume.css";
 
 const PrintableResume = () => {
   return (
     <main css={css`
+      background-color: white;
+      box-sizing: border-box;
       height: 100vh;
       display: flex;
       flex-direction: row;
