@@ -1,3 +1,7 @@
+const _ = require('lodash');
+const path = require('path');
+
+
 // Create tag pages
 exports.createPages = async ({actions, graphql}) => {
   const { createPage } = actions;
