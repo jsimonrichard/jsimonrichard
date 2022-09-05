@@ -5,9 +5,14 @@ import { ClassicLink } from '../components/core';
 const PrintableResume = () => {
   return (
     <main css={css`
+      height: 100%;
+      width: 100%;
+      position:absolute;
+      top: 0px;
+      bottom: 0px;
+
       background-color: white;
       box-sizing: border-box;
-      height: 100vh;
       display: flex;
       flex-direction: row;
       padding: 1rem 0rem;
@@ -15,6 +20,11 @@ const PrintableResume = () => {
 
       & > * {
         padding: 0rem 1rem;
+      }
+
+      @page {
+        size: auto;
+        margin: 0;
       }
     `}>
       <div css={css`
