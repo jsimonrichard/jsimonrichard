@@ -42,7 +42,7 @@ export const Layout = ({fillHeader=true, children}) => {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <div css={css`min-height: 100vh`}>
+    <div css={css`min-height: 100vh;`}>
       <Helmet>
         <title>J. Simon Richard</title>
         <link rel="icon" href={favicon} />
@@ -85,7 +85,7 @@ export const Layout = ({fillHeader=true, children}) => {
               </Link>
             </NavItem>
 
-            <div css={css`flex: 1 0 auto`} />
+            <div css={css`flex: 1 0 auto;`} />
 
             <MenuRoundedIcon css={css`
               cursor: pointer;
@@ -98,11 +98,11 @@ export const Layout = ({fillHeader=true, children}) => {
             `} onClick={()=>setExpanded(!expanded)} />
           </div>
 
-          <NavItem css={expanded && css`display: flex`}>
+          <NavItem css={expanded && css`display: flex;`}>
             <StyledLink to="/blog">Blog</StyledLink>
           </NavItem>
 
-          <NavItem css={expanded && css`display: flex`}>
+          <NavItem css={expanded && css`display: flex;`}>
             <StyledExternalLink
               href="https://github.com/jsimonrichard"
               target="_blank"
@@ -122,7 +122,7 @@ export const Layout = ({fillHeader=true, children}) => {
       </main>
 
       <footer css={css`
-        background-color: #CCC;
+        background-color: #dedede;
       `}>
         <div css={css`
           display: flex;

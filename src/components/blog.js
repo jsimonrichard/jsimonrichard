@@ -35,7 +35,7 @@ export const Tag = ({tag}) => (
   <StyledLink to={`/tags/${tag}`} css={css`
     display: inline-block;
     border-radius: 0.4em;
-    background-color: #BBB;
+    background-color: #dedede;
     font-weight: bold;
     padding: 0.4em;
     margin-right: 0.4rem;

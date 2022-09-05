@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import styled from '@emotion/styled';
 
 export const SchreierGraphExample = () => (
-  <div css={css`height: 400px`}>
+  <div css={css`height: 400px;`}>
     <Graph
       graph={{
         nodes: [
@@ -799,7 +799,7 @@ export const ToddCoxeterExample = () => {
     <div css={css`
       > * {
         padding: 1rem;
-        background-color: #CCC;
+        background-color: #dedede;
         border: 1px solid black;
 
         &:last-child {
@@ -915,7 +915,7 @@ export const ToddCoxeterExample = () => {
         </div>
       </div>
 
-      <div css={css`height: 600px`}>
+      <div css={css`height: 600px;`}>
         <Graph 
           graph={dataFrames[t.step].frames[t.frame]}
           options={{

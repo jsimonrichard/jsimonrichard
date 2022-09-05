@@ -9,8 +9,8 @@ import { Typer, Cursor } from "./typer";
 const TerminalWrapper = styled.div`
   background: #142137;
   border-radius: 8px;
-  color: white;
-  border: white 4px solid;
+  color: #f8f8f8;
+  border: #f8f8f8 4px solid;
   font-family: "Fira Code", monospace;
 `;
 
