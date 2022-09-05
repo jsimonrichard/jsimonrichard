@@ -152,7 +152,7 @@ There are two main data structures used within this implementation: a disjoint-s
 The `SchreierGraph` class inherites from `PartialSchreierGraph` and contains the logic for the Todd-Coxeter Algorithm. This algorithm is executed within the constructor of `SchreierGraph` (i.e. it must terminate for an instance of `SchreierGraph` to finish being constructed) so that all instances are guaranteed to represent a valid Schreier graph for $G/H$. This class, in conjuction with the `Permutation` class, also provides a way to interpret the graph without displaying it in its entirety. Instead, for each generator, it displays a product of cycles that corresponds with how that generator permutes the cosets of $H$.
 
 
-### A Closer Look at `UnionFind` and its Role in `PartialSchreierGraph`
+### A Closer Look at UnionFind and its Role in PartialSchreierGraph
 
 The disjoint-set (or union-find) data structure represents a set of disjoint sets using disjoint trees. This forest is represented by a single list `parent` with the following constraint.
 

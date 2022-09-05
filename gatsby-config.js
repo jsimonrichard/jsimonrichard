@@ -12,7 +12,8 @@ module.exports = {
           default: require.resolve("./src/templates/post-template.js")
         },
         gatsbyRemarkPlugins: [
-          "gatsby-remark-autolink-headers"
+          "gatsby-remark-autolink-headers",
+          "gatsby-remark-prismjs"
         ],
         remarkPlugins: [require('remark-math'), require('remark-html-katex')]
       }
