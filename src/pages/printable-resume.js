@@ -11,6 +11,7 @@ const PrintableResume = () => {
       top: 0px;
       bottom: 0px;
 
+      font-size: 10pt;
       background-color: white;
       box-sizing: border-box;
       display: flex;
@@ -96,9 +97,8 @@ const PrintableResume = () => {
       </div>
       
       <div css={css`
-        font-size: 0.9rem;
         h2 {
-          margin-top: 2rem;
+          margin-top: 2.5rem;
           margin-bottom: 0rem;
         }
         p {
@@ -107,7 +107,7 @@ const PrintableResume = () => {
       `}>
         <h2 css={css`margin-top: 0rem !important;`}>Objective</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus commodo, augue nec molestie pellentesque.
+          To secure a challenging co-op for the Summer of 2023 that will expand my programming and/or mathematical skill set and give me exposure to industries impacted by Computer Science. 
         </p>
         
         <h2>Employment</h2>
@@ -200,7 +200,7 @@ const PrintableResume = () => {
         <h2>Other Interests and Accomplishments</h2>
         <ul>
           <li>Four-time presenter at Youngstown State University's Pi Mu Epsilon Math Conference for Undergrads</li>
-          <li>Other interests of mine include amateur rocketry, robotics, singing, piano, and math</li>
+          <li>Other interests of mine include academic research, math, amateur rocketry, robotics, singing, and piano</li>
         </ul>
       </div>
     </main>
