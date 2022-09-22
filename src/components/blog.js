@@ -5,9 +5,9 @@ import { StyledLink } from './core';
 
 export const PostList = ({nodes}) => (
   <>
-    {nodes.map(({slug, frontmatter: {title, date, excerpt, tags}}) => (
+    {nodes.map(({fields: { slug }, frontmatter: {title, date, excerpt, tags}}) => (
       <div css={css`margin-bottom: 5rem;`}>
-        <StyledLink css={css`font-size: 1.4rem; font-weight: bold;`} to={"/blog/"+slug}>
+        <StyledLink css={css`font-size: 1.4rem; font-weight: bold;`} to={slug}>
           {title}
         </StyledLink>
 
@@ -32,7 +32,7 @@ export const PostList = ({nodes}) => (
 );
 
 export const Tag = ({tag}) => (
-  <StyledLink to={`/tags/${tag}`} css={css`
+  <StyledLink to={`/blog/tags/${tag}`} css={css`
     display: inline-block;
     border-radius: 0.4em;
     background-color: #dedede;

@@ -24,7 +24,9 @@ export const query = graphql`
   query Posts {
     allMdx(sort: {order: DESC, fields: frontmatter___date}) {
       nodes {
-        slug
+        fields {
+          slug
+        }
         frontmatter {
           title
           date

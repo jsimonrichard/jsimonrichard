@@ -29,7 +29,9 @@ export const query = graphql`
       filter: { frontmatter: {tags: {in: [$tag] } } }
     ) {
       nodes {
-        slug
+        fields {
+          slug
+        }
         frontmatter {
           title
           date

@@ -64,7 +64,7 @@ const DefaultBlogTemplate = ({ data }) => {
 
 export const query = graphql`
   query($slug: String) {
-    mdx(slug: {eq: $slug}) {
+    mdx(fields: {slug: {eq: $slug}}) {
       frontmatter {
         title
         date
