@@ -7,7 +7,7 @@ export const PostList = ({nodes}) => (
   <>
     {nodes.map(({fields: { slug }, frontmatter: {title, date, excerpt, tags}}) => (
       <div css={css`margin-bottom: 5rem;`}>
-        <StyledLink css={css`font-size: 1.4rem; font-weight: bold;`} to={slug}>
+        <StyledLink css={css`font-size: 1.4rem; font-weight: bold;`} to={"/"+slug}>
           {title}
         </StyledLink>
 
