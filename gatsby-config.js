@@ -8,9 +8,6 @@ module.exports = {
     {
       resolve: "gatsby-plugin-mdx",
       options: {
-        defaultLayouts: {
-          default: require.resolve("./src/templates/post-template.js")
-        },
         gatsbyRemarkPlugins: [
           "gatsby-remark-autolink-headers",
           "gatsby-remark-prismjs"
@@ -25,6 +22,14 @@ module.exports = {
         "path": "./src/pages/"
       },
       __key: "pages"
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        "name": "pages",
+        "path": "./src/blog/"
+      },
+      __key: "blog"
     },
     {
       resolve: 'gatsby-source-filesystem',
