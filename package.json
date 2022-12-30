@@ -17,7 +17,8 @@
   "dependencies": {
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
-    "@fontsource/fira-code": "^4.5.8",
+    "@fontsource/fira-code": "^4.5.12",
+    "@fontsource/fira-sans": "^4.5.10",
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
     "@fortawesome/free-solid-svg-icons": "^6.2.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
