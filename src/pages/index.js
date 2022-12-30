@@ -158,6 +158,22 @@ const IndexPage = () => {
         <LineHeader>Work Experiences</LineHeader>
 
         <Timeline>
+          <TimelineItem date="October 2022 - Present">
+            <h2 css={css`margin: 0px;`}>Computer Peer Teacher</h2>
+            <h3 css={css`margin: 0px;`}>Cleveland State University</h3>
+
+            <p>
+              I help students with questions primarily related to Java and C.
+              
+              The Computer Peer Teacher (CBT) program is fairly new, so I have
+              also helped with some marketing and administrative tasks.
+            </p>
+
+            <ClassicLink href="https://www.csuohio.edu/">
+              Cleveland State University
+            </ClassicLink>
+          </TimelineItem>
+
           <TimelineItem date="May 2022 - August 2022">
             <h2 css={css`margin: 0px;`}>Software Engineering Internship</h2>
             <h3 css={css`margin: 0px;`}>MIM Software Inc.</h3>
@@ -219,14 +235,18 @@ const IndexPage = () => {
           <p>Cleveland State University -&nbsp;Expected&nbsp;graduation:&nbsp;May&nbsp;2025</p>
         </div>
 
+        <hr css={css`height:1px; border-width:0; background-color: black;`}/>
+
         <div css={css`margin-bottom: 3rem;`}>
           <h2>Associate of Science</h2>
           <p>Lakeland Community College -&nbsp;May&nbsp;2021</p>
-          <p>
-            Outstanding Mathematics Student Award<br />
-            Finalist for the Provost’s Award
-          </p>
+          <ul>
+            <li>Outstanding Mathematics Student Award</li>
+            <li>Finalist for the Provost’s Award</li>
+          </ul>
         </div>
+
+        <hr css={css`height:1px; border-width:0; background-color: black;`}/>
 
         <div css={css`margin-bottom: 3rem;`}>
           <h2>High School Honors Diploma</h2>

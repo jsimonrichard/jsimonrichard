@@ -29,7 +29,7 @@ const PrintableResume = () => {
       }
     `}>
       <div css={css`
-        max-width: 30%;
+        max-width: 25%;
         border-right: 1px solid #AAA;
 
         display: flex;
@@ -70,7 +70,7 @@ const PrintableResume = () => {
               <p>(440) 749-4115</p>
               <ClassicLink href="mailto:jsimonrichard@gmail.com">jsimonrichard@gmail.com</ClassicLink>
               <ClassicLink href="https://jsimonrichard.com">https://jsimonrichard.com</ClassicLink>
-              <ClassicLink href="https://www.linkedin.com/in/jsimonrichard/">https://linkedin.com/in/jsimonrichard/</ClassicLink>
+              <ClassicLink href="https://www.linkedin.com/in/jsimonrichard/">https://linkedin.com/<wbr/>in/jsimonrichard/</ClassicLink>
             </p>
           </div>
 
@@ -137,12 +137,30 @@ const PrintableResume = () => {
               color: #555;
               font-weight: normal;
             }
+
+            h3 {
+              font-weight: bold;
+            }
           }
         `}>
 
           <div>
+            <h4>October 2022 - Present</h4>
+            <h3>Computer Peer Teacher at Cleveland State University (Cleveland,&nbsp;OH)</h3>
+            <ul>
+              <li>
+                I help students with questions primarily related to Java and C.
+              </li>
+              <li>
+                The Computer Peer Teacher (CBT) program is fairly new, so I have
+                also helped with some marketing and administrative tasks.
+              </li>
+            </ul>
+          </div>
+
+          <div>
             <h4>May 2022 - August 2022</h4>
-            <h3>Software Engineer Intern at MIM Software Inc. (Beachwood, OH)</h3>
+            <h3>Software Engineer Intern at MIM Software Inc. (Beachwood,&nbsp;OH)</h3>
             <ul>
               <li>Contributed to a 1M+ line code base</li>
               <li>
@@ -155,7 +173,7 @@ const PrintableResume = () => {
 
           <div>
             <h4>July 2020 - December 2021</h4>
-            <h3>Software Development Intern at Integrated Mill Systems Inc. (Willoughby, OH)</h3>
+            <h3>Software Development Intern at Integrated Mill Systems Inc. (Willoughby,&nbsp;OH)</h3>
 
             <ul>
               <li>
@@ -170,7 +188,7 @@ const PrintableResume = () => {
 
           <div>
             <h4>December 2019 - May 2021</h4>
-            <h3>Peer Tutor at Lakeland Community College (Kirtland, OH)</h3>
+            <h3>Peer Tutor at Lakeland Community College (Kirtland,&nbsp;OH)</h3>
 
             <ul>
               <li>Tutored students taking math classes up to and including Calculus 3</li>
