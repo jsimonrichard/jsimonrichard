@@ -128,6 +128,7 @@ const PrintableResume = () => {
             <h2>Some experience with...</h2>
 
             <ul>
+              <li>C Programming</li>
               <li>Jupyter</li>
               <li>Docker</li>
               <li>MongoDB</li>
