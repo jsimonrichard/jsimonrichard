@@ -14,7 +14,11 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean"
   },
+  "resolutions": {
+    "source-map": "^0.8.0-beta.0"
+  },
   "dependencies": {
+    "source-map": "^0.8.0-beta.0",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
     "@fontsource/fira-code": "^4.5.12",
