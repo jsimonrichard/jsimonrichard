@@ -225,10 +225,10 @@ const PrintableResume = () => {
             </h3>
             <ul>
               <li>
-                Help students with questions primarily related to Python, Java,
+                Helped students with questions primarily related to Python, Java,
                 and C.
               </li>
-              <li>Help organize computer science events</li>
+              <li>Helped organize computer science events</li>
             </ul>
           </div>
 
