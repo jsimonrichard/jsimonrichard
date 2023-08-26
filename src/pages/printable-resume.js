@@ -335,10 +335,8 @@ const PrintableResume = () => {
         >
           <li>Academic Research</li>
           <li>Machine Learning</li>
-          <li>Math</li>
-          <li>Reading</li>
-          <li>Amateur Rocketry</li>
-          <li>Robotics</li>
+          <li>Mathematics</li>
+          <li>Reading and Writing</li>
           <li>Singing</li>
           <li>Piano</li>
         </ul>
