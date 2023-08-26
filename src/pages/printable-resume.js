@@ -121,6 +121,7 @@ const PrintableResume = () => {
               <li>Rust</li>
               <li>Linux</li>
               <li>Git</li>
+              <li>Docker</li>
             </ul>
           </div>
 
@@ -130,9 +131,7 @@ const PrintableResume = () => {
             <ul>
               <li>C Programming</li>
               <li>Jupyter</li>
-              <li>Docker</li>
-              <li>MongoDB</li>
-              <li>Redis</li>
+              <li>PyTorch</li>
             </ul>
           </div>
         </div>
@@ -157,8 +156,8 @@ const PrintableResume = () => {
           Objective
         </h2>
         <p>
-          To secure a challenging co-op for the Summer of 2023 that will expand
-          my programming and/or mathematical skill set and give me exposure to
+          To secure a challenging co-op for the Summer of 2024 that will expand
+          my programming, research, and mathematics skill sets and give me exposure to
           industries impacted by Computer Science.
         </p>
 
@@ -184,7 +183,42 @@ const PrintableResume = () => {
           `}
         >
           <div>
-            <h4>October 2022 - Present</h4>
+            <h4>August 2023 - Present</h4>
+            <h3>
+              Computer Peer Teacher Coordinator at Cleveland State University
+              (Cleveland,&nbsp;OH)
+            </h3>
+            <ul>
+              <li>Hired new CPTs</li>
+              <li>Trained and managed a team of 6 CPTs (not including myself)</li>
+              <li>Led the organization of computer science events</li>
+              <li>Improved IT infrastructure</li>
+              <li>Coordinated with faculty and with our sister program, the Engineering Peer Teachers</li>
+            </ul>
+
+          </div>
+          <div>
+            <h4>May 2023 - August 2023</h4>
+            <h3>
+              Algorithm Research & Development Intern at MIM Software Inc.
+              (Beachwood,&nbsp;OH)
+            </h3>
+            <ul>
+              <li>
+                Reproduced two adaptation of a state-of-the-art segmentation model
+                for use in the medical domain
+              </li>
+              <li>
+                Fine-tuned those models on in-house CT data
+              </li>
+              <li>Conducted ablation studies</li>
+              <li>
+                Presented my findings to the research team and the company's Chief Science Officer
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4>October 2022 - August 2023</h4>
             <h3>
               Computer Peer Teacher at Cleveland State University
               (Cleveland,&nbsp;OH)
@@ -213,7 +247,7 @@ const PrintableResume = () => {
             </ul>
           </div>
 
-          <div>
+          {/* <div>
             <h4>July 2020 - December 2021</h4>
             <h3>
               Software Development Intern at Integrated Mill Systems Inc.
@@ -246,7 +280,7 @@ const PrintableResume = () => {
                 Calculus 3
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
 
         <h2>Education</h2>
@@ -285,13 +319,13 @@ const PrintableResume = () => {
           </div>
         </div>
 
-        <h2>Accomplishments</h2>
+        {/* <h2>Accomplishments</h2>
         <ul>
           <li>
             Four-time presenter at Youngstown State University's Pi Mu Epsilon
             Math Conference for Undergrads
           </li>
-        </ul>
+        </ul> */}
 
         <h2>Interests</h2>
         <ul
@@ -300,7 +334,9 @@ const PrintableResume = () => {
           `}
         >
           <li>Academic Research</li>
+          <li>Machine Learning</li>
           <li>Math</li>
+          <li>Reading</li>
           <li>Amateur Rocketry</li>
           <li>Robotics</li>
           <li>Singing</li>

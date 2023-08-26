@@ -54,6 +54,7 @@ const IndexPage = () => {
     linux: "https://www.linux.org/",
     mongodb: "https://www.mongodb.com/",
     python: "https://www.python.org/",
+    pytorch: "https://pytorch.org/",
     react: "https://reactjs.org/",
     rust: "https://www.rust-lang.org/",
   };
@@ -95,17 +96,19 @@ const IndexPage = () => {
             styles={tightContainerStyles}
           >
             <br />
-            My name is J. Simon Richard. I'm an aspiring entrepreneur /
+            My name is J. Simon Richard. I'm an aspiring researcher / entrepreneur /
             full-stack developer with a wide range of{" "}
             <TerminalLink to="#interests">interests</TerminalLink> and{" "}
             <TerminalLink to="#skills">skills</TerminalLink>.
             <br />
             <br />
-            I'm currently working on my bachelor's degree, and I've had some
+            I've had some
             great <TerminalLink to="#education">
               education
             </TerminalLink> and <TerminalLink to="#work">work</TerminalLink>{" "}
-            experiences.
+            experiences since the start of my programming journey around. I am currently
+            working on a Bachelor's Degree in Computer Science and Mathematics at
+            Cleveland State University.
           </AnimatedTerminal>
         </div>
       </FullScreen>
@@ -195,7 +198,67 @@ const IndexPage = () => {
         <LineHeader>Work Experiences</LineHeader>
 
         <Timeline>
-          <TimelineItem date="October 2022 - Present">
+          <TimelineItem date="August 2023 - Present">
+            <h2
+              css={css`
+                margin: 0px;
+              `}
+            >
+              Computer Peer Teacher Coordinator
+            </h2>
+            <h3
+              css={css`
+                margin: 0px;
+              `}
+            >
+              Cleveland State University
+            </h3>
+
+            <p>
+              As the coordinator of the Computer Peer Teacher (CPT) program, I hired new CPTs,
+              trained and managed a team of 6 CPTs (not including myself), improved IT infrastructure,
+              led the organization of computer science events, coordinated with faculty, and
+              coordinated with our sister program (the Engineering Peer Teachers).
+            </p>
+
+            <ClassicLink href="https://engineering.csuohio.edu/advising/computer-peer-teachers-cpts">
+              The CPT Program
+            </ClassicLink>
+
+            <ClassicLink href="https://www.csuohio.edu/">
+              Cleveland State University
+            </ClassicLink>
+
+          </TimelineItem>
+          <TimelineItem date="May 2023 - August 2023">
+            <h2
+              css={css`
+                margin: 0px;
+              `}
+            >
+              Algorithms Research & Development Internship
+            </h2>
+            <h3
+              css={css`
+                margin: 0px;
+              `}
+            >
+              MIM Software Inc.
+            </h3>
+
+            <p>
+              I reproduced two adaptations of a state-of-the-art segmentation model for use
+              in the medical domain, fine-tuned those models on in-house CT data, performed
+              ablation studies, and presented my findings to the research team at MIM (including
+              the company's Chief Science Officer).
+            </p>
+
+            <ClassicLink href="https://www.mimsoftware.com/">
+              MIM Software
+            </ClassicLink>
+
+          </TimelineItem>
+          <TimelineItem date="October 2022 - August 2023">
             <h2
               css={css`
                 margin: 0px;
@@ -216,6 +279,10 @@ const IndexPage = () => {
               primarily related to Python, Java, and C. I have also helped
               organize computer science events.
             </p>
+
+            <ClassicLink href="https://engineering.csuohio.edu/advising/computer-peer-teachers-cpts">
+              The CPT Program
+            </ClassicLink>
 
             <ClassicLink href="https://www.csuohio.edu/">
               Cleveland State University
@@ -323,6 +390,9 @@ const IndexPage = () => {
             Cleveland State University
             -&nbsp;Expected&nbsp;graduation:&nbsp;May&nbsp;2025
           </p>
+          <p>
+            <strong>GPA:</strong> 4.0
+          </p>
         </div>
 
         <hr
@@ -340,6 +410,9 @@ const IndexPage = () => {
         >
           <h2>Associate of Science</h2>
           <p>Lakeland Community College -&nbsp;May&nbsp;2021</p>
+          <p>
+            <strong>GPA:</strong> 4.0
+          </p>
           <ul>
             <li>Outstanding Mathematics Student Award</li>
             <li>Finalist for the Provost’s Award</li>
@@ -361,6 +434,9 @@ const IndexPage = () => {
         >
           <h2>High School Honors Diploma</h2>
           <p>iSTEM Geauga Early College High School -&nbsp;May&nbsp;2021</p>
+          <p>
+            <strong>GPA:</strong> 4.0
+          </p>
         </div>
       </Container>
 
@@ -432,8 +508,8 @@ const IndexPage = () => {
             Epsilon Math Conference for Undergrads
           </li>
           <li>
-            Other interests of mine include amateur rocketry, singing, piano,
-            and math
+            Other interests of mine include academic research, machine learning, reading and writing,
+            mathematics, singing, and piano.
           </li>
         </ul>
       </Container>
