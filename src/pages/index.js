@@ -106,7 +106,7 @@ const IndexPage = () => {
             great <TerminalLink to="#education">
               education
             </TerminalLink> and <TerminalLink to="#work">work</TerminalLink>{" "}
-            experiences since the start of my programming journey around. I am currently
+            experiences since the start of my programming journey. I am currently
             working on a Bachelor's Degree in Computer Science and Mathematics at
             Cleveland State University.
           </AnimatedTerminal>
