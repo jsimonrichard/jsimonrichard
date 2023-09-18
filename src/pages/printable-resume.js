@@ -112,7 +112,7 @@ const PrintableResume = () => {
           </div>
 
           <div>
-            <h2>Proficient with...</h2>
+            <h2>Proficient in...</h2>
 
             <ul>
               <li>Python</li>
@@ -205,11 +205,10 @@ const PrintableResume = () => {
             </h3>
             <ul>
               <li>
-                Reproduced two adaptation of a state-of-the-art segmentation model
-                for use in the medical domain
+                Reproduced two adaptations of a state-of-the-art medical image segmentation model
               </li>
               <li>
-                Fine-tuned those models on in-house CT data
+                Fine-tuned neural networks on in-house CT data
               </li>
               <li>Conducted ablation studies</li>
               <li>
@@ -225,7 +224,7 @@ const PrintableResume = () => {
             </h3>
             <ul>
               <li>
-                Helped students with questions primarily related to Python, Java,
+                Reinforced students' programming education and answered questions primarily related to Python, Java,
                 and C.
               </li>
               <li>Helped organize computer science events</li>
