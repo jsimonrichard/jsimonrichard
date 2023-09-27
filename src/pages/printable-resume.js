@@ -206,8 +206,7 @@ const PrintableResume = () => {
             <h4>May 223 - August 2023</h4>
             <ul>
               <li>
-                Reproduced two adacan 2 red and 4 blue rooks be placed on an 8 × 8 board so
-                that no two rooks can attack one anotptations of a state-of-the-art medical image segmentation model
+                Reproduced two adaptations of a state-of-the-art medical image segmentation model
               </li>
               <li>
                 Fine-tuned neural networks on in-house CT data
