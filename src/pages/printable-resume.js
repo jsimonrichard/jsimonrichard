@@ -140,7 +140,7 @@ const PrintableResume = () => {
       <div
         css={css`
           h2 {
-            margin-top: 1rem;
+            margin-top: 0.6rem;
             margin-bottom: 0rem;
           }
           p {
@@ -156,16 +156,16 @@ const PrintableResume = () => {
           Objective
         </h2>
         <p>
-          To secure a challenging co-op for the Summer of 2024 that will expand
+          To secure a challenging co-op for the summer of 2024 that will expand
           my programming, research, and mathematics skill sets and give me exposure to
           industries impacted by Computer Science.
         </p>
 
-        <h2>Employment</h2>
+        <h2>Experience</h2>
         <div
           css={css`
             & > div {
-              margin-bottom: 1rem;
+              margin-bottom: 0.8rem;
 
               & > * {
                 margin: 0rem;
@@ -178,16 +178,17 @@ const PrintableResume = () => {
 
               h3 {
                 font-weight: bold;
+                font-size: 10pt;
               }
             }
           `}
         >
           <div>
-            <h4>August 2023 - Present</h4>
             <h3>
               Computer Peer Teacher Coordinator at Cleveland State University
               (Cleveland,&nbsp;OH)
             </h3>
+            <h4>August 2023 - Present</h4>
             <ul>
               <li>Hired new CPTs</li>
               <li>Trained and managed a team of 6 CPTs (not including myself)</li>
@@ -198,14 +199,15 @@ const PrintableResume = () => {
 
           </div>
           <div>
-            <h4>May 2023 - August 2023</h4>
             <h3>
               Algorithm Research & Development Intern at MIM Software Inc.
               (Beachwood,&nbsp;OH)
             </h3>
+            <h4>May 223 - August 2023</h4>
             <ul>
               <li>
-                Reproduced two adaptations of a state-of-the-art medical image segmentation model
+                Reproduced two adacan 2 red and 4 blue rooks be placed on an 8 × 8 board so
+                that no two rooks can attack one anotptations of a state-of-the-art medical image segmentation model
               </li>
               <li>
                 Fine-tuned neural networks on in-house CT data
@@ -217,11 +219,11 @@ const PrintableResume = () => {
             </ul>
           </div>
           <div>
-            <h4>October 2022 - August 2023</h4>
             <h3>
               Computer Peer Teacher at Cleveland State University
               (Cleveland,&nbsp;OH)
             </h3>
+            <h4>October 2022 - August 2023</h4>
             <ul>
               <li>
                 Reinforced students' programming education and answered questions primarily related to Python, Java,
@@ -232,10 +234,10 @@ const PrintableResume = () => {
           </div>
 
           <div>
-            <h4>May 2022 - August 2022</h4>
             <h3>
               Software Engineer Intern at MIM Software Inc. (Beachwood,&nbsp;OH)
             </h3>
+            <h4>May 2022 - August 2022</h4>
             <ul>
               <li>Contributed to a 1M+ line code base</li>
               <li>
@@ -246,32 +248,34 @@ const PrintableResume = () => {
             </ul>
           </div>
 
-          {/* <div>
-            <h4>July 2020 - December 2021</h4>
+          <div>
             <h3>
               Software Development Intern at Integrated Mill Systems Inc.
               (Willoughby,&nbsp;OH)
             </h3>
+            <h4>July 2020 - December 2021</h4>
 
             <ul>
               <li>
-                Developed a stand-along data-logging device that utilized
-                technologies including Python / Bash Scripting, Docker, Rust,
-                and sockets to receive and display data from Programmable Logic
-                Controllers on a locally-served web client
+                Developed a PLC data-logging service for the Raspberry Pi
+                using Python / Bash Scripting, Docker, Rust, and sockets.
               </li>
               <li>
-                Released two alpha versions of the product (packaged as a custom
+                Built a locally served ReactJS application to visualize that data
+              </li>
+              <li>
+                Released two alpha versions of the product (packaged as an
                 ISO for the Raspberry Pi)
               </li>
             </ul>
           </div>
 
+          {/*
           <div>
-            <h4>December 2019 - May 2021</h4>
             <h3>
               Peer Tutor at Lakeland Community College (Kirtland,&nbsp;OH)
             </h3>
+            <h4>December 2019 - May 2021</h4>
 
             <ul>
               <li>
@@ -285,8 +289,12 @@ const PrintableResume = () => {
         <h2>Education</h2>
         <div
           css={css`
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 0.3rem;
+
             & > div {
-              margin-bottom: 1rem;
+              margin-bottom: 0.5rem;
 
               * {
                 margin: 0rem;
@@ -330,6 +338,7 @@ const PrintableResume = () => {
         <ul
           css={css`
             column-count: 3;
+            margin-top: 0.3rem;
           `}
         >
           <li>Academic Research</li>
