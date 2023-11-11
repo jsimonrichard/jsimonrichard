@@ -203,7 +203,7 @@ const PrintableResume = () => {
               Algorithm Research & Development Intern at MIM Software Inc.
               (Beachwood,&nbsp;OH)
             </h3>
-            <h4>May 223 - August 2023</h4>
+            <h4>May 2023 - August 2023</h4>
             <ul>
               <li>
                 Reproduced two adaptations of a state-of-the-art medical image segmentation model
