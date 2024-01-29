@@ -2,7 +2,7 @@ import React from "react";
 import { css } from "@emotion/react";
 import { ClassicLink } from "../components/core";
 
-const PrintableResume = () => {
+const PrintableResumeAmazon = () => {
   return (
     <main
       css={css`
@@ -108,32 +108,29 @@ const PrintableResume = () => {
               <li>Problem Solving</li>
               <li>Communication</li>
               <li>Personal Organization</li>
+              <li>Teamwork</li>
+              <li>Leadership</li>
             </ul>
           </div>
 
           <div>
-            <h2>Proficient in...</h2>
+            <h2>Technical Skills</h2>
 
             <ul>
               <li>Python</li>
-              <li>ReactJS</li>
               <li>Java</li>
               <li>Rust</li>
               <li>Linux</li>
               <li>Git</li>
               <li>Docker</li>
-            </ul>
-          </div>
-
-          <div>
-            <h2>Some experience with...</h2>
-
-            <ul>
               <li>C Programming</li>
               <li>Jupyter</li>
               <li>PyTorch</li>
+              <li>ReactJS</li>
+              <li>Technical Writing</li>
             </ul>
           </div>
+
         </div>
       </div>
 
@@ -156,9 +153,10 @@ const PrintableResume = () => {
           Objective
         </h2>
         <p>
-          To secure a challenging co-op for the summer of 2024 that will expand
-          my programming, research, and mathematics skill sets and give me exposure to
-          industries impacted by Computer Science.
+          Aspiring Software Development Engineer seeking a Summer 2024 internship with Amazon.
+          Eager to leverage my strong programming, research, and mathematics skills in a
+          challenging environment, contributing to innovative software solutions and gaining
+          exposure to cloud computing and distributed systems.
         </p>
 
         <h2>Experience</h2>
@@ -190,10 +188,8 @@ const PrintableResume = () => {
             </h3>
             <h4>August 2023 - Present</h4>
             <ul>
-              <li>Hired new CPTs</li>
-              <li>Trained and managed the CPT team</li>
-              <li>Led the organization of computer science events</li>
-              <li>Improved IT infrastructure</li>
+              <li>Hired, trained, and managed a team of eight CPTs</li>
+              <li>Led the organization of seven computer science events and improved IT infrastructure, showcasing project management skills and technical proficiency</li>
               <li>Coordinated with faculty and with our sister program, the Engineering Peer Teachers</li>
             </ul>
 
@@ -206,12 +202,10 @@ const PrintableResume = () => {
             <h4>May 2023 - August 2023</h4>
             <ul>
               <li>
-                Reproduced two adaptations of a state-of-the-art medical image segmentation model
+                Reproduced two adaptations of a state-of-the-art medical image segmentation model,
+                fine-tuned neural networks on in-house CT data, and conducted ablation studies,
+                which demonstrates skill in the machine learning research field
               </li>
-              <li>
-                Fine-tuned neural networks on in-house CT data
-              </li>
-              <li>Conducted ablation studies</li>
               <li>
                 Presented my findings to the research team and the company's Chief Science Officer
               </li>
@@ -225,7 +219,7 @@ const PrintableResume = () => {
             <h4>October 2022 - August 2023</h4>
             <ul>
               <li>
-                Reinforced students' programming education and answered questions primarily related to Python, Java,
+                Provided 1-on-1 assistance to computer science students; answered questions primarily related to Python, Java,
                 and C.
               </li>
               <li>Helped organize computer science events</li>
@@ -240,8 +234,8 @@ const PrintableResume = () => {
             <ul>
               <li>Contributed to a 1M+ line code base</li>
               <li>
-                Made a measurable impact by implementing sought-after features,
-                including one that will allow MIM to drop support for a software
+                Made a measurable impact by implementing support for an old proprietary
+                file format, which will allow MIM to drop support for a software
                 version that is three major versions behind the latest release
               </li>
             </ul>
@@ -258,13 +252,6 @@ const PrintableResume = () => {
               <li>
                 Developed a PLC data-logging service for the Raspberry Pi
                 using Python / Bash Scripting, Docker, Rust, and sockets.
-              </li>
-              <li>
-                Built a locally served ReactJS application to visualize that data
-              </li>
-              <li>
-                Released two alpha versions of the product (packaged as an
-                ISO for the Raspberry Pi)
               </li>
             </ul>
           </div>
@@ -318,11 +305,11 @@ const PrintableResume = () => {
             <h4>Graduated in May 2021, GPA: 4.0</h4>
           </div>
 
-          <div>
+          {/*<div>
             <em>iSTEM Early College High School (Painesville, OH)</em>
             <h3>High School Honors Diploma</h3>
             <h4>Graduated in May 2021, GPA: 4.0</h4>
-          </div>
+          </div>*/}
         </div>
 
         {/* <h2>Accomplishments</h2>
@@ -336,20 +323,20 @@ const PrintableResume = () => {
         <h2>Interests</h2>
         <ul
           css={css`
-            column-count: 3;
+            column-count: 2;
             margin-top: 0.3rem;
           `}
         >
-          <li>Academic Research</li>
-          <li>Machine Learning</li>
-          <li>Mathematics</li>
-          <li>Reading and Writing</li>
-          <li>Singing</li>
-          <li>Piano</li>
+          <li>Deep interest in academic research, with a focus on machine learning and its applications.</li>
+          <li>Passionate about mathematics, exploring complex problems and innovative solutions.</li>
+          <li>
+            Developed an online game based on microservice architecture as a personal project.
+            Utilized Rust, Docker, and TypeScript, and implemented continuous integration (CI) with GitLab
+          </li>
         </ul>
       </div>
     </main>
   );
 };
 
-export default PrintableResume;
+export default PrintableResumeAmazon;
