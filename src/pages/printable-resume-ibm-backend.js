@@ -105,7 +105,7 @@ const PrintableResumeAmazon = () => {
             <h2>Soft Skills</h2>
 
             <ul>
-              <li>Problem Solving</li>
+              <li>Problem-Solving</li>
               <li>Communication</li>
               <li>Personal Organization</li>
               <li>Technical Writing</li>
@@ -167,7 +167,7 @@ const PrintableResumeAmazon = () => {
           Objective
         </h2>
         <p>
-          Computer science student with over a decade of programming experience seeking a Summer 2024 research internship. Eager to leverage my skills for software development, algorithm design, and problem-solving in a collaborative research environment.
+          Computer science student with over a decade of programming experience seeking a Summer 2024 research-oriented backend development internship. Eager to leverage my skills in software development, algorithm design, and problem-solving in a collaborative research environment.
         </p>
 
         <h2>Experience</h2>

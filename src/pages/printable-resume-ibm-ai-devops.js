@@ -133,6 +133,7 @@ const PrintableResumeAmazon = () => {
             <strong>Tools</strong>
             <ul>
               <li>Git</li>
+              <li>GitLab CI/CD</li>
               <li>Docker</li>
               <li>Linux</li>
               <li>Jupyter</li>
@@ -167,7 +168,7 @@ const PrintableResumeAmazon = () => {
           Objective
         </h2>
         <p>
-          Computer science student with over a decade of programming experience seeking a Summer 2024 research internship. Eager to leverage my skills for software development, algorithm design, and problem-solving in a collaborative research environment.
+          Computer science student with over a decade of programming experience seeking a Summer 2024 DevOps internship. Eager to leverage scripting, CI/CD pipeline experience, and containerization skills to support innovative AI technologies and increase operational efficiency.
         </p>
 
         <h2>Experience</h2>

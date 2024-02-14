@@ -86,7 +86,7 @@ const PrintableResumeAmazon = () => {
               `}
             >
               <p>Painesville, OH 44077</p>
-              <p>(440) 749-4115</p>
+              <p>(440) 749 4115</p>
               <ClassicLink href="mailto:jsimonrichard@gmail.com">
                 jsimonrichard@gmail.com
               </ClassicLink>
