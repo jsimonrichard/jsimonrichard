@@ -107,8 +107,8 @@ const PrintableResumeAmazon = () => {
             <ul>
               <li>Problem Solving</li>
               <li>Communication</li>
-              <li>Personal Organization</li>
               <li>Technical Writing</li>
+              <li>Personal Organization</li>
               <li>Teamwork</li>
               <li>Leadership</li>
             </ul>
