@@ -168,7 +168,7 @@ const PrintableResumeAmazon = () => {
           Objective
         </h2>
         <p>
-          Computer science student with over a decade of programming experience seeking a Summer 2024 software engineering internship. Eager to leverage my skills for software development, algorithm design, and problem-solving on impactful projects in a collaborative work environment.
+          Computer science student with over a decade of programming experience seeking a Summer 2024 research internship. Eager to leverage my skills for software development, algorithm design, and problem-solving on impactful projects in a collaborative research environment.
         </p>
 
         <h2>Work Experience</h2>
