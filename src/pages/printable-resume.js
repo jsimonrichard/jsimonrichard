@@ -170,7 +170,7 @@ const PrintableResumeAmazon = () => {
           Computer science student with over a decade of programming experience seeking a Summer 2024 research internship. Eager to leverage my skills for software development, algorithm design, and problem-solving in a collaborative research environment.
         </p>
 
-        <h2>Experience</h2>
+        <h2>Work Experience</h2>
         <div
           css={css`
             & > div {
@@ -199,9 +199,10 @@ const PrintableResumeAmazon = () => {
             </h3>
             <h4>August 2023 - Present</h4>
             <ul>
-              <li>Hire, train, and manage a team of eight CPTs</li>
-              <li>Lead the organization of seven computer science events and improve IT infrastructure, showcasing project management skills and technical proficiency</li>
-              <li>Coordinate with faculty and with our sister program, the Engineering Peer Teachers</li>
+              <li>Hire, train, and manage a team of eight CPTs; manage employee time sheets</li>
+              <li>Make data-driven decisions regarding hiring and tutoring assignments</li>
+              <li>Improve IT infrastructure and cybersecurity posture</li>
+              <li>Lead the organization of seven computer science events and coordinate with faculty and with our sister program, the Engineering Peer Teachers</li>
             </ul>
 
           </div>
@@ -281,6 +282,19 @@ const PrintableResumeAmazon = () => {
           </div> */}
         </div>
 
+        <h2>Relevant Projects</h2>
+        <ul css={css`margin-top: 0em`}>
+          <li>
+            <strong>Quantum Machine Learning (Honors Thesis):</strong> Research which classical and quantum hybrid models are best suited for graph learning tasks. Expected publication in 2024.
+          </li>
+          <li>
+            <strong>Math Project on Mixed Volumes:</strong> Use computer-assisted methods to explore and prove inequalities related to mixed-volumes. Expected publication in 2024.
+          </li>
+          <li>
+            <strong>Published Work:</strong> "Making the Transition to Post-Quantum Cryptography." The Downtown Review. Vol. 9. Iss. 2 (2023). Available at: <ClassicLink href="https://engagedscholarship.csuohio.edu/tdr/vol9/iss2/4">https://engagedscholarship.csuohio.edu/tdr/vol9/iss2/4</ClassicLink>
+          </li>
+        </ul>
+
         <h2>Education</h2>
         <div
           css={css`
@@ -329,7 +343,7 @@ const PrintableResumeAmazon = () => {
           </li>
         </ul> */}
 
-        <h2>Interests</h2>
+        {/* <h2>Interests</h2>
         <ul
           css={css`
             column-count: 2;
@@ -342,7 +356,7 @@ const PrintableResumeAmazon = () => {
             Developed an online game based on microservice architecture and designed for scalability as a personal project.
             Utilized Rust, Docker, and TypeScript, and implemented continuous integration (CI) with GitLab
           </li>
-        </ul>
+        </ul> */}
       </div>
     </main>
   );
