@@ -105,29 +105,43 @@ const PrintableResumeAmazon = () => {
             <h2>Soft Skills</h2>
 
             <ul>
-              <li>Problem Solving</li>
+              <li>Problem-Solving</li>
               <li>Communication</li>
+              <li>Technical Writing</li>
               <li>Personal Organization</li>
               <li>Teamwork</li>
               <li>Leadership</li>
             </ul>
           </div>
 
-          <div>
+          <div css={css`
+            & > ul {
+              margin-top: 0rem;
+            }
+          `}>
             <h2>Technical Skills</h2>
 
+            <strong>Programming Languages</strong>
             <ul>
               <li>Python</li>
               <li>Java</li>
               <li>Rust</li>
-              <li>Linux</li>
+              <li>C Programming</li>
+              <li>SQL</li>
+            </ul>
+
+            <strong>Tools</strong>
+            <ul>
               <li>Git</li>
               <li>Docker</li>
-              <li>C Programming</li>
+              <li>Linux</li>
               <li>Jupyter</li>
+            </ul>
+
+            <strong>Frameworks</strong>
+            <ul>
               <li>PyTorch</li>
               <li>ReactJS</li>
-              <li>Technical Writing</li>
             </ul>
           </div>
 
@@ -153,10 +167,7 @@ const PrintableResumeAmazon = () => {
           Objective
         </h2>
         <p>
-          Aspiring Software Development Engineer seeking a Summer 2024 internship with Amazon.
-          Eager to leverage my strong programming, research, and mathematics skills in a
-          challenging environment, contributing to innovative software solutions and gaining
-          exposure to cloud computing and distributed systems.
+          Aspiring backend developer with experience in Java, Python, and Rust seeking a Summer 2024 internship with Amazon to contribute to scalable web solutions and deepen my cloud computing knowledge.
         </p>
 
         <h2>Experience</h2>
@@ -183,14 +194,14 @@ const PrintableResumeAmazon = () => {
         >
           <div>
             <h3>
-              Computer Peer Teacher Coordinator at Cleveland State University
+              Computer Peer Teacher (CPT) Coordinator at Cleveland State University
               (Cleveland,&nbsp;OH)
             </h3>
             <h4>August 2023 - Present</h4>
             <ul>
-              <li>Hired, trained, and managed a team of eight CPTs</li>
-              <li>Led the organization of seven computer science events and improved IT infrastructure, showcasing project management skills and technical proficiency</li>
-              <li>Coordinated with faculty and with our sister program, the Engineering Peer Teachers</li>
+              <li>Hire, train, and manage a team of eight CPTs</li>
+              <li>Lead the organization of seven computer science events and improve IT infrastructure, showcasing project management skills and technical proficiency</li>
+              <li>Coordinate with faculty and with our sister program, the Engineering Peer Teachers</li>
             </ul>
 
           </div>
@@ -204,23 +215,24 @@ const PrintableResumeAmazon = () => {
               <li>
                 Reproduced two adaptations of a state-of-the-art medical image segmentation model,
                 fine-tuned neural networks on in-house CT data, and conducted ablation studies,
-                which demonstrates skill in the machine learning research field
+                demonstrating skill in the machine learning research field
               </li>
               <li>
                 Presented my findings to the research team and the company's Chief Science Officer
               </li>
+              <li>A publicly released co-op report is available upon request</li>
             </ul>
           </div>
           <div>
             <h3>
-              Computer Peer Teacher at Cleveland State University
+              Computer Peer Teacher (CPT) at Cleveland State University
               (Cleveland,&nbsp;OH)
             </h3>
             <h4>October 2022 - August 2023</h4>
             <ul>
               <li>
                 Provided 1-on-1 assistance to computer science students; answered questions primarily related to Python, Java,
-                and C.
+                and C
               </li>
               <li>Helped organize computer science events</li>
             </ul>
@@ -232,12 +244,9 @@ const PrintableResumeAmazon = () => {
             </h3>
             <h4>May 2022 - August 2022</h4>
             <ul>
-              <li>Contributed to a 1M+ line code base</li>
-              <li>
-                Made a measurable impact by implementing support for an old proprietary
-                file format, which will allow MIM to drop support for a software
-                version that is three major versions behind the latest release
-              </li>
+              <li>Contributed to a 1M+ line code base, adding several GUI features and enabling support for a legacy file format (which will allow the company to drop support for older versions of their flagship product)</li>
+              <li>Participated in biweekly stand-up meetings as a part of the Agile development process</li>
+              <li>A publicly released co-op report is available upon request</li>
             </ul>
           </div>
 
@@ -251,7 +260,7 @@ const PrintableResumeAmazon = () => {
             <ul>
               <li>
                 Developed a PLC data-logging service for the Raspberry Pi
-                using Python / Bash Scripting, Docker, Rust, and sockets.
+                using Python / Bash Scripting, Docker, Rust, and sockets
               </li>
             </ul>
           </div>
@@ -327,10 +336,10 @@ const PrintableResumeAmazon = () => {
             margin-top: 0.3rem;
           `}
         >
-          <li>Deep interest in academic research, with a focus on machine learning and its applications.</li>
-          <li>Passionate about mathematics, exploring complex problems and innovative solutions.</li>
+          <li>Deep interest in academic research, with a focus on machine learning and its applications</li>
+          <li>Passionate about mathematics, exploring complex problems and innovative solutions</li>
           <li>
-            Developed an online game based on microservice architecture as a personal project.
+            Developed an online game based on microservice architecture and designed for scalability as a personal project.
             Utilized Rust, Docker, and TypeScript, and implemented continuous integration (CI) with GitLab
           </li>
         </ul>
