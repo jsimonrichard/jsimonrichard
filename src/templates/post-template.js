@@ -6,10 +6,11 @@ import { Tag } from "../components/blog";
 import Helmet from "react-helmet";
 import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
+import { MDXProvider } from "@mdx-js/react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
 
-const Header = ({title, date, tags}) => (
+const Header = ({ title, date, tags }) => (
   <div css={css`margin-bottom: 5rem;`}>
 
     <Helmet>
@@ -23,7 +24,7 @@ const Header = ({title, date, tags}) => (
       justify-content: space-between;
     `}>
       <div>
-        Tags: {tags.map(tag => <Tag tag={tag}/>)}
+        Tags: {tags.map(tag => <Tag tag={tag} />)}
       </div>
 
       <div>{date}</div>
@@ -44,15 +45,19 @@ const DefaultBlogTemplate = ({ data }) => {
         padding-bottom: 2rem;
       `}>
         <Header {...frontmatter} />
-        <MDXRenderer>
-          {data.mdx.body}
-        </MDXRenderer>
+        <MDXProvider components={{
+          a: ClassicLink
+        }}>
+          <MDXRenderer>
+            {data.mdx.body}
+          </MDXRenderer>
+        </MDXProvider>
         {frontmatter.attachments != null && (
           <h3 css={css`margin-top: 3rem;`}>Attachments</h3>
         )}
         {frontmatter.attachments != null && frontmatter.attachments.map(attachment => {
           return (
-            <ClassicLink key={attachment.publicURL} href={attachment.publicURL}  target="_blank">
+            <ClassicLink key={attachment.publicURL} href={attachment.publicURL} target="_blank">
               <FontAwesomeIcon icon={faArrowUpRightFromSquare} /> {attachment.name}
             </ClassicLink>
           );

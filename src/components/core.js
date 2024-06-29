@@ -26,7 +26,7 @@ export const StyledExternalLink = styled.a`
 `;
 
 export const ClassicLink = styled.a`
-  display: block;
+  display: inline;
   text-decoration: none;
   color: #1d4ed8;
 
@@ -64,7 +64,7 @@ export const containerStyles = css`
   width: 90%;
   box-sizing: border-box;
   ${mediaQueryLarge(css`
-    width: ${0.9*1300}px;
+    width: ${0.9 * 1300}px;
   `)}
 `;
 
@@ -73,7 +73,7 @@ export const tightContainerStyles = css`
   width: 90%;
   box-sizing: border-box;
   @media (min-width: 800px) {
-    width: ${0.9*800}px;
+    width: ${0.9 * 800}px;
   }
 `;
 
@@ -87,26 +87,26 @@ export const blogContainerStyles = css`
 export const Container = styled.section`${containerStyles}`
 
 
-export const LineHeader = ({children}) => <div css={css`
+export const LineHeader = ({ children, ...props }) => <div css={css`
   margin-top: 5rem;
   margin-bottom: 3rem;
   text-align: center;
   width: 100%;
   height: fit-content;
   overflow: hidden;
-`}>
+  font-size: 1.6rem;
+`} {...props}>
   <span css={css`
     display: inline-block;
     position: relative;
     font-weight: bold;
-    font-size: 1.6rem;
 
     ::before, ::after {
       content: "";
       position: absolute;
       height: 3px;
-      border-bottom: 1px solid black;
-      border-top: 1px solid black;
+      border-bottom: 1px solid currentColor;
+      border-top: 1px solid currentColor;
       top: 40%;
       width: 50vw;
     }
