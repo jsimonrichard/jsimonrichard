@@ -564,8 +564,8 @@ const IndexPage = () => {
           <li>Backend development and security by design</li>
           <li>Theology</li>
           <li>
-            Piano (Bach, Schostakowitsch, Prokofiev, and Kapustin are a few of
-            my favorites)
+            Piano (Bach, Shostakovich, Prokofiev, and Kapustin are a few of my
+            favorites)
           </li>
         </ul>
       </Container>
