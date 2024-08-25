@@ -13,6 +13,7 @@ import {
   LineHeader,
   ClassicLink,
   FullScreen,
+  ReferenceList,
 } from "../components/core";
 import { Timeline, TimelineItem } from "../components/timeline";
 import { useStaticQuery, graphql } from "gatsby";
@@ -437,24 +438,14 @@ const IndexPage = () => {
 
         <div>
           <strong>
-            Quantum Machine Learning (Honors Thesis) - Computer Science
-            Department, Cleveland State University (Cleveland, OH)
-          </strong>
-          <ul>
-            <li>
-              Research which classical and quantum hybrid models are best suited
-              for graph learning tasks.
-            </li>
-            <li>Expected publication in late 2024.</li>
-          </ul>
-        </div>
-
-        <div>
-          <strong>
             Mixed Volumes - Mathematics Department, Cleveland State University
             (Cleveland, OH)
           </strong>
-          <ul>
+          <ul
+            css={css`
+              margin-top: 0.5rem;
+            `}
+          >
             <li>
               Use computer-assisted methods to explore and prove inequalities
               related to mixed-volumes.
@@ -464,8 +455,35 @@ const IndexPage = () => {
         </div>
 
         <div>
+          <ClassicLink
+            css={css`
+              font-weight: bold;
+            `}
+            href="https://trellis-app.com/"
+          >
+            Trellis, a collaborative documentation tool for tech companies
+          </ClassicLink>
+          <ul
+            css={css`
+              margin-top: 0.5rem;
+            `}
+          >
+            <li>Git-Powered</li>
+            <li>Follows a data ownership model inspired by Obsidian</li>
+            <li>
+              Designed for easy editing by developers and non-technical users
+              alike
+            </li>
+          </ul>
+        </div>
+
+        <div>
           <strong>Online Multiplayer Game Prototype</strong>
-          <ul>
+          <ul
+            css={css`
+              margin-top: 0.5rem;
+            `}
+          >
             <li>Based on microservice architecture</li>
             <li>
               Utilized Rust, Docker, and TypeScript, and implemented continuous
@@ -477,11 +495,25 @@ const IndexPage = () => {
 
       <Container id="publications">
         <LineHeader>Publications</LineHeader>
-        "Making the Transition to Post-Quantum Cryptography." The Downtown
-        Review. Vol. 9. Iss. 2 (2023). Available at:{" "}
-        <ClassicLink href="https://engagedscholarship.csuohio.edu/tdr/vol9/iss2/4">
-          https://engagedscholarship.csuohio.edu/tdr/vol9/iss2/4
-        </ClassicLink>
+
+        <ReferenceList>
+          <li>
+            “Hybrid Quantum or Purely Classical? Assessing the Utility of
+            Quantum Feature Embeddings,” Aug. 23, 2024, F1000Research: 13:961,
+            [version 1; peer review: awaiting peer review]. doi:{" "}
+            <ClassicLink href="https://doi.org/10.12688/f1000research.154428.1">
+              10.12688/f1000research.154428.1
+            </ClassicLink>
+            .
+          </li>
+          <li>
+            “Making the Transition to Post-Quantum Cryptography,” The Downtown
+            Review, vol. 9, no. 2, May 2023, [Online]. Available:{" "}
+            <ClassicLink href="https://engagedscholarship.csuohio.edu/tdr/vol9/iss2/4">
+              https://engagedscholarship.csuohio.edu/tdr/vol9/iss2/4
+            </ClassicLink>
+          </li>
+        </ReferenceList>
       </Container>
 
       <Container id="proficiencies">

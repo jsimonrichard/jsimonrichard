@@ -1,6 +1,6 @@
 import React from "react";
 import { css } from "@emotion/react";
-import { ClassicLink, LineHeader } from "../components/core";
+import { ClassicLink, LineHeader, ReferenceList } from "../components/core";
 import styled from "@emotion/styled";
 import { Timeline } from "../components/timeline";
 
@@ -241,20 +241,6 @@ const PrintableResume = () => {
 
         <div>
           <strong>
-            Quantum Machine Learning (Honors Thesis) - Computer Science
-            Department, Cleveland State University (Cleveland, OH)
-          </strong>
-          <ul>
-            <li>
-              Research which classical and quantum hybrid models are best suited
-              for graph learning tasks.
-            </li>
-            <li>Expected publication in late 2024.</li>
-          </ul>
-        </div>
-
-        <div>
-          <strong>
             Mixed Volumes - Mathematics Department, Cleveland State University
             (Cleveland, OH)
           </strong>
@@ -271,13 +257,24 @@ const PrintableResume = () => {
       <section>
         <TightLineHeader>Publications</TightLineHeader>
 
-        <div>
-          "Making the Transition to Post-Quantum Cryptography." The Downtown
-          Review. Vol. 9. Iss. 2 (2023). Available at:{" "}
-          <ClassicLink href="https://engagedscholarship.csuohio.edu/tdr/vol9/iss2/4">
-            https://engagedscholarship.csuohio.edu/tdr/vol9/iss2/4
-          </ClassicLink>
-        </div>
+        <ReferenceList>
+          <li>
+            “Hybrid Quantum or Purely Classical? Assessing the Utility of
+            Quantum Feature Embeddings,” Aug. 23, 2024, F1000Research: 13:961,
+            [version 1; peer review: awaiting peer review]. doi:{" "}
+            <ClassicLink href="https://doi.org/10.12688/f1000research.154428.1">
+              10.12688/f1000research.154428.1
+            </ClassicLink>
+            .
+          </li>
+          <li>
+            “Making the Transition to Post-Quantum Cryptography,” The Downtown
+            Review, vol. 9, no. 2, May 2023, [Online]. Available:{" "}
+            <ClassicLink href="https://engagedscholarship.csuohio.edu/tdr/vol9/iss2/4">
+              https://engagedscholarship.csuohio.edu/tdr/vol9/iss2/4
+            </ClassicLink>
+          </li>
+        </ReferenceList>
       </section>
 
       <section

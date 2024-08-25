@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { Link } from "gatsby";
-import React, { useMemo } from 'react';
+import React, { useMemo } from "react";
 
 export const StyledLink = styled(Link)`
   display: block;
@@ -42,7 +42,10 @@ export const Paragraph = styled.p`
 `;
 
 export function DynamicAge(props) {
-  const age = useMemo(() => new Date(Date.now() - props.startDate).getUTCFullYear() - 1970, [props.startDate]);
+  const age = useMemo(
+    () => new Date(Date.now() - props.startDate).getUTCFullYear() - 1970,
+    [props.startDate]
+  );
   return <span>{age}</span>;
 }
 
@@ -57,7 +60,6 @@ export const mediaQueryMedium = (styles) => css`
     ${styles}
   }
 `;
-
 
 export const containerStyles = css`
   margin: auto;
@@ -82,49 +84,88 @@ export const blogContainerStyles = css`
   ${mediaQueryMedium(css`
     padding-top: 15rem;
   `)}
-`
+`;
 
-export const Container = styled.section`${containerStyles}`
+export const Container = styled.section`
+  ${containerStyles}
+`;
 
+export const LineHeader = ({ children, ...props }) => (
+  <div
+    css={css`
+      margin-top: 5rem;
+      margin-bottom: 3rem;
+      text-align: center;
+      width: 100%;
+      height: fit-content;
+      overflow: hidden;
+      font-size: 1.6rem;
+    `}
+    {...props}
+  >
+    <span
+      css={css`
+        display: inline-block;
+        position: relative;
+        font-weight: bold;
 
-export const LineHeader = ({ children, ...props }) => <div css={css`
-  margin-top: 5rem;
-  margin-bottom: 3rem;
-  text-align: center;
-  width: 100%;
-  height: fit-content;
-  overflow: hidden;
-  font-size: 1.6rem;
-`} {...props}>
-  <span css={css`
-    display: inline-block;
-    position: relative;
-    font-weight: bold;
+        ::before,
+        ::after {
+          content: "";
+          position: absolute;
+          height: 3px;
+          border-bottom: 1px solid currentColor;
+          border-top: 1px solid currentColor;
+          top: 40%;
+          width: 50vw;
+        }
 
-    ::before, ::after {
-      content: "";
-      position: absolute;
-      height: 3px;
-      border-bottom: 1px solid currentColor;
-      border-top: 1px solid currentColor;
-      top: 40%;
-      width: 50vw;
-    }
+        ::before {
+          right: 100%;
+          margin-right: 15px;
+        }
 
-    ::before {
-      right: 100%;
-      margin-right: 15px;
-    }
-
-    ::after {
-      left: 100%;
-      margin-left: 15px;
-    }
-  `}>{children}</span>
-</div>;
+        ::after {
+          left: 100%;
+          margin-left: 15px;
+        }
+      `}
+    >
+      {children}
+    </span>
+  </div>
+);
 
 export const FullScreen = styled.section`
   width: 100vw;
   max-width: 100%;
   min-height: 100vh;
 `;
+
+export const ReferenceList = ({ children }) => (
+  <ol
+    css={css`
+      list-style-type: none;
+      counter-reset: item;
+      padding-left: 0;
+
+      & > li {
+        counter-increment: item;
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 10px;
+      }
+
+      & > li:before {
+        content: "[" counter(item) "]";
+        font-weight: bold;
+        margin-right: 0.5em;
+        flex-shrink: 0;
+      }
+    `}
+  >
+    {children.map((child, id) => (
+      <li key={id}>{child}</li>
+    ))}
+  </ol>
+);
