@@ -247,7 +247,7 @@ const PrintableResume = () => {
           <ul>
             <li>
               Use computer-assisted methods to explore and prove inequalities
-              related to mixed-volumes.
+              related to mixed volumes.
             </li>
             <li>Expected publication in late 2024.</li>
           </ul>
