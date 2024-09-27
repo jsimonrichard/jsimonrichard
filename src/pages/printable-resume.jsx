@@ -239,19 +239,47 @@ const PrintableResume = () => {
       >
         <TightLineHeader>Projects</TightLineHeader>
 
-        <div>
-          <strong>
-            Mixed Volumes - Mathematics Department, Cleveland State University
-            (Cleveland, OH)
-          </strong>
-          <ul>
-            <li>
-              Use computer-assisted methods to explore and prove inequalities
-              related to mixed volumes.
-            </li>
-            <li>Expected publication in late 2024.</li>
-          </ul>
+        <div css={css`
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            gap: 2rem;
+          `}>
+          <div>
+            <strong>
+              Mixed Volumes - Mathematics Department, Cleveland State University
+              (Cleveland, OH)
+            </strong>
+            <ul css={css`
+                margin-top: 0.5rem;
+                margin-bottom: 0rem;
+              `}>
+              <li>
+                Use computer-assisted methods to explore and prove inequalities
+                related to mixed volumes.
+              </li>
+              <li>Expected publication in late 2024.</li>
+            </ul>
+          </div>
+          <div>
+            <strong>
+              Trellis, a collaborative documentation tool for tech companies
+            </strong><br />(on hold; <ClassicLink
+              href="https://trellis-app.com/"
+            >
+              https://trellis-app.com/
+            </ClassicLink>)
+            <ul
+              css={css`
+                margin-top: 0.5rem;
+                margin-bottom: 0rem;
+              `}
+            >
+              <li>Git-Powered, follows a data ownership model inspired by Obsidian, and is designed for ease-of-use</li>
+            </ul>
+          </div>
         </div>
+        
       </section>
 
       <section>
@@ -285,15 +313,27 @@ const PrintableResume = () => {
         `}
       >
         <TightLineHeader>Technical Proficiencies</TightLineHeader>
-        <div>
-          <strong>Programming Languages:</strong> Python, Java, JavaScript,
-          Rust, C, SQL
+        <div css={css`
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          gap: 2rem;
+        `}>
+          <div>
+
+            <div>
+              <strong>Programming Languages:</strong> Python, Java, JavaScript,
+                Rust, C, SQL
+              </div>
+              <div>
+                <strong>Tools:</strong> Git, Docker, Linux, Jupyter
+              </div>
+          </div>
+          <div>
+            <div>
+              <strong>Frameworks:</strong> PyTorch, ReactJS, SolidJS
+            </div>
         </div>
-        <div>
-          <strong>Tools:</strong> Git, Docker, Linux, Jupyter
-        </div>
-        <div>
-          <strong>Frameworks:</strong> PyTorch, ReactJS, SolidJS
         </div>
       </section>
     </main>
