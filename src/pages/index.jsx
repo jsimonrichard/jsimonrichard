@@ -500,7 +500,7 @@ const IndexPage = () => {
           <li>
             “Hybrid Quantum or Purely Classical? Assessing the Utility of
             Quantum Feature Embeddings,” Aug. 23, 2024, F1000Research: 13:961,
-            [version 1; peer review: awaiting peer review]. doi:{" "}
+            [version 1; peer review: 1 approved, 1 approved with reservations]. doi:{" "}
             <ClassicLink href="https://doi.org/10.12688/f1000research.154428.1">
               10.12688/f1000research.154428.1
             </ClassicLink>
