@@ -4,12 +4,11 @@ import mdx from '@astrojs/mdx';
 import remarkMath from 'remark-math';
 import remarkHtmlKatex from 'remark-html-katex';
 import react from '@astrojs/react';
-
 import solidJs from '@astrojs/solid-js';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), mdx(), solidJs()],
+  integrations: [tailwind(), mdx(), solidJs(), react()],
   remarkPlugins: [remarkMath, remarkHtmlKatex],
   vite: {
     resolve: {
