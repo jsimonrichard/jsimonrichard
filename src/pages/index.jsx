@@ -369,7 +369,7 @@ const IndexPage = () => {
                 margin: 0px;
               `}
             >
-              Software Development Internship
+              Software Engineering Internship
             </h2>
             <h3
               css={css`
@@ -447,6 +447,15 @@ const IndexPage = () => {
             `}
           >
             <li>
+              Preprint:&nbsp;
+              <a href="https://arxiv.org/abs/2404.02842">
+                [1] G. Averkov, K. von Dichter, S. Richard, and I. Soprunov,
+                “Mixed volumes of zonoids and the absolute value of the
+                Grassmannian (Extended Abstract),” Apr. 03, 2024, arXiv:
+                arXiv:2404.02842. doi: 10.48550/arXiv.2404.02842.
+              </a>
+            </li>
+            <li>
               Use computer-assisted methods to explore and prove inequalities
               related to mixed-volumes.
             </li>
@@ -500,7 +509,8 @@ const IndexPage = () => {
           <li>
             “Hybrid Quantum or Purely Classical? Assessing the Utility of
             Quantum Feature Embeddings,” Aug. 23, 2024, F1000Research: 13:961,
-            [version 1; peer review: 1 approved, 1 approved with reservations]. doi:{" "}
+            [version 1; peer review: 1 approved, 1 approved with reservations].
+            doi:{" "}
             <ClassicLink href="https://doi.org/10.12688/f1000research.154428.1">
               10.12688/f1000research.154428.1
             </ClassicLink>
