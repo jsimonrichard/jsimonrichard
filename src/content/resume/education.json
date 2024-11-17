@@ -1,0 +1,20 @@
+[
+  {
+    "name": "B.S. Computer Science and Mathematics",
+    "graduation": "Expected graduation in May 2025",
+    "location": "Cleveland State University, Cleveland, OH",
+    "notes": [
+      "Honors Thesis: \"Hybrid Quantum or Purely Classical? Assessing the Utility of Quantum Feature Embeddings.\"",
+      "Senior Math / Engineering Project: \"Large Language Model Reasoning and Verification through AutoFormalization\""
+    ]
+  },
+  {
+    "name": "Associate of Science",
+    "graduation": "May 2021",
+    "location": "Lakeland Community College, Kirtland, OH",
+    "notes": [
+      "Outstanding Mathematics Student Award",
+      "Finalist for the Provost's Award"
+    ]
+  }
+]

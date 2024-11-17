@@ -1,11 +1,9 @@
 {
-  "cSpell.words": [
-    "Beachwood",
-    "Kirtland",
-    "Painesville",
-    "Willoughby"
-  ],
+  "cSpell.words": ["Beachwood", "Kirtland", "Painesville", "Willoughby"],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnPaste": true,
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  }
 }

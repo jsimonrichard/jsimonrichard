@@ -2,14 +2,15 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
 import remarkMath from 'remark-math';
-import remarkHtmlKatex from 'remark-html-katex';
+import remarkRehype from 'remark-rehype';
+import rehypeKatex from 'rehype-katex';
 import react from '@astrojs/react';
 import solidJs from '@astrojs/solid-js';
 
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), mdx(), solidJs(), react()],
-  remarkPlugins: [remarkMath, remarkHtmlKatex],
+  remarkPlugins: [remarkMath, remarkRehype, rehypeKatex],
   vite: {
     resolve: {
       alias: {
@@ -17,12 +18,12 @@ export default defineConfig({
       },
     },
     optimizeDeps: {
-      esbuildOptions: {
-        // it cannot be "preserve"
-        jsx: 'automatic',
-        jsxDev: true,
-        jsxImportSource: 'solid-js/h',
-      },
+      // esbuildOptions: {
+      //   // it cannot be "preserve"
+      //   jsx: 'automatic',
+      //   jsxDev: true,
+      //   jsxImportSource: 'solid-js/h',
+      // },
     },
   },
 });
