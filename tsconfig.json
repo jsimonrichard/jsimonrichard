@@ -3,6 +3,10 @@
   "compilerOptions": {
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
-    "verbatimModuleSyntax": false
+    "verbatimModuleSyntax": false,
+    "resolveJsonModule": true,
+    "paths": {
+      "~/*": ["src/*"]
+    }
   }
 }

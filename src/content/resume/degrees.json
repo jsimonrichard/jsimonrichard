@@ -1,6 +1,7 @@
 [
   {
     "name": "B.S. Computer Science and Mathematics",
+    "gpa": "4.0",
     "graduation": "Expected graduation in May 2025",
     "location": "Cleveland State University, Cleveland, OH",
     "notes": [
@@ -10,6 +11,7 @@
   },
   {
     "name": "Associate of Science",
+    "gpa": "4.0",
     "graduation": "May 2021",
     "location": "Lakeland Community College, Kirtland, OH",
     "notes": [

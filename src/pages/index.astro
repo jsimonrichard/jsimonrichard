@@ -1,7 +1,8 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '~/layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import profileImage from '~/img/profile.jpg';
+import degrees from '~/content/resume/degrees.json';
 ---
 
 <Layout title="J. Simon Richard">
@@ -55,35 +56,23 @@ import profileImage from '~/img/profile.jpg';
     <section id="education">
       <h2 class="text-2xl font-bold mb-4">Education</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-16">
-        <div class="border border-slate-200 rounded-lg p-6 max-w-screen-lg">
-          <h3 class="text-xl font-bold mb-2">
-            B.S. Computer Science and Mathematics (4.0 GPA)
-          </h3>
-          <p class="mb-2">
-            Expected graduation in May 2025 &mdash; Cleveland State University,
-            Cleveland, OH
-          </p>
-          <ul class="list-disc list-outside ml-6">
-            <li>
-              Honors Thesis: "Hybrid Quantum or Purely Classical? Assessing the
-              Utility of Quantum Feature Embeddings."
-            </li>
-            <li>
-              Senior Math / Engineering Project: "Large Language Model Reasoning
-              and Verification through AutoFormalization"
-            </li>
-          </ul>
-        </div>
-        <div class="border border-slate-200 rounded-lg p-6 max-w-screen-lg">
-          <h3 class="text-xl font-bold mb-2">Associate of Science (4.0 GPA)</h3>
-          <p class="mb-2">
-            May 2021 &mdash; Lakeland Community College, Kirtland, OH
-          </p>
-          <ul class="list-disc list-inside ml-4">
-            <li>Outstanding Mathematics Student Award</li>
-            <li>Finalist for the Provost's Award</li>
-          </ul>
-        </div>
+        {
+          degrees.map((d) => (
+            <div class="border border-slate-200 rounded-lg p-6 max-w-screen-lg">
+              <h3 class="text-lg font-bold mb-2">
+                {d.name} ({d.gpa} GPA)
+              </h3>
+              <p class="mb-2">
+                {d.graduation} &mdash;&nbsp;{d.location}
+              </p>
+              <ul class="list-disc list-outside ml-6">
+                {d.notes.map((n) => (
+                  <li>{n}</li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
       </div>
     </section>
     <section id="research-experience">
