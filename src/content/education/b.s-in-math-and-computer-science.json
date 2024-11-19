@@ -1,0 +1,10 @@
+{
+  "name": "B.S. Computer Science and Mathematics",
+  "gpa": "4.0",
+  "graduation": "Expected graduation in May 2025",
+  "location": "Cleveland State University, Cleveland, OH",
+  "notes": [
+    "Honors Thesis: \"Hybrid Quantum or Purely Classical? Assessing the Utility of Quantum Feature Embeddings.\"",
+    "Senior Math / Engineering Project: \"Large Language Model Reasoning and Verification through AutoFormalization\""
+  ]
+}
