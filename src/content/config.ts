@@ -12,7 +12,7 @@ const educationCollection = defineCollection({
 });
 
 const researchExperienceCollection = defineCollection({
-  type: 'data',
+  type: 'content',
   schema: ({ image }) =>
     z.object({
       name: z.string(),

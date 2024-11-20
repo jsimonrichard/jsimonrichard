@@ -12,10 +12,8 @@ const researchExp = await getCollection('researchExperience');
 
 <Layout title="J. Simon Richard">
   <main class="max-w-screen-xl mx-auto px-4">
-    <section id="hero" class="grid md:grid-cols-3 gap-8 mb-16 md:mt-56">
-      <div
-        class="relative h-36 w-36 p-4 md:p-0 md:w-64 md:h-64 place-self-center"
-      >
+    <section id="hero" class="grid lg:grid-cols-3 gap-8 mb-16 lg:mt-56">
+      <div class="relative h-36 w-36 p-4 lg:w-64 lg:h-64 place-self-center">
         <Image
           src={profileImage}
           alt="J. Simon Richard"
@@ -24,7 +22,7 @@ const researchExp = await getCollection('researchExperience');
           class="absolute rounded-full w-full h-full object-cover shadow-md"
         />
       </div>
-      <div class="self-center md:col-span-2">
+      <div class="self-center lg:col-span-2">
         <h1 class="text-4xl font-bold mb-4">J. Simon Richard</h1>
         <p class="mb-4">
           I'm an aspiring machine learning researcher exploring ways to enhance
@@ -37,7 +35,7 @@ const researchExp = await getCollection('researchExperience');
         <p>
           Research interests:
 
-          <ul class="list-disc list-inside ml-4 columns-sm">
+          <ul class="list-disc list-inside ml-4 columns-2xs">
             <li>Automated Theorem Proving (ATP)</li>
             <li>AutoFormalization (AF)</li>
             <li>Large Language Model (LLM) reasoning</li>
