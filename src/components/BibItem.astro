@@ -1,0 +1,21 @@
+<li class="bibliography-item">
+  <div>
+    <slot />
+  </div>
+</li>
+
+<style>
+  .bibliography-item {
+    counter-increment: item;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+
+  .bibliography-item:before {
+    content: '[' counter(item) ']';
+    /* font-weight: bold; */
+    margin-right: 0.5em;
+    flex-shrink: 0;
+  }
+</style>

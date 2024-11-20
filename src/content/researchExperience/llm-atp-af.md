@@ -1,5 +1,7 @@
 ---
 name: 'Senior Math / Computer Science Project: "Large Language Model Reasoning and Verification through AutoFormalization"'
+cover: ./lean-logo.png
+sortIndex: 4
 start: August 2024
 end: Present
 location: Cleveland State University, Cleveland, OH

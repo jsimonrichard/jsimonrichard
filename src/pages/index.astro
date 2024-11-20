@@ -2,12 +2,22 @@
 import Layout from '~/layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import profileImage from '~/img/profile.jpg';
-import { JSX } from 'solid-js';
-import { englishList } from '~/utils';
+import { cn, englishList } from '~/utils';
 import { getCollection } from 'astro:content';
+import { sortBySortIndex } from '~/content/config';
+import Bibliography from '~/components/Bibliography.astro';
+import BibItem from '~/components/BibItem.astro';
 
 const education = await getCollection('education');
 const researchExp = await getCollection('researchExperience');
+const leadershipTeachingExp = await getCollection(
+  'leadershipTeachingExperience',
+);
+const techExp = await getCollection('techExperience');
+education.sort(sortBySortIndex);
+researchExp.sort(sortBySortIndex);
+leadershipTeachingExp.sort(sortBySortIndex);
+techExp.sort(sortBySortIndex);
 ---
 
 <Layout title="J. Simon Richard">
@@ -89,10 +99,16 @@ const researchExp = await getCollection('researchExperience');
                 <Image
                   src={r.data.cover}
                   alt={r.data.name}
-                  class="mb-4 rounded-md"
+                  class="mb-4 rounded-md border border-slate-200"
                 />
               )}
-              <h3 class="text-md font-bold mb-2">{r.data.name}</h3>
+              <a
+                href={r.data.link}
+                target="_blank"
+                class={cn(r.data.link && 'text-sky-700 hover:underline')}
+              >
+                <h3 class="text-md font-bold mb-2">{r.data.name}</h3>
+              </a>
               <p class="mb-2">
                 {r.data.start} &mdash; {r.data.end}
                 <br />
@@ -113,17 +129,92 @@ const researchExp = await getCollection('researchExperience');
         }
       </div>
     </section>
-    <section id="publications">
+    <section id="publications" class="mb-16">
       <h2 class="text-2xl font-bold mb-4">Publications</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-16"></div>
+      <div class="mb-16">
+        <Bibliography>
+          <BibItem>
+            J. S. Richard, “Hybrid Quantum or Purely Classical? Assessing the
+            Utility of Quantum Feature Embeddings,” Aug. 2024, doi:
+            <a
+              href="https://doi.org/10.12688/f1000research.154428.1"
+              class="text-sky-700 hover:underline"
+              >10.12688/f1000research.154428.1</a
+            >.
+          </BibItem>
+          <BibItem>
+            G. Averkov, K. von Dichter, S. Richard, and I. Soprunov, “Mixed
+            volumes of zonoids and the absolute value of the Grassmannian
+            (Extended Abstract),” Apr. 03, 2024, arXiv: arXiv:2404.02842. doi:
+            <a
+              href="https://doi.org/10.48550/arXiv.2404.02842"
+              class="text-sky-700 hover:underline">10.48550/arXiv.2404.02842</a
+            >.
+          </BibItem>
+          <BibItem>
+            J. S. Richard, “Making the Transition to Post-Quantum Cryptography,”
+            The Downtown Review, vol. 9, no. 2, May 2023, [Online]. Available:
+            <a
+              href="https://engagedscholarship.csuohio.edu/tdr/vol9/iss2/4"
+              class="text-sky-700 hover:underline"
+              >https://engagedscholarship.csuohio.edu/tdr/vol9/iss2/4</a
+            >.
+          </BibItem>
+        </Bibliography>
+      </div>
     </section>
-    <section id="leadership-teaching-experience">
+    <section id="leadership-teaching-experience" class="mb-16">
       <h2 class="text-2xl font-bold mb-4">Leadership & Teaching Experience</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-16"></div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {
+          leadershipTeachingExp.map((l) => (
+            <div class="border border-slate-200 rounded-lg p-6 max-w-screen-lg shadow-md">
+              {l.data.cover && (
+                <Image
+                  src={l.data.cover}
+                  alt={l.data.name}
+                  width={200}
+                  height={200}
+                  class="mb-4 mx-auto"
+                />
+              )}
+              <h3 class="text-md font-bold mb-2">{l.data.name}</h3>
+              <p class="mb-2">
+                {l.data.start} &mdash; {l.data.end}
+                <br />
+                {l.data.location}
+              </p>
+              <ul class="list-disc list-outside ml-6">
+                {l.data.notes.map((n: string) => (
+                  <li>{n}</li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
     </section>
-    <section id="additional-tech-experience">
+    <section id="additional-tech-experience" class="mb-16">
       <h2 class="text-2xl font-bold mb-4">Additional Technical Experience</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-16"></div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {
+          techExp.map((t) => (
+            <div class="border border-slate-200 rounded-lg p-6 max-w-screen-lg shadow-md">
+              <h3 class="text-md font-bold mb-2">{t.data.name}</h3>
+              <p class="mb-2">
+                {t.data.start} &mdash; {t.data.end}
+                <br />
+                {t.data.location}
+              </p>
+              <ul class="list-disc list-outside ml-6">
+                {t.data.notes.map((n: string) => (
+                  <li>{n}</li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
     </section>
   </main>
 </Layout>

@@ -1,5 +1,7 @@
 ---
 name: 'R&D Intern'
+cover: ContourImage.jpg
+sortIndex: 1
 start: May 2022
 end: August 2022
 location: MIM Software Inc., Beachwood, OH

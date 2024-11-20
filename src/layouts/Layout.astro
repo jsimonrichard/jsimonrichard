@@ -51,6 +51,12 @@ const { title } = Astro.props;
 
     <slot />
 
+    <footer class="bg-slate-200">
+      <div class="text-center p-4">
+        Copywrite © {new Date().getFullYear()} J. Simon Richard
+      </div>
+    </footer>
+
     <style is:global>
       html,
       body {
