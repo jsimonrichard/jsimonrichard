@@ -9,3 +9,4 @@
 - [x] Blog posts with PDF attachments
 - [x] GitHub build action
 - [ ] Better mobile `<Layout />`
+- [ ] Update favicon
