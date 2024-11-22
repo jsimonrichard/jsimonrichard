@@ -1,0 +1,47 @@
+---
+import { cn } from '~/utils';
+
+const { class: externalClass, lineWidth = '1px' } = Astro.props;
+---
+
+<h2 class={cn('line-header', externalClass)}>
+  <span>
+    <slot />
+  </span>
+</h2>
+
+<style define:vars={{ lineWidth }}>
+  .line-header {
+    text-align: center;
+    width: 100%;
+    height: fit-content;
+    overflow: hidden;
+  }
+
+  .line-header span {
+    display: inline-block;
+    position: relative;
+    font-weight: bold;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      height: 0pt;
+      border-top: var(--lineWidth) solid;
+      apply: @border-slate-200;
+      top: 50%;
+      width: 50vw;
+    }
+
+    &::before {
+      right: 100%;
+      margin-right: 15px;
+    }
+
+    &::after {
+      left: 100%;
+      margin-left: 15px;
+    }
+  }
+</style>

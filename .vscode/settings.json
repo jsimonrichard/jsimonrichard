@@ -1,11 +1,18 @@
 {
   "cSpell.words": [
+    "abelian",
     "Beachwood",
+    "bijectively",
+    "Coxeter",
     "Kirtland",
     "Painesville",
+    "Schreier",
     "Willoughby"
   ],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnPaste": true,
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  }
 }

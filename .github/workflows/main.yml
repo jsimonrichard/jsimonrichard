@@ -1,20 +1,19 @@
 name: ci
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-
 jobs:
   build-and-deploy:
-    name: Build Gatsby Project and Deploy to Hostinger
+    name: Build Astro and Deploy to Hostinger
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -32,6 +31,5 @@ jobs:
         env:
           REPO: self
           BRANCH: public
-          FOLDER: public
+          FOLDER: dist
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-

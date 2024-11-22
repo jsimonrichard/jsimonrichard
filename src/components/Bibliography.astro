@@ -1,0 +1,17 @@
+---
+import { cn } from '~/utils';
+
+const { class: externalClass } = Astro.props;
+---
+
+<ol class={cn('bibliography', externalClass)}>
+  <slot />
+</ol>
+
+<style>
+  .bibliography {
+    list-style-type: none;
+    counter-reset: item;
+    padding-left: 0;
+  }
+</style>

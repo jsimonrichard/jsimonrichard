@@ -1,0 +1,91 @@
+---
+import { getCollection } from 'astro:content';
+import Tag from '~/components/blog/Tag.astro';
+import Layout from '~/layouts/Layout.astro';
+import 'katex/dist/katex.min.css';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+
+  return posts.map((post: any) => ({
+    params: { post: post.slug },
+    props: { post },
+  }));
+}
+
+// @ts-ignore
+const post = Astro.props.post;
+const { Content } = await post.render();
+---
+
+<Layout title={`J. Simon Richard | ${post.data.title}`}>
+  <main class="max-w-screen-md mx-auto px-4 pt-24 md:pt-48 min-h-screen">
+    <h1 class="text-2xl font-bold mb-4">{post.data.title}</h1>
+    <div class="flex flex-row items-center gap-4 mb-8">
+      <div>{post.data.date}</div>
+      <div class="flex flex-row gap-2">
+        {post.data.tags.map((tag: string) => <Tag tag={tag} />)}
+      </div>
+    </div>
+
+    <article class="prose prose-slate mb-24">
+      <Content />
+    </article>
+
+    {
+      post.data.attachments && (
+        <div class="pt-8">
+          <h2 class="text-xl font-bold mb-2">Attachments</h2>
+          <ul class="list-disc list-inside ml-4">
+            {post.data.attachments.map((attachment: any) => (
+              <li>
+                <a href={attachment.link} class="text-sky-700 hover:underline">
+                  {attachment.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )
+    }
+  </main>
+</Layout>
+
+<style is:global>
+  .prose {
+    h1 {
+      @apply text-2xl font-bold mb-4;
+    }
+
+    h2 {
+      @apply text-xl font-bold mb-2;
+    }
+
+    h3 {
+      @apply text-lg font-bold;
+    }
+
+    a {
+      @apply text-sky-700 hover:underline;
+    }
+
+    a:visited {
+      @apply text-sky-800;
+    }
+
+    p {
+      @apply mb-4;
+    }
+
+    & > ol {
+      @apply list-decimal list-inside;
+
+      & > li {
+        margin-bottom: 0.5rem;
+        & > p:first-child {
+          display: inline;
+        }
+      }
+    }
+  }
+</style>
