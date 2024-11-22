@@ -18,13 +18,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+      - name: uses: oven-sh/setup-bun@v2
         with:
-          node-version: ${{ matrix.node-version }}
+          bun-version: latest
 
-      - run: npm ci
-      - run: npm run build --if-present
+      - run: bun install
+      - run: bun run build
 
       - name: Push to Public Branch
         uses: s0/git-publish-subdir-action@develop
