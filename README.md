@@ -4,7 +4,7 @@
 
 - [x] Home page
 - [x] Resume content (managed for home page and printable resume)
-- [ ] Printable-resume
+- [x] Printable-resume
 - [ ] Markdown blog with working interactive elements
 - [ ] Blog posts with PDF attachments
 - [ ] GitHub build action

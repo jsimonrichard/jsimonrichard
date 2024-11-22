@@ -74,10 +74,10 @@ techExp.sort(sortBySortIndex);
           education.map((edu) => (
             <div class="border border-slate-200 rounded-lg p-6 max-w-screen-lg shadow-md">
               <h3 class="text-lg font-bold mb-2">
-                {edu.data.name} ({edu.data.gpa} GPA)
+                {edu.data.name} | {edu.data.gpa} GPA
               </h3>
               <p class="mb-2">
-                {edu.data.graduation} &mdash;&nbsp;{edu.data.location}
+                {edu.data.graduation} | {edu.data.location}
               </p>
               <ul class="list-disc list-outside ml-6">
                 {edu.data.notes.map((n: string) => (
@@ -132,7 +132,7 @@ techExp.sort(sortBySortIndex);
     <section id="publications" class="mb-16">
       <h2 class="text-2xl font-bold mb-4">Publications</h2>
       <div class="mb-16">
-        <Bibliography>
+        <Bibliography class="flex flex-col gap-4">
           <BibItem>
             J. S. Richard, “Hybrid Quantum or Purely Classical? Assessing the
             Utility of Quantum Feature Embeddings,” Aug. 2024, doi:

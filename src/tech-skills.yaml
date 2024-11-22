@@ -1,0 +1,69 @@
+programmingLanguages:
+  prettyName: Programming Languages
+  list:
+    - name: Python
+      since: 2014
+      level: proficient
+    - name: JavaScript/TypeScript
+      since: 2020
+      level: proficient
+    - name: Rust
+      since: 2020
+      level: familiar
+    - name: Java
+      since: 2021
+      level: familiar
+    - name: C
+      since: 2022
+      level: familiar
+
+mlLibraries:
+  prettyName: ML Libraries
+  list:
+    - name: PyTorch
+      since: 2023
+      level: familiar
+    - name: Scikit-learn
+      since: 2023
+      level: familiar
+    - name: NumPy
+      since: 2023
+      level: familiar
+    - name: Pandas
+      since: 2023
+      level: familiar
+
+webFrameworks:
+  prettyName: Web Frameworks
+  list:
+    - name: ReactJS
+      since: 2020
+      level: familiar
+    - name: SolidJS
+      since: 2023
+      level: familiar
+
+tools:
+  prettyName: Tools
+  list:
+    - name: Git
+      since: 2015
+      level: proficient
+    - name: Linux
+      since: 2020
+      level: proficient
+    - name: Docker
+      since: 2020
+      level: proficient
+    - name: SageMath
+      since: 2023
+      level: familiar
+    - name: LEAN 4
+      since: 2024
+      level: basic
+    - name: PostgreSQL
+      since: 2023
+      level: basic
+    - name: MongoDB
+      years: 1
+      level: basic

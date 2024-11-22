@@ -6,7 +6,8 @@
     "verbatimModuleSyntax": false,
     "resolveJsonModule": true,
     "paths": {
-      "~/*": ["src/*"]
-    }
+      "~/*": ["./src/*"]
+    },
+    "types": ["@modyfi/vite-plugin-yaml/modules"]
   }
 }
