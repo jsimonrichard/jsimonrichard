@@ -8,12 +8,12 @@ import { sortBySortIndex } from '~/content/config';
 import Bibliography from '~/components/Bibliography.astro';
 import BibItem from '~/components/BibItem.astro';
 
-const education = await getCollection('education');
-const researchExp = await getCollection('researchExperience');
+const education = await getCollection('resume-education');
+const researchExp = await getCollection('resume-research-experience');
 const leadershipTeachingExp = await getCollection(
-  'leadershipTeachingExperience',
+  'resume-leadership-teaching-experience',
 );
-const techExp = await getCollection('techExperience');
+const techExp = await getCollection('resume-tech-experience');
 education.sort(sortBySortIndex);
 researchExp.sort(sortBySortIndex);
 leadershipTeachingExp.sort(sortBySortIndex);
@@ -71,7 +71,7 @@ techExp.sort(sortBySortIndex);
       <h2 class="text-2xl font-bold mb-4">Education</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         {
-          education.map((edu) => (
+          education.map((edu: any) => (
             <div class="border border-slate-200 rounded-lg p-6 max-w-screen-lg shadow-md">
               <h3 class="text-lg font-bold mb-2">
                 {edu.data.name} | {edu.data.gpa} GPA
@@ -93,7 +93,7 @@ techExp.sort(sortBySortIndex);
       <h2 class="text-2xl font-bold mb-4">Research Experience</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         {
-          researchExp.map((r) => (
+          researchExp.map((r: any) => (
             <div class="border border-slate-200 rounded-lg p-6 max-w-screen-lg shadow-md">
               {r.data.cover && (
                 <Image
@@ -120,7 +120,7 @@ techExp.sort(sortBySortIndex);
                 )}
               </p>
               <ul class="list-disc list-outside ml-6">
-                {r.data.notes.map((n) => (
+                {r.data.notes.map((n: string) => (
                   <li>{n}</li>
                 ))}
               </ul>
@@ -167,7 +167,7 @@ techExp.sort(sortBySortIndex);
       <h2 class="text-2xl font-bold mb-4">Leadership & Teaching Experience</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         {
-          leadershipTeachingExp.map((l) => (
+          leadershipTeachingExp.map((l: any) => (
             <div class="border border-slate-200 rounded-lg p-6 max-w-screen-lg shadow-md">
               {l.data.cover && (
                 <Image
@@ -198,7 +198,7 @@ techExp.sort(sortBySortIndex);
       <h2 class="text-2xl font-bold mb-4">Additional Technical Experience</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         {
-          techExp.map((t) => (
+          techExp.map((t: any) => (
             <div class="border border-slate-200 rounded-lg p-6 max-w-screen-lg shadow-md">
               <h3 class="text-md font-bold mb-2">{t.data.name}</h3>
               <p class="mb-2">

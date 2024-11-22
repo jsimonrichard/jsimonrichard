@@ -1,0 +1,10 @@
+<a {...Astro.props} href={'/blog/tags/' + Astro.props.tag} data-astro-prefetch>
+  {Astro.props.tag}
+</a>
+
+<style>
+  a {
+    @apply bg-slate-200 py-0.5 px-1 rounded-md hover:underline;
+    color: currentColor !important;
+  }
+</style>

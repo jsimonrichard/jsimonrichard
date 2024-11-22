@@ -4,7 +4,8 @@
     "esbenp.prettier-vscode",
     "bradlc.vscode-tailwindcss",
     "formulahendry.auto-rename-tag",
-    "editorconfig.editorconfig"
+    "editorconfig.editorconfig",
+    "unifiedjs.vscode-mdx"
   ],
   "unwantedRecommendations": []
 }

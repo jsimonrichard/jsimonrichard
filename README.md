@@ -5,6 +5,6 @@
 - [x] Home page
 - [x] Resume content (managed for home page and printable resume)
 - [x] Printable-resume
-- [ ] Markdown blog with working interactive elements
-- [ ] Blog posts with PDF attachments
+- [x] Markdown blog with working interactive elements
+- [x] Blog posts with PDF attachments
 - [ ] GitHub build action

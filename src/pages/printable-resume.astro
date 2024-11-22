@@ -15,10 +15,12 @@ import LineHeader from '~/components/LineHeader.astro';
 
 import techSkills from '~/tech-skills.yaml';
 
-const education = await getCollection('education');
-const researchExp = await getCollection('researchExperience');
-let leadershipTeachingExp = await getCollection('leadershipTeachingExperience');
-const techExp = await getCollection('techExperience');
+const education = await getCollection('resume-education');
+const researchExp = await getCollection('resume-research-experience');
+let leadershipTeachingExp = await getCollection(
+  'resume-leadership-teaching-experience',
+);
+const techExp = await getCollection('resume-tech-experience');
 education.sort(sortBySortIndex);
 researchExp.sort(sortBySortIndex);
 leadershipTeachingExp.sort(sortBySortIndex);

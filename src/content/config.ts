@@ -55,11 +55,31 @@ const techExperienceCollection = defineCollection({
     }),
 });
 
+const blogCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    date: z.string(),
+    excerpt: z.string(),
+    tags: z.array(z.string()),
+    attachments: z
+      .array(
+        z.object({
+          name: z.string(),
+          link: z.string(),
+        }),
+      )
+      .optional(),
+  }),
+});
+
 export const collections = {
-  education: educationCollection,
-  researchExperience: researchExperienceCollection,
-  leadershipTeachingExperience: leadershipTeachingExperienceCollection,
-  techExperience: techExperienceCollection,
+  'resume-education': educationCollection,
+  'resume-research-experience': researchExperienceCollection,
+  'resume-leadership-teaching-experience':
+    leadershipTeachingExperienceCollection,
+  'resume-tech-experience': techExperienceCollection,
+  blog: blogCollection,
 };
 
 export const sortBySortIndex = (a: any, b: any) => {
