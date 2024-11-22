@@ -7,4 +7,4 @@
 - [x] Printable-resume
 - [x] Markdown blog with working interactive elements
 - [x] Blog posts with PDF attachments
-- [ ] GitHub build action
+- [x] GitHub build action

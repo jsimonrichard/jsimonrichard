@@ -44,15 +44,14 @@ const leadershipTeachingExperienceCollection = defineCollection({
 
 const techExperienceCollection = defineCollection({
   type: 'data',
-  schema: ({ image }) =>
-    z.object({
-      name: z.string(),
-      start: z.string(),
-      end: z.string(),
-      location: z.string(),
-      notes: z.array(z.string()),
-      sortIndex: z.number(), // sorted backwards, so oldest should have index 1
-    }),
+  schema: z.object({
+    name: z.string(),
+    start: z.string(),
+    end: z.string(),
+    location: z.string(),
+    notes: z.array(z.string()),
+    sortIndex: z.number(), // sorted backwards, so oldest should have index 1
+  }),
 });
 
 const blogCollection = defineCollection({

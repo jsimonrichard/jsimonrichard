@@ -1,7 +1,6 @@
 import {
   createEffect,
   createSignal,
-  onMount,
   splitProps,
   type ComponentProps,
 } from 'solid-js';
@@ -159,7 +158,7 @@ export const GraphAnimation = ({ dataFrames }: { dataFrames: DataFrame[] }) => {
 
           <StyledButton
             onClick={() => {
-              setT((t) => ({
+              setT(() => ({
                 step: dataFrames.length - 1,
                 frame: dataFrames[dataFrames.length - 1].frames.length - 1,
               }));
