@@ -8,3 +8,4 @@
 - [x] Markdown blog with working interactive elements
 - [x] Blog posts with PDF attachments
 - [x] GitHub build action
+- [ ] Better mobile `<Layout />`
