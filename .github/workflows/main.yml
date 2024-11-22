@@ -18,7 +18,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: uses: oven-sh/setup-bun@v2
+      - name: Build Astro
+        uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
 
