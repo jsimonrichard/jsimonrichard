@@ -9,3 +9,5 @@
 - [x] Blog posts with PDF attachments
 - [x] GitHub build action
 - [ ] Better mobile `<Layout />`
+- [ ] Update favicon
+- [ ] Make CI more specific so it doesn't trigger on README updates
