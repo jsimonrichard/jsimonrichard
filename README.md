@@ -11,3 +11,4 @@
 - [ ] Better mobile `<Layout />`
 - [ ] Update favicon
 - [ ] Make CI more specific so it doesn't trigger on README updates
+- [ ] Dark theme display issue
