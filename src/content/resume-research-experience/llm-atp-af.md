@@ -10,6 +10,6 @@ advisors:
   - Dr. L. Felipe Martins
 notes:
   - Write a survey paper on Automatic Theorem Proving (ATP), Large Language Models (LLMs), and their intersection (including AutoFormalization).
-  - Manage a team of three other Computer Science students, directing research and engineering efforts.
+  - Manage a team of three other Computer Science and Data Science seniors, directing research and engineering efforts.
   - Explore the foundations of formal theorem proving and the LEAN 4 proof language.
 ---
