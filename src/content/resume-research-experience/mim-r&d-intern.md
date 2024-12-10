@@ -2,8 +2,8 @@
 name: 'R&D Intern'
 cover: ContourImage.jpg
 sortIndex: 1
-start: May 2022
-end: August 2022
+start: May 2023
+end: August 2023
 location: MIM Software Inc., Beachwood, OH
 advisors:
   - Dr. Soroush Pahlavian
