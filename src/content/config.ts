@@ -4,7 +4,7 @@ const educationCollection = defineCollection({
   type: 'data',
   schema: z.object({
     name: z.string(),
-    gpa: z.string(),
+    gpa: z.string().optional(),
     graduation: z.string(),
     location: z.string(),
     notes: z.array(z.string()),

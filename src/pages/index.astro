@@ -35,35 +35,24 @@ techExp.sort(sortBySortIndex);
       <div class="self-center lg:col-span-2">
         <h1 class="text-4xl font-bold mb-4">J. Simon Richard</h1>
         <p class="mb-4">
-          I'm an aspiring machine learning researcher exploring ways to enhance
-          AI reasoning through formal mathematical methods. I'm particularly
-          interested in how automatic theorem proving and formal verification
-          can help bridge the gap between large language models and precise
-          logical reasoning.
+          I'm a <strong>first-year PhD student at Purdue University</strong> exploring
+          ways to enhance LLM reasoning through formal mathematical methods. I'm
+          particularly interested in how automatic theorem proving and formal verification
+          can help bridge the gap between large language models and precise logical
+          reasoning.
         </p>
 
         <p>
           Research interests:
 
           <ul class="list-disc list-inside ml-4 columns-2xs">
+            <li>Large Language Model (LLM) reasoning</li>
             <li>Automated Theorem Proving (ATP)</li>
             <li>AutoFormalization (AF)</li>
-            <li>Large Language Model (LLM) reasoning</li>
             <li>AI Safety</li>
             <li>Formal program verification</li>
           </ul>
         </p>
-      </div>
-    </section>
-    <section id="status" class="grid my-16">
-      <div
-        class="place-self-center p-6 bg-slate-200 rounded-lg max-w-screen-lg shadow-slate-400 shadow-sm"
-      >
-        Currently completing my <strong
-          >B.S. in Computer Science and Mathematics</strong
-        > at Cleveland State University (4.0 GPA), with research experience in both
-        industry and academia. Pursuing PhD opportunities in Computer Science/Machine
-        Learning.
       </div>
     </section>
 
@@ -74,7 +63,7 @@ techExp.sort(sortBySortIndex);
           education.map((edu: any) => (
             <div class="border border-slate-200 rounded-lg p-6 max-w-screen-lg shadow-md">
               <h3 class="text-lg font-bold mb-2">
-                {edu.data.name} | {edu.data.gpa} GPA
+                {edu.data.name} {edu.data.gpa && `| ${edu.data.gpa} GPA`}
               </h3>
               <p class="mb-2">
                 {edu.data.graduation} | {edu.data.location}
