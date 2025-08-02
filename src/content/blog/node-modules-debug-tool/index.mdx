@@ -1,0 +1,79 @@
+---
+date: '2025-06-05'
+title: 'A Tool for Debugging Node Modules Issues'
+tags: ['javascript', 'node', 'react']
+excerpt: ''
+---
+
+import { Image } from 'astro:assets';
+import nmvcTreeSimple from './nmvc-tree-simple.png';
+import nmvcTreeWorkspace from './nmvc-tree-workspace.png';
+import nmvcDiff from './nmvc-diff.png';
+
+A little while ago in a NextJS / TypeScript monorepo of mine, I ran into a baffling problem that indicated some kind of mismatch between package version. To debug this, I started using tools like `npm ls`, but I quickly ran into two problems:
+
+1. `npm ls` is really slow, even in my small monorepo.
+2. `bun pm ls --all` doesn't show anything about whether the requirements from `package.json` were actually satisfied.
+
+I suppose there was a third option: manually looking through the `node_modules` folder. But because these packages were deeply nested (i.e. nested in multiple `node_modules` folder), I was very reluctant to do that.
+
+Instead, I decided it was time for a side project.
+
+Over the next week or two, I created [node-module-version-checker-rs](https://github.com/jsimonrichard/node-module-version-checker-rs), a tool written in Rust that quickly reads and displays (with color!) the versions of the node modules installed AND displays whether those versions satisfy the requirements of the corresponding `package.json` files, with support for node (bun) workspaces. I also created a **diff** mode, which compares the installed packages of two different projects. This is helpful when you have a version of the project that works a version that doesn't, but all of the code you wrote is the same.
+
+## Installing the Tool
+
+To install the tool, simply clone the project:
+
+```bash
+git clone https://github.com/jsimonrichard/node-module-version-checker-rs.git
+cd node-module-version-checker-rs
+```
+
+and run the install command:
+
+```bash
+cargo install --path .
+```
+
+This assumes that you have [Rust and Cargo installed](https://rustup.rs/). Once this completes, you should have the `nmvc` binary installed.
+
+## The Features
+
+The `nmvc` binary has two commands (in addition to the `help` command).
+
+### Tree
+
+`nmvc tree [PACKAGES]...` prints out the entire dependency tree of each package listed, including the dependency version requirements and whether those requirements were met.
+
+For example, here's what the tree of a simple React Vite project looks like (some things are omitted for brevity):
+
+<Image
+  src={nmvcTreeSimple}
+  alt="A simple NMVC Tree"
+  style={{ margin: 'auto' }}
+/>
+
+Normal dependencies and dev dependencies are separated by the `[DEV DEPENDENCIES]` text. We don't support peer dependencies yet, unfortunately. The `[DEDUPED]` text means that the current line is a stub rather than the complete package along with its dependencies. We do this to make the output more readable and to prevent infinite loops in the event of a circular dependency.
+
+Here's another example showing the output for a bun workspace:
+
+<Image
+  src={nmvcTreeWorkspace}
+  alt="A bun workspace NMVC Tree"
+  style={{ margin: 'auto' }}
+/>
+
+### Tree Diff
+
+`nmvc diff <LEFT> <RIGHT>` prints out the difference between the dependency trees of the `<LEFT>` and `<RIGHT>` packages (this also includes info related to version requirements).
+
+<Image src={nmvcDiff} alt="A NMVC diff tree" style={{ margin: 'auto' }} />
+
+This image shows the differences between [tests/react-vite](https://github.com/jsimonrichard/node-module-version-checker-rs/tree/main/tests/react-vite) and [tests/react-vite-2](https://github.com/jsimonrichard/node-module-version-checker-rs/tree/main/tests/react-vite-2) within this project's [GitHub repo](https://github.com/jsimonrichard/node-module-version-checker-rs). It's worth noting that, even though two projects might depend on the same package and version, that doesn't mean that its resolved dependencies are identical. This is illustrated above by the `minimatch` package and its `brace-expansion` dependency.
+
+## A Final Note
+
+This tool is far from perfect. If you use it for any length of time, you will certainly run into bugs and important missing features. But I hope it gets a little closer to figuring out your own package resolution bugs.
+
+Let me know if you like this tool, if there's bug that preventing you from using the tool, or if there's a feature that you'd like to see: https://github.com/jsimonrichard/node-module-version-checker-rs/issues.

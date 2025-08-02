@@ -6,12 +6,13 @@ import rehypeKatex from 'rehype-katex';
 import react from '@astrojs/react';
 import solidJs from '@astrojs/solid-js';
 import ViteYaml from '@modyfi/vite-plugin-yaml';
+import remarkSmartypants from 'remark-smartypants';
 
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), mdx(), solidJs(), react()],
   markdown: {
-    remarkPlugins: [remarkMath],
+    remarkPlugins: [remarkMath, [remarkSmartypants, { dashes: 'oldschool' }]],
     rehypePlugins: [
       [
         rehypeKatex,
