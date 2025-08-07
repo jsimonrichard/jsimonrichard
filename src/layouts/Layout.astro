@@ -6,6 +6,7 @@ import '@fontsource/source-sans-pro/700.css';
 import '@fontsource-variable/jetbrains-mono';
 import { TbBrandGithub, TbBrandLinkedin, TbMail } from 'solid-icons/tb';
 import { FaBrandsOrcid } from 'solid-icons/fa';
+import PostHog from '../components/posthog.astro';
 
 interface Props {
   title: string;
@@ -23,6 +24,7 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <PostHog />
   </head>
   <body class="bg-slate-50">
     <nav class="bg-slate-50 fixed top-0 left-0 right-0 z-50 shadow-md">
