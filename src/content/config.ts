@@ -2,14 +2,17 @@ import { defineCollection, z } from 'astro:content';
 
 const educationCollection = defineCollection({
   type: 'data',
-  schema: z.object({
-    name: z.string(),
-    gpa: z.string().optional(),
-    graduation: z.string(),
-    location: z.string(),
-    notes: z.array(z.string()),
-    sortIndex: z.number(), // sorted backwards, so oldest should have index 1
-  }),
+  schema: ({ image }) =>
+    z.object({
+      name: z.string(),
+      gpa: z.string().optional(),
+      graduation: z.string(),
+      location: z.string(),
+      notes: z.array(z.string()),
+      cover: image().optional(),
+      coverBorder: z.boolean().optional().default(false),
+      sortIndex: z.number(), // sorted backwards, so oldest should have index 1
+    }),
 });
 
 const researchExperienceCollection = defineCollection({
@@ -46,14 +49,17 @@ const leadershipTeachingExperienceCollection = defineCollection({
 
 const techExperienceCollection = defineCollection({
   type: 'data',
-  schema: z.object({
-    name: z.string(),
-    start: z.string(),
-    end: z.string(),
-    location: z.string(),
-    notes: z.array(z.string()),
-    sortIndex: z.number(), // sorted backwards, so oldest should have index 1
-  }),
+  schema: ({ image }) =>
+    z.object({
+      name: z.string(),
+      start: z.string(),
+      end: z.string(),
+      location: z.string(),
+      notes: z.array(z.string()),
+      cover: image().optional(),
+      coverBorder: z.boolean().optional().default(false),
+      sortIndex: z.number(), // sorted backwards, so oldest should have index 1
+    }),
 });
 
 const blogCollection = defineCollection({

@@ -5,7 +5,7 @@ coverBorder: true
 sortIndex: 1
 start: May 2023
 end: August 2023
-location: MIM Software Inc., Beachwood, OH
+location: MIM Software, Beachwood, OH
 advisors:
   - Dr. Soroush Pahlavian
 notes:

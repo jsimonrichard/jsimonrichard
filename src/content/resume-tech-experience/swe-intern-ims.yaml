@@ -4,5 +4,5 @@ end: December 2021
 location: Integrated Mill Systems Inc., Willoughby, OH
 notes:
   - Developed a PLC data-logging service for the Raspberry Pi using Python / Bash Scripting, Docker, Rust, and sockets.
-  - Wrote a locally served data-visualization web app using React and d3.js.
+  - Wrote a data-visualization web app using React and d3.js.
 sortIndex: 1

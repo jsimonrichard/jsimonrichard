@@ -1,6 +1,8 @@
 name: Ph.D. in Computer Science
 # gpa: 'n/a'
-graduation: Expected graduation in May 2030
+cover: ../Purdue_Boilermakers_logo.svg
+graduation: Expected Graduation in May 2030
 location: Purdue University, West Lafayette, IN
-notes: []
+notes:
+  - 'Research Focus: LLMs, Program Verification, & Formal Methods'
 sortIndex: 3

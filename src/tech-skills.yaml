@@ -5,16 +5,19 @@ programmingLanguages:
       since: 2014
       level: proficient
     - name: JavaScript/TypeScript
-      since: 2020
+      since: 2018
       level: proficient
     - name: Rust
       since: 2020
       level: familiar
+    - name: LEAN 4
+      since: 2024
+      level: familiar
     - name: Java
-      since: 2021
+      years: 3
       level: familiar
     - name: C
-      since: 2022
+      years: 2
       level: familiar
 
 mlLibraries:
@@ -23,23 +26,13 @@ mlLibraries:
     - name: PyTorch
       since: 2023
       level: familiar
-    - name: Scikit-learn
+    - name: Scikit-Learn
       since: 2023
       level: familiar
     - name: NumPy
       since: 2023
       level: familiar
     - name: Pandas
-      since: 2023
-      level: familiar
-
-webFrameworks:
-  prettyName: Web Frameworks
-  list:
-    - name: ReactJS
-      since: 2020
-      level: familiar
-    - name: SolidJS
       since: 2023
       level: familiar
 
@@ -55,15 +48,18 @@ tools:
     - name: Docker
       since: 2020
       level: proficient
+    - name: Kubernetes
+      months: 3
+      level: basic
     - name: SageMath
-      since: 2023
+      years: 1
       level: familiar
-    - name: LEAN 4
-      since: 2024
-      level: basic
     - name: PostgreSQL
-      since: 2023
-      level: basic
+      years: 2
+      level: familiar
     - name: MongoDB
       years: 1
       level: basic
+    - name: Snowflake Warehouse
+      months: 3
+      level: familiar

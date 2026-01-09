@@ -1,8 +1,11 @@
 name: B.S. Computer Science and Mathematics
+cover: ./CSU_logo.jpg
+coverBorder: true
 gpa: '4.0'
 graduation: May 2025
 location: Cleveland State University, Cleveland, OH
 notes:
-  - 'Honors Thesis: "Hybrid Quantum or Purely Classical? Assessing the Utility of Quantum Feature Embeddings."'
-  - 'Senior Math / Engineering Project: "Large Language Model Reasoning and Verification through AutoFormalization"'
+  - WPT Leadership Award
+  - Outstanding Mathematics Student Award
+  - Student Achievement Award (Engineering)
 sortIndex: 2

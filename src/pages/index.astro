@@ -58,21 +58,35 @@ techExp.sort(sortBySortIndex);
 
     <section id="education" class="mb-16">
       <h2 class="text-2xl font-bold mb-4">Education</h2>
-      <div class="flex flex-col gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         {
           education.map((edu: any) => (
-            <div class="border border-border rounded-lg p-6 shadow-md">
-              <h3 class="text-lg font-bold mb-2">
-                {edu.data.name} {edu.data.gpa && `| ${edu.data.gpa} GPA`}
-              </h3>
-              <p class="mb-2">
-                {edu.data.graduation} | {edu.data.location}
-              </p>
-              <ul class="list-disc list-outside ml-6">
-                {edu.data.notes.map((n: string) => (
-                  <li>{n}</li>
-                ))}
-              </ul>
+            <div class="border border-border rounded-lg p-6 shadow-md flex flex-row gap-6">
+              {edu.data.cover && (
+                <div class="shrink-0">
+                  <Image
+                    src={edu.data.cover}
+                    alt={edu.data.name}
+                    class={cn(
+                      'rounded-md w-32 object-contain',
+                      edu.data.coverBorder && 'border border-border',
+                    )}
+                  />
+                </div>
+              )}
+              <div class="flex-1">
+                <h3 class="text-lg font-bold mb-2">
+                  {edu.data.name} {edu.data.gpa && `| ${edu.data.gpa} GPA`}
+                </h3>
+                <p class="mb-2">
+                  {edu.data.graduation} | {edu.data.location}
+                </p>
+                <ul class="list-disc list-outside ml-6">
+                  {edu.data.notes.map((n: string) => (
+                    <li>{n}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
           ))
         }
@@ -85,7 +99,7 @@ techExp.sort(sortBySortIndex);
           researchExp.map((r: any) => (
             <div class="border border-border rounded-lg p-6 shadow-md flex flex-row gap-6">
               {r.data.cover && (
-                <div class="flex-shrink-0">
+                <div class="shrink-0">
                   <Image
                     src={r.data.cover}
                     alt={r.data.name}
@@ -166,7 +180,7 @@ techExp.sort(sortBySortIndex);
           leadershipTeachingExp.map((l: any) => (
             <div class="border border-border rounded-lg p-6 shadow-md flex flex-row gap-6">
               {l.data.cover && (
-                <div class="flex-shrink-0">
+                <div class="shrink-0">
                   <Image
                     src={l.data.cover}
                     alt={l.data.name}
@@ -200,21 +214,48 @@ techExp.sort(sortBySortIndex);
       <div class="flex flex-col gap-6">
         {
           techExp.map((t: any) => (
-            <div class="border border-border rounded-lg p-6 shadow-md">
-              <h3 class="text-md font-bold mb-2">{t.data.name}</h3>
-              <p class="mb-2">
-                {t.data.start} &mdash; {t.data.end}
-                <br />
-                {t.data.location}
-              </p>
-              <ul class="list-disc list-outside ml-6">
-                {t.data.notes.map((n: string) => (
-                  <li>{n}</li>
-                ))}
-              </ul>
+            <div class="border border-border rounded-lg p-6 shadow-md flex flex-row gap-6">
+              {t.data.cover && (
+                <div class="shrink-0">
+                  <Image
+                    src={t.data.cover}
+                    alt={t.data.name}
+                    class={cn(
+                      'rounded-md w-32 object-contain',
+                      t.data.coverBorder && 'border border-border',
+                    )}
+                  />
+                </div>
+              )}
+              <div class="flex-1">
+                <h3 class="text-md font-bold mb-2">{t.data.name}</h3>
+                <p class="mb-2">
+                  {t.data.start} &mdash; {t.data.end}
+                  <br />
+                  {t.data.location}
+                </p>
+                <ul class="list-disc list-outside ml-6">
+                  {t.data.notes.map((n: string) => (
+                    <li>{n}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
           ))
         }
+      </div>
+    </section>
+    <section id="other-honors" class="mb-16">
+      <h2 class="text-2xl font-bold mb-4">Other Honors</h2>
+      <div class="border border-border rounded-lg p-6 shadow-md">
+        <ul class="list-disc list-outside ml-6">
+          <li>
+            Attendee of the <em>12<sup>th</sup> Heidelberg Laureate Forum</em> (September
+            2025), an international conference for young researchers in Computer Science
+            and Mathematics and laureates in the same fields, including recipients
+            of the ACM A.M. Turing Award and the Fields Medal (among other awards).
+          </li>
+        </ul>
       </div>
     </section>
   </main>
