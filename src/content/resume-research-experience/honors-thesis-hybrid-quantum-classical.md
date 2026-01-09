@@ -1,6 +1,7 @@
 ---
 name: 'Honors Thesis: "Hybrid Quantum or Purely Classical? Assessing the Utility of Quantum Feature Embeddings."'
 cover: ./QML-methodology.png
+coverBorder: true
 link: https://doi.org/10.12688/f1000research.154428.1
 sortIndex: 2
 start: August 2023

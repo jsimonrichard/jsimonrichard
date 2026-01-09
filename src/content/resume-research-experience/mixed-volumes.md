@@ -1,6 +1,7 @@
 ---
 name: 'Mathematics Research Assistant'
 cover: './mixed-volume-research-cover.jpg'
+coverBorder: true
 link: https://doi.org/10.48550/arXiv.2404.02842
 sortIndex: 3
 start: August 2023

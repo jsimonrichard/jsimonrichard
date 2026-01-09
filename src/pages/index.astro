@@ -58,10 +58,10 @@ techExp.sort(sortBySortIndex);
 
     <section id="education" class="mb-16">
       <h2 class="text-2xl font-bold mb-4">Education</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="flex flex-col gap-6">
         {
           education.map((edu: any) => (
-            <div class="border border-border rounded-lg p-6 max-w-5xl shadow-md">
+            <div class="border border-border rounded-lg p-6 shadow-md">
               <h3 class="text-lg font-bold mb-2">
                 {edu.data.name} {edu.data.gpa && `| ${edu.data.gpa} GPA`}
               </h3>
@@ -80,39 +80,46 @@ techExp.sort(sortBySortIndex);
     </section>
     <section id="research-experience" class="mb-16">
       <h2 class="text-2xl font-bold mb-4">Research Experience</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="flex flex-col gap-6">
         {
           researchExp.map((r: any) => (
-            <div class="border border-border rounded-lg p-6 max-w-5xl shadow-md">
+            <div class="border border-border rounded-lg p-6 shadow-md flex flex-row gap-6">
               {r.data.cover && (
-                <Image
-                  src={r.data.cover}
-                  alt={r.data.name}
-                  class="mb-4 rounded-md border border-border"
-                />
+                <div class="flex-shrink-0">
+                  <Image
+                    src={r.data.cover}
+                    alt={r.data.name}
+                    class={cn(
+                      'rounded-md w-80 object-contain',
+                      r.data.coverBorder && 'border border-border',
+                    )}
+                  />
+                </div>
               )}
-              <a
-                href={r.data.link}
-                target="_blank"
-                class={cn(r.data.link && 'text-sky-700 hover:underline')}
-              >
-                <h3 class="text-md font-bold mb-2">{r.data.name}</h3>
-              </a>
-              <p class="mb-2">
-                {r.data.start} &mdash; {r.data.end}
-                <br />
-                {r.data.location}
-                <br />
-                Advised by{' '}
-                {englishList(
-                  r.data.advisors.map((ad: string) => <strong>{ad}</strong>),
-                )}
-              </p>
-              <ul class="list-disc list-outside ml-6">
-                {r.data.notes.map((n: string) => (
-                  <li>{n}</li>
-                ))}
-              </ul>
+              <div class="flex-1">
+                <a
+                  href={r.data.link}
+                  target="_blank"
+                  class={cn(r.data.link && 'text-sky-700 hover:underline')}
+                >
+                  <h3 class="text-md font-bold mb-2">{r.data.name}</h3>
+                </a>
+                <p class="mb-2">
+                  {r.data.start} &mdash; {r.data.end}
+                  <br />
+                  {r.data.location}
+                  <br />
+                  Advised by{' '}
+                  {englishList(
+                    r.data.advisors.map((ad: string) => <strong>{ad}</strong>),
+                  )}
+                </p>
+                <ul class="list-disc list-outside ml-6">
+                  {r.data.notes.map((n: string) => (
+                    <li>{n}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
           ))
         }
@@ -154,30 +161,35 @@ techExp.sort(sortBySortIndex);
     </section>
     <section id="leadership-teaching-experience" class="mb-16">
       <h2 class="text-2xl font-bold mb-4">Leadership & Teaching Experience</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="flex flex-col gap-6">
         {
           leadershipTeachingExp.map((l: any) => (
-            <div class="border border-border rounded-lg p-6 max-w-5xl shadow-md">
+            <div class="border border-border rounded-lg p-6 shadow-md flex flex-row gap-6">
               {l.data.cover && (
-                <Image
-                  src={l.data.cover}
-                  alt={l.data.name}
-                  width={200}
-                  height={200}
-                  class="mb-4 mx-auto"
-                />
+                <div class="flex-shrink-0">
+                  <Image
+                    src={l.data.cover}
+                    alt={l.data.name}
+                    class={cn(
+                      'rounded-md w-32 object-contain',
+                      l.data.coverBorder && 'border border-border',
+                    )}
+                  />
+                </div>
               )}
-              <h3 class="text-md font-bold mb-2">{l.data.name}</h3>
-              <p class="mb-2">
-                {l.data.start} &mdash; {l.data.end}
-                <br />
-                {l.data.location}
-              </p>
-              <ul class="list-disc list-outside ml-6">
-                {l.data.notes.map((n: string) => (
-                  <li>{n}</li>
-                ))}
-              </ul>
+              <div class="flex-1">
+                <h3 class="text-md font-bold mb-2">{l.data.name}</h3>
+                <p class="mb-2">
+                  {l.data.start} &mdash; {l.data.end}
+                  <br />
+                  {l.data.location}
+                </p>
+                <ul class="list-disc list-outside ml-6">
+                  {l.data.notes.map((n: string) => (
+                    <li>{n}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
           ))
         }
@@ -185,10 +197,10 @@ techExp.sort(sortBySortIndex);
     </section>
     <section id="additional-tech-experience" class="mb-16">
       <h2 class="text-2xl font-bold mb-4">Additional Technical Experience</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="flex flex-col gap-6">
         {
           techExp.map((t: any) => (
-            <div class="border border-border rounded-lg p-6 max-w-5xl shadow-md">
+            <div class="border border-border rounded-lg p-6 shadow-md">
               <h3 class="text-md font-bold mb-2">{t.data.name}</h3>
               <p class="mb-2">
                 {t.data.start} &mdash; {t.data.end}

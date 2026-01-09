@@ -18,6 +18,7 @@ const researchExperienceCollection = defineCollection({
     z.object({
       name: z.string(),
       cover: image().optional(),
+      coverBorder: z.boolean().optional().default(false),
       link: z.string().optional(),
       start: z.string(),
       end: z.string(),
@@ -34,6 +35,7 @@ const leadershipTeachingExperienceCollection = defineCollection({
     z.object({
       name: z.string(),
       cover: image().optional(),
+      coverBorder: z.boolean().optional().default(false),
       start: z.string(),
       end: z.string(),
       location: z.string(),
