@@ -1,3 +1,4 @@
+/** @jsxImportSource solid-js */
 import clsx, { ClassValue } from 'clsx';
 import {
   Component,

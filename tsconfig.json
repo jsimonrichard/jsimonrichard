@@ -9,5 +9,6 @@
       "~/*": ["./src/*"]
     },
     "types": ["@modyfi/vite-plugin-yaml/modules"]
-  }
+  },
+  "exclude": ["dist"]
 }
