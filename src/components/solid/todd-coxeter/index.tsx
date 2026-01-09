@@ -6,8 +6,8 @@ import {
 } from 'solid-js';
 import { Options, Network, Edge, Node } from 'vis-network';
 import { DataSet } from 'vis-data';
-import { withProps } from '~/with-props';
-import { cn } from '~/utils';
+import { withProps } from '../with-props';
+import { cn } from '../utils';
 
 type GraphData = {
   nodes: Node[];
@@ -44,7 +44,7 @@ export const Graph = (
 };
 
 const StyledButton = withProps('button', {
-  class: 'px-4 py-2 bg-slate-200 hover:bg-slate-300 rounded-md',
+  class: 'px-4 py-2 bg-secondary hover:bg-muted rounded-md',
 });
 
 type DataFrame = {

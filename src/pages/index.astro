@@ -2,7 +2,8 @@
 import Layout from '~/layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import profileImage from '~/img/profile.jpg';
-import { cn, englishList } from '~/utils';
+import { cn } from '~/lib/utils';
+import { englishList } from '~/components/solid/utils';
 import { getCollection } from 'astro:content';
 import { sortBySortIndex } from '~/content/config';
 import Bibliography from '~/components/Bibliography.astro';
@@ -21,7 +22,7 @@ techExp.sort(sortBySortIndex);
 ---
 
 <Layout title="J. Simon Richard">
-  <main class="max-w-screen-xl mx-auto px-4">
+  <main class="max-w-7xl mx-auto px-4">
     <section id="hero" class="grid lg:grid-cols-3 gap-8 mb-16 lg:mt-56">
       <div class="relative h-36 w-36 p-4 lg:w-64 lg:h-64 place-self-center">
         <Image
@@ -36,10 +37,9 @@ techExp.sort(sortBySortIndex);
         <h1 class="text-4xl font-bold mb-4">J. Simon Richard</h1>
         <p class="mb-4">
           I'm a <strong>first-year PhD student at Purdue University</strong> exploring
-          ways to enhance LLM reasoning through formal mathematical methods. I'm
-          particularly interested in how automatic theorem proving and formal verification
-          can help bridge the gap between large language models and precise logical
-          reasoning.
+          ways to enhance LLM reasoning through formal mathematical methods. I'm particularly
+          interested in how automatic theorem proving and formal verification can
+          help bridge the gap between large language models and precise logical reasoning.
         </p>
 
         <p>
@@ -61,7 +61,7 @@ techExp.sort(sortBySortIndex);
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         {
           education.map((edu: any) => (
-            <div class="border border-slate-200 rounded-lg p-6 max-w-screen-lg shadow-md">
+            <div class="border border-border rounded-lg p-6 max-w-5xl shadow-md">
               <h3 class="text-lg font-bold mb-2">
                 {edu.data.name} {edu.data.gpa && `| ${edu.data.gpa} GPA`}
               </h3>
@@ -83,12 +83,12 @@ techExp.sort(sortBySortIndex);
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         {
           researchExp.map((r: any) => (
-            <div class="border border-slate-200 rounded-lg p-6 max-w-screen-lg shadow-md">
+            <div class="border border-border rounded-lg p-6 max-w-5xl shadow-md">
               {r.data.cover && (
                 <Image
                   src={r.data.cover}
                   alt={r.data.name}
-                  class="mb-4 rounded-md border border-slate-200"
+                  class="mb-4 rounded-md border border-border"
                 />
               )}
               <a
@@ -157,7 +157,7 @@ techExp.sort(sortBySortIndex);
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         {
           leadershipTeachingExp.map((l: any) => (
-            <div class="border border-slate-200 rounded-lg p-6 max-w-screen-lg shadow-md">
+            <div class="border border-border rounded-lg p-6 max-w-5xl shadow-md">
               {l.data.cover && (
                 <Image
                   src={l.data.cover}
@@ -188,7 +188,7 @@ techExp.sort(sortBySortIndex);
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         {
           techExp.map((t: any) => (
-            <div class="border border-slate-200 rounded-lg p-6 max-w-screen-lg shadow-md">
+            <div class="border border-border rounded-lg p-6 max-w-5xl shadow-md">
               <h3 class="text-md font-bold mb-2">{t.data.name}</h3>
               <p class="mb-2">
                 {t.data.start} &mdash; {t.data.end}

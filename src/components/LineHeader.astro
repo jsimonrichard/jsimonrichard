@@ -1,5 +1,5 @@
 ---
-import { cn } from '~/utils';
+import { cn } from '~/lib/utils';
 
 const { class: externalClass, lineWidth = '1px' } = Astro.props;
 ---
@@ -29,7 +29,7 @@ const { class: externalClass, lineWidth = '1px' } = Astro.props;
       position: absolute;
       height: 0pt;
       border-top: var(--lineWidth) solid;
-      apply: @border-slate-200;
+      apply: @border-border;
       top: 50%;
       width: 50vw;
     }

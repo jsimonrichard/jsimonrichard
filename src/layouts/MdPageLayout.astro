@@ -1,12 +1,12 @@
 ---
 import Layout from './Layout.astro';
 const { frontmatter, content } = Astro.props;
-
 ---
-<Layout title={`J. Simon Richard • ${frontmatter.title}`}> 
+
+<Layout title={`J. Simon Richard • ${frontmatter.title}`}>
   <h1>{frontmatter.title}</h1>
   <time datetime={frontmatter.date}>{frontmatter.date}</time>
   <article>
-      {content}
+    {content}
   </article>
 </Layout>

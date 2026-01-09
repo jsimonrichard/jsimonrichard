@@ -19,7 +19,7 @@ const { Content } = await post.render();
 ---
 
 <Layout title={`J. Simon Richard | ${post.data.title}`}>
-  <main class="max-w-screen-md mx-auto px-4 pt-24 md:pt-48 min-h-screen">
+  <main class="max-w-3xl mx-auto px-4 pt-24 md:pt-48 min-h-screen">
     <h1 class="text-2xl font-bold mb-4">{post.data.title}</h1>
     <div class="flex flex-row items-center gap-4 mb-8">
       <div>{post.data.date}</div>
@@ -28,7 +28,7 @@ const { Content } = await post.render();
       </div>
     </div>
 
-    <article class="prose prose-slate mb-24 max-w-full">
+    <article class="prose prose-slate dark:prose-invert mb-24 max-w-full">
       <Content />
     </article>
 
@@ -52,6 +52,8 @@ const { Content } = await post.render();
 </Layout>
 
 <style is:global>
+  @reference '~/global.css';
+
   .prose {
     h1 {
       @apply text-2xl font-bold mb-4;
