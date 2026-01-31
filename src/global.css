@@ -6,7 +6,6 @@
 
 /* Typography plugin code styling */
 .prose code:not(pre code) {
-  font-size: 0.8em;
   font-weight: 500;
   padding: 0.25em;
   border-radius: 0.25em;

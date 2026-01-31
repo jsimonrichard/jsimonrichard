@@ -22,9 +22,9 @@ techExp.sort(sortBySortIndex);
 ---
 
 <Layout title="J. Simon Richard">
-  <main class="max-w-7xl mx-auto px-4">
+  <main class="max-w-5xl mx-auto px-4">
     <section id="hero" class="grid lg:grid-cols-3 gap-8 mb-16 lg:mt-56">
-      <div class="relative h-36 w-36 p-4 lg:w-64 lg:h-64 place-self-center">
+      <div class="relative h-36 w-36 p-4 lg:w-52 lg:h-52 place-self-center">
         <Image
           src={profileImage}
           alt="J. Simon Richard"
@@ -38,8 +38,8 @@ techExp.sort(sortBySortIndex);
         <p class="mb-4">
           I'm a <strong>first-year PhD student at Purdue University</strong> exploring
           ways to enhance LLM reasoning through formal mathematical methods. I'm particularly
-          interested in how automatic theorem proving and formal verification can
-          help bridge the gap between large language models and precise logical reasoning.
+          interested in formally verifying AI-generated code and using LLMs to make
+          formal methods more accessible.
         </p>
 
         <p>
@@ -47,10 +47,9 @@ techExp.sort(sortBySortIndex);
 
           <ul class="list-disc list-inside ml-4 columns-2xs">
             <li>Large Language Model (LLM) reasoning</li>
-            <li>Automated Theorem Proving (ATP)</li>
-            <li>AutoFormalization (AF)</li>
+            <li>Formal Program Verification</li>
+            <li>Specification Generation</li>
             <li>AI Safety</li>
-            <li>Formal program verification</li>
           </ul>
         </p>
       </div>
@@ -58,17 +57,17 @@ techExp.sort(sortBySortIndex);
 
     <section id="education" class="mb-16">
       <h2 class="text-2xl font-bold mb-4">Education</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="">
         {
           education.map((edu: any) => (
-            <div class="border border-border rounded-lg p-6 shadow-md flex flex-row gap-6">
+            <div class="not-last:border-b border-border p-6 flex flex-row gap-6">
               {edu.data.cover && (
                 <div class="shrink-0">
                   <Image
                     src={edu.data.cover}
                     alt={edu.data.name}
                     class={cn(
-                      'rounded-md w-32 object-contain',
+                      'rounded-md w-42 object-contain',
                       edu.data.coverBorder && 'border border-border',
                     )}
                   />
@@ -94,17 +93,17 @@ techExp.sort(sortBySortIndex);
     </section>
     <section id="research-experience" class="mb-16">
       <h2 class="text-2xl font-bold mb-4">Research Experience</h2>
-      <div class="flex flex-col gap-6">
+      <div>
         {
           researchExp.map((r: any) => (
-            <div class="border border-border rounded-lg p-6 shadow-md flex flex-row gap-6">
+            <div class="not-last:border-b border-border p-6 flex flex-row gap-6">
               {r.data.cover && (
                 <div class="shrink-0">
                   <Image
                     src={r.data.cover}
                     alt={r.data.name}
                     class={cn(
-                      'rounded-md w-80 object-contain',
+                      'rounded-md w-42 object-contain',
                       r.data.coverBorder && 'border border-border',
                     )}
                   />
@@ -175,10 +174,10 @@ techExp.sort(sortBySortIndex);
     </section>
     <section id="leadership-teaching-experience" class="mb-16">
       <h2 class="text-2xl font-bold mb-4">Leadership & Teaching Experience</h2>
-      <div class="flex flex-col gap-6">
+      <div>
         {
           leadershipTeachingExp.map((l: any) => (
-            <div class="border border-border rounded-lg p-6 shadow-md flex flex-row gap-6">
+            <div class="not-last:border-b border-border p-6 flex flex-row gap-6">
               {l.data.cover && (
                 <div class="shrink-0">
                   <Image
@@ -211,10 +210,10 @@ techExp.sort(sortBySortIndex);
     </section>
     <section id="additional-tech-experience" class="mb-16">
       <h2 class="text-2xl font-bold mb-4">Additional Technical Experience</h2>
-      <div class="flex flex-col gap-6">
+      <div>
         {
           techExp.map((t: any) => (
-            <div class="border border-border rounded-lg p-6 shadow-md flex flex-row gap-6">
+            <div class="not-last:border-b border-border p-6 flex flex-row gap-6">
               {t.data.cover && (
                 <div class="shrink-0">
                   <Image
@@ -247,7 +246,7 @@ techExp.sort(sortBySortIndex);
     </section>
     <section id="other-honors" class="mb-16">
       <h2 class="text-2xl font-bold mb-4">Other Honors</h2>
-      <div class="border border-border rounded-lg p-6 shadow-md">
+      <div class="p-6">
         <ul class="list-disc list-outside ml-6">
           <li>
             Attendee of the <em>12<sup>th</sup> Heidelberg Laureate Forum</em> (September
