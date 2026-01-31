@@ -45,4 +45,11 @@ export default defineConfig({
     },
   },
   prefetch: true,
+  redirects: {
+    '/blog/ai-transparency-paradox': '/blog/2022-04-13-ai-transparency-paradox',
+    '/blog/todd-coxeter': '/blog/2022-05-03-todd-coxeter',
+    '/blog/post-quantum-algorithms-overview':
+      '/blog/2022-12-06-post-quantum-algorithms-overview',
+    '/blog/node-modules-debug-tool': '/blog/2025-08-02-node-modules-debug-tool',
+  },
 });
