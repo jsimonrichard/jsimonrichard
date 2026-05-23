@@ -26,7 +26,7 @@ const researchExperienceCollection = defineCollection({
       start: z.string(),
       end: z.string(),
       location: z.string(),
-      advisors: z.array(z.string()).default([]),
+      advisors: z.array(z.string()),
       notes: z.array(z.string()),
       sortIndex: z.number(), // sorted backwards, so oldest should have index 1
     }),
