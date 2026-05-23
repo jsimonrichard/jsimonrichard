@@ -9,8 +9,5 @@ location: MIM Software, Beachwood, OH
 advisors:
   - Dr. Soroush Pahlavian
 notes:
-  - Reviewed and presented on current literature.
-  - Reproduced several methodologies for adapting an open source 2D image segmentation model in order to segment 3D medical scans using publicly available code and data.
-  - Fine-tuned those models using a proprietary CT scan dataset.
-  - Summarized findings in a technical report and presented the results to MIM's R&D Team and Chief Science Officer.
+  - Reproduced two adaptations of a state-of-the-art segmentation model for use in the medical domain, fine-tuned those models on in-house CT data, performed ablation studies, and presented my findings to the research team at MIM (including the company's Chief Science Officer).
 ---

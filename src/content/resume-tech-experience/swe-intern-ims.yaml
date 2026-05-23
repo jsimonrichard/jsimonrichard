@@ -1,8 +1,9 @@
-name: Software Engineering Intern
+name: Software Development Intern
 start: July 2020
 end: December 2021
-location: Integrated Mill Systems Inc., Willoughby, OH
+location: Integrated Mill Systems, Willoughby, OH
 notes:
-  - Developed a PLC data-logging service for the Raspberry Pi using Python / Bash Scripting, Docker, Rust, and sockets.
-  - Wrote a data-visualization web app using React and d3.js.
+  - Developed a prototype for a stand-alone data-logging device that could potentially save tens of thousands of dollars for the company.
+  - Utilized Python scripting, bash scripting, systems programming (including Rust), web design and development, networking / sockets, containerization / Docker, and MongoDB.
+  - During the last 4 months of this internship, worked a few hours a week on small projects while primarily focused on coursework at Cleveland State University.
 sortIndex: 1
