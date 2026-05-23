@@ -8,5 +8,5 @@ location: The Boeing Company, Seattle, WA
 link: https://www.linkedin.com/company/boeing/
 advisors: []
 notes:
-  - Participating in Boeing's Graduate Researcher Program (GRP) within Artificial Intelligence & Machine Learning.
+  - Coming soon...
 ---
