@@ -1,10 +1,10 @@
 ---
-name: 'Graduate Researcher Program (GRP) Intern — Artificial Intelligence & Machine Learning'
+name: 'Graduate Researcher Program (GRP) Intern — Cyber Security'
 cover: ./boeing-cover.svg
 sortIndex: 6
 start: May 2026
 end: Present
-location: The Boeing Company, Seattle, WA
+location: The Boeing Company, Arlington, VA
 link: https://www.linkedin.com/company/boeing/
 advisors: []
 notes:
