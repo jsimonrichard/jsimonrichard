@@ -121,10 +121,16 @@ techExp.sort(sortBySortIndex);
                   {r.data.start} &mdash; {r.data.end}
                   <br />
                   {r.data.location}
-                  <br />
-                  Advised by{' '}
-                  {englishList(
-                    r.data.advisors.map((ad: string) => <strong>{ad}</strong>),
+                  {r.data.advisors.length > 0 && (
+                    <>
+                      <br />
+                      Advised by{' '}
+                      {englishList(
+                        r.data.advisors.map((ad: string) => (
+                          <strong>{ad}</strong>
+                        )),
+                      )}
+                    </>
                   )}
                 </p>
                 <ul class="list-disc list-outside ml-6">
