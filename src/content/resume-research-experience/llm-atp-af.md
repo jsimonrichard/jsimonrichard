@@ -1,7 +1,5 @@
 ---
 name: 'Senior Math / Computer Science Project: "Large Language Model Reasoning and AutoFormalization"'
-cover: ./lean-logo.png
-coverBorder: true
 sortIndex: 4
 start: August 2024
 end: May 2025

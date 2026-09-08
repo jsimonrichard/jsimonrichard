@@ -1,0 +1,36 @@
+---
+interface Props {
+  when?: string;
+  start?: string;
+  end?: string;
+}
+
+const { when, start, end } = Astro.props;
+
+/** Keep "Month YYYY" together so a wrap cannot leave a year on its own line. */
+const glueYear = (value: string) => value.replace(/ (?=\d{4}\b)/g, '\u00A0');
+
+let rangeLabel: string;
+if (start != null && end != null) {
+  if (when != null) {
+    throw new Error('ResumeEntry: pass start/end or when, not both');
+  }
+  rangeLabel = `${glueYear(start)} – ${glueYear(end)}`;
+} else if (when != null) {
+  if (start != null || end != null) {
+    throw new Error('ResumeEntry: when cannot be mixed with start or end');
+  }
+  rangeLabel = glueYear(when);
+} else {
+  throw new Error('ResumeEntry: provide when, or both start and end');
+}
+---
+
+<article
+  class="grid grid-cols-1 sm:grid-cols-[10rem_minmax(0,1fr)] gap-x-4 gap-y-1 py-4"
+>
+  <p class="text-muted-foreground text-[0.95em] sm:pt-0.5">{rangeLabel}</p>
+  <div class="min-w-0">
+    <slot />
+  </div>
+</article>

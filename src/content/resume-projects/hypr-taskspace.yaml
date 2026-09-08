@@ -1,0 +1,4 @@
+name: hypr-taskspace
+link: https://github.com/jsimonrichard/hypr-taskspace
+summary: gives each task its own Hyprland taskspace — workspaces, checkout, and windows — instead of dumping everything onto desktops 1–10.
+sortIndex: 4

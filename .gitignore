@@ -1,5 +1,7 @@
 # build output
 dist/
+public/resume.pdf
+resume/data.json
 
 # generated types
 .astro/

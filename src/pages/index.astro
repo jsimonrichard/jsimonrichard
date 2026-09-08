@@ -2,12 +2,12 @@
 import Layout from '~/layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import profileImage from '~/img/profile.jpg';
-import { cn } from '~/lib/utils';
 import { englishList } from '~/components/solid/utils';
 import { getCollection } from 'astro:content';
 import { sortBySortIndex } from '~/content/config';
 import Bibliography from '~/components/Bibliography.astro';
 import BibItem from '~/components/BibItem.astro';
+import ResumeEntry from '~/components/ResumeEntry.astro';
 
 const education = await getCollection('resume-education');
 const researchExp = await getCollection('resume-research-experience');
@@ -15,26 +15,36 @@ const leadershipTeachingExp = await getCollection(
   'resume-leadership-teaching-experience',
 );
 const techExp = await getCollection('resume-tech-experience');
+const publications = await getCollection('resume-publications');
+const honors = await getCollection('resume-honors');
+const projects = await getCollection('resume-projects');
 education.sort(sortBySortIndex);
 researchExp.sort(sortBySortIndex);
 leadershipTeachingExp.sort(sortBySortIndex);
 techExp.sort(sortBySortIndex);
+publications.sort(sortBySortIndex);
+honors.sort(sortBySortIndex);
+projects.sort(sortBySortIndex);
+
+const headingClass =
+  'text-xl font-bold mb-3 pb-2 border-b-2 border-muted-foreground text-left';
+const titleClass = 'text-base font-bold mb-1';
+const metaClass = 'text-muted-foreground mb-2';
+const linkClass = 'text-link hover:text-link-hover hover:underline';
 ---
 
-<Layout title="J. Simon Richard">
-  <main class="max-w-5xl mx-auto px-4">
-    <section id="hero" class="grid lg:grid-cols-3 gap-8 mb-16 lg:mt-56">
-      <div class="relative h-36 w-36 p-4 lg:w-52 lg:h-52 place-self-center">
-        <Image
-          src={profileImage}
-          alt="J. Simon Richard"
-          width={300}
-          height={300}
-          class="absolute rounded-full w-full h-full object-cover shadow-md"
-        />
-      </div>
-      <div class="self-center lg:col-span-2">
-        <h1 class="text-4xl font-bold mb-4">J. Simon Richard</h1>
+<Layout title="J. Simon Richard" compactNav>
+  <main class="max-w-4xl mx-auto px-4 pt-28 pb-16">
+    <section id="hero" class="flex flex-col sm:flex-row gap-8 mb-16 items-center sm:items-start">
+      <Image
+        src={profileImage}
+        alt="J. Simon Richard"
+        width={300}
+        height={300}
+        class="w-28 h-28 sm:w-36 sm:h-36 rounded-full object-cover shrink-0"
+      />
+      <div>
+        <h1 class="text-3xl font-bold mb-4">J. Simon Richard</h1>
         <p class="mb-4">
           I'm a <strong>second-year PhD student at Purdue University</strong>.
           I study how formal methods can improve LLM reasoning, especially by
@@ -42,227 +52,159 @@ techExp.sort(sortBySortIndex);
           more accessible.
         </p>
 
-        <p>
-          Interests:
-
-          <ul class="list-disc list-inside ml-4 columns-2xs">
-            <li>Large Language Model (LLM) reasoning</li>
-            <li>Formal Program Verification</li>
-            <li>Specification Generation</li>
-            <li>Programming Languages</li>
-            <li>Agentic Software Engineering</li>
-          </ul>
-        </p>
-      </div>
-    </section>
-
-    <section id="education" class="mb-16">
-      <h2 class="text-2xl font-bold mb-4">Education</h2>
-      <div class="">
-        {
-          education.map((edu: any) => (
-            <div class="not-last:border-b border-border p-6 flex flex-row gap-6">
-              {edu.data.cover && (
-                <div class="shrink-0">
-                  <Image
-                    src={edu.data.cover}
-                    alt={edu.data.name}
-                    class={cn(
-                      'rounded-md w-42 object-contain',
-                      edu.data.coverBorder && 'border border-border',
-                    )}
-                  />
-                </div>
-              )}
-              <div class="flex-1">
-                <h3 class="text-lg font-bold mb-2">
-                  {edu.data.name} {edu.data.gpa && `| ${edu.data.gpa} GPA`}
-                </h3>
-                <p class="mb-2">
-                  {edu.data.graduation} | {edu.data.location}
-                </p>
-                <ul class="list-disc list-outside ml-6">
-                  {edu.data.notes.map((n: string) => (
-                    <li>{n}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))
-        }
-      </div>
-    </section>
-    <section id="research-experience" class="mb-16">
-      <h2 class="text-2xl font-bold mb-4">Research Experience</h2>
-      <div>
-        {
-          researchExp.map((r: any) => (
-            <div class="not-last:border-b border-border p-6 flex flex-row gap-6">
-              {r.data.cover && (
-                <div class="shrink-0">
-                  <Image
-                    src={r.data.cover}
-                    alt={r.data.name}
-                    class={cn(
-                      'rounded-md w-42 object-contain',
-                      r.data.coverBorder && 'border border-border',
-                    )}
-                  />
-                </div>
-              )}
-              <div class="flex-1">
-                <a
-                  href={r.data.link}
-                  target="_blank"
-                  class={cn(r.data.link && 'text-sky-700 hover:underline')}
-                >
-                  <h3 class="text-md font-bold mb-2">{r.data.name}</h3>
-                </a>
-                <p class="mb-2">
-                  {r.data.start} &mdash; {r.data.end}
-                  <br />
-                  {r.data.location}
-                  {r.data.advisors.length > 0 && (
-                    <>
-                      <br />
-                      Advised by{' '}
-                      {englishList(
-                        r.data.advisors.map((ad: string) => (
-                          <strong>{ad}</strong>
-                        )),
-                      )}
-                    </>
-                  )}
-                </p>
-                <ul class="list-disc list-outside ml-6">
-                  {r.data.notes.map((n: string) => (
-                    <li>{n}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))
-        }
-      </div>
-    </section>
-    <section id="publications" class="mb-16">
-      <h2 class="text-2xl font-bold mb-4">Publications</h2>
-      <div class="mb-16">
-        <Bibliography class="flex flex-col gap-4">
-          <BibItem>
-            J. S. Richard, “Hybrid Quantum or Purely Classical? Assessing the
-            Utility of Quantum Feature Embeddings,” Aug. 2024, doi:
-            <a
-              href="https://doi.org/10.12688/f1000research.154428.1"
-              class="text-sky-700 hover:underline"
-              >10.12688/f1000research.154428.1</a
-            >.
-          </BibItem>
-          <BibItem>
-            G. Averkov, K. von Dichter, S. Richard, and I. Soprunov, “Mixed
-            volumes of zonoids and the absolute value of the Grassmannian
-            (Extended Abstract),” Apr. 03, 2024, arXiv: arXiv:2404.02842. doi:
-            <a
-              href="https://doi.org/10.48550/arXiv.2404.02842"
-              class="text-sky-700 hover:underline">10.48550/arXiv.2404.02842</a
-            >.
-          </BibItem>
-          <BibItem>
-            J. S. Richard, “Making the Transition to Post-Quantum Cryptography,”
-            The Downtown Review, vol. 9, no. 2, May 2023, [Online]. Available:
-            <a
-              href="https://engagedscholarship.csuohio.edu/tdr/vol9/iss2/4"
-              class="text-sky-700 hover:underline"
-              >https://engagedscholarship.csuohio.edu/tdr/vol9/iss2/4</a
-            >.
-          </BibItem>
-        </Bibliography>
-      </div>
-    </section>
-    <section id="leadership-teaching-experience" class="mb-16">
-      <h2 class="text-2xl font-bold mb-4">Leadership & Teaching Experience</h2>
-      <div>
-        {
-          leadershipTeachingExp.map((l: any) => (
-            <div class="not-last:border-b border-border p-6 flex flex-row gap-6">
-              {l.data.cover && (
-                <div class="shrink-0">
-                  <Image
-                    src={l.data.cover}
-                    alt={l.data.name}
-                    class={cn(
-                      'rounded-md w-32 object-contain',
-                      l.data.coverBorder && 'border border-border',
-                    )}
-                  />
-                </div>
-              )}
-              <div class="flex-1">
-                <h3 class="text-md font-bold mb-2">{l.data.name}</h3>
-                <p class="mb-2">
-                  {l.data.start} &mdash; {l.data.end}
-                  <br />
-                  {l.data.location}
-                </p>
-                <ul class="list-disc list-outside ml-6">
-                  {l.data.notes.map((n: string) => (
-                    <li>{n}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))
-        }
-      </div>
-    </section>
-    <section id="additional-tech-experience" class="mb-16">
-      <h2 class="text-2xl font-bold mb-4">Additional Technical Experience</h2>
-      <div>
-        {
-          techExp.map((t: any) => (
-            <div class="not-last:border-b border-border p-6 flex flex-row gap-6">
-              {t.data.cover && (
-                <div class="shrink-0">
-                  <Image
-                    src={t.data.cover}
-                    alt={t.data.name}
-                    class={cn(
-                      'rounded-md w-32 object-contain',
-                      t.data.coverBorder && 'border border-border',
-                    )}
-                  />
-                </div>
-              )}
-              <div class="flex-1">
-                <h3 class="text-md font-bold mb-2">{t.data.name}</h3>
-                <p class="mb-2">
-                  {t.data.start} &mdash; {t.data.end}
-                  <br />
-                  {t.data.location}
-                </p>
-                <ul class="list-disc list-outside ml-6">
-                  {t.data.notes.map((n: string) => (
-                    <li>{n}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))
-        }
-      </div>
-    </section>
-    <section id="other-honors" class="mb-16">
-      <h2 class="text-2xl font-bold mb-4">Other Honors</h2>
-      <div class="p-6">
-        <ul class="list-disc list-outside ml-6">
-          <li>
-            Attendee of the <em>12<sup>th</sup> Heidelberg Laureate Forum</em> (September
-            2025), an international conference for young researchers in Computer Science
-            and Mathematics and laureates in the same fields, including recipients
-            of the ACM A.M. Turing Award and the Fields Medal (among other awards).
-          </li>
+        <p class="mb-2">Interests:</p>
+        <ul class="list-disc list-inside ml-2 columns-2xs">
+          <li>Large Language Model (LLM) reasoning</li>
+          <li>Formal Program Verification</li>
+          <li>Specification Generation</li>
+          <li>Programming Languages</li>
+          <li>Agentic Software Engineering</li>
         </ul>
       </div>
+    </section>
+
+    <section id="education" class="mb-14">
+      <h2 class={headingClass}>Education</h2>
+      {
+        education.map((edu: any) => (
+          <ResumeEntry when={edu.data.graduation}>
+            <h3 class={titleClass}>
+              {edu.data.name}
+              {edu.data.gpa && ` | ${edu.data.gpa} GPA`}
+            </h3>
+            <p class={metaClass}>{edu.data.location}</p>
+            <ul class="list-disc list-outside ml-6">
+              {edu.data.notes.map((n: string) => (
+                <li>{n}</li>
+              ))}
+            </ul>
+          </ResumeEntry>
+        ))
+      }
+    </section>
+
+    <section id="research-experience" class="mb-14">
+      <h2 class={headingClass}>Research Experience</h2>
+      {
+        researchExp.map((r: any) => (
+          <ResumeEntry start={r.data.start} end={r.data.end}>
+            {r.data.link ? (
+              <a href={r.data.link} target="_blank" class={linkClass}>
+                <h3 class={titleClass}>{r.data.name}</h3>
+              </a>
+            ) : (
+              <h3 class={titleClass}>{r.data.name}</h3>
+            )}
+            <p class={metaClass}>
+              {r.data.location}
+              {r.data.advisors.length > 0 && (
+                <>
+                  <br />
+                  Advised by{' '}
+                  {englishList(
+                    r.data.advisors.map((ad: string) => <strong>{ad}</strong>),
+                  )}
+                </>
+              )}
+            </p>
+            <ul class="list-disc list-outside ml-6">
+              {r.data.notes.map((n: string) => (
+                <li>{n}</li>
+              ))}
+            </ul>
+          </ResumeEntry>
+        ))
+      }
+    </section>
+
+    <section id="publications" class="mb-14">
+      <h2 class={headingClass}>Publications</h2>
+      <Bibliography class="flex flex-col gap-4 pt-3">
+        {publications.map((pub: any) => {
+          const parts = pub.data.citation.split('{link}');
+          if (parts.length !== 2) {
+            throw new Error(
+              `citation must contain exactly one {link}: ${pub.id}`,
+            );
+          }
+          return (
+            <BibItem>
+              {parts[0]}
+              <a href={pub.data.href} class={linkClass}>
+                {pub.data.linkLabel}
+              </a>
+              {parts[1]}
+            </BibItem>
+          );
+        })}
+      </Bibliography>
+    </section>
+
+    <section id="leadership-teaching-experience" class="mb-14">
+      <h2 class={headingClass}>Leadership & Teaching Experience</h2>
+      {
+        leadershipTeachingExp.map((l: any) => (
+          <ResumeEntry start={l.data.start} end={l.data.end}>
+            <h3 class={titleClass}>{l.data.name}</h3>
+            <p class={metaClass}>{l.data.location}</p>
+            <ul class="list-disc list-outside ml-6">
+              {l.data.notes.map((n: string) => (
+                <li>{n}</li>
+              ))}
+            </ul>
+          </ResumeEntry>
+        ))
+      }
+    </section>
+
+    <section id="additional-tech-experience" class="mb-14">
+      <h2 class={headingClass}>Additional Technical Experience</h2>
+      {
+        techExp.map((t: any) => (
+          <ResumeEntry start={t.data.start} end={t.data.end}>
+            <h3 class={titleClass}>{t.data.name}</h3>
+            <p class={metaClass}>{t.data.location}</p>
+            <ul class="list-disc list-outside ml-6">
+              {t.data.notes.map((n: string) => (
+                <li>{n}</li>
+              ))}
+            </ul>
+          </ResumeEntry>
+        ))
+      }
+    </section>
+
+    <section id="projects" class="mb-14">
+      <h2 class={headingClass}>Side Projects</h2>
+      <ul class="flex flex-col gap-5 pt-3">
+        {
+          projects.map((p: any) => (
+            <li>
+              {p.data.link ? (
+                <a
+                  href={p.data.link}
+                  target="_blank"
+                  class:list={[linkClass, 'font-bold']}
+                >
+                  {p.data.name}
+                </a>
+              ) : (
+                <strong>{p.data.name}</strong>
+              )}{' '}
+              {p.data.summary}
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section id="other-honors" class="mb-8">
+      <h2 class={headingClass}>Other Honors</h2>
+      <ul class="list-disc list-outside ml-6 pt-3">
+        {honors.map((h: any) => (
+          <li>{h.data.text}</li>
+        ))}
+      </ul>
     </section>
   </main>
 </Layout>

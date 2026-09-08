@@ -5,6 +5,9 @@
   "version": "0.0.1",
   "author": "J. Simon Richard <jsimonrichard@gmail.com> (https://jsimonrichard.com)",
   "scripts": {
+    "resume": "bun run scripts/build-resume.ts",
+    "predev": "bun run resume",
+    "prebuild": "bun run resume",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",

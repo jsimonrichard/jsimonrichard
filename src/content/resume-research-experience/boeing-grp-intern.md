@@ -1,6 +1,5 @@
 ---
 name: 'Graduate Researcher Program (GRP) Intern — Cyber Security'
-cover: ./boeing-cover.svg
 sortIndex: 6
 start: May 2026
 end: August 2026

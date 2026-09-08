@@ -1,7 +1,5 @@
 ---
 name: 'R&D Intern'
-cover: ContourImage.jpg
-coverBorder: true
 sortIndex: 1
 start: May 2023
 end: August 2023

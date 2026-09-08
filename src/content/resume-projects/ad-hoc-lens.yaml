@@ -1,0 +1,4 @@
+name: Ad Hoc Lens
+link: https://ad-hoc-lens.dev
+summary: is a frontend-only DuckDB viewer for datasets that contain markdown, so you can query files in the browser and render the text.
+sortIndex: 5

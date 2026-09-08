@@ -11,13 +11,13 @@ posts.sort(
 ---
 
 <Layout title="J. Simon Richard | Blog">
-  <main class="max-w-3xl mx-auto px-4 pt-24 md:pt-48 min-h-screen">
+  <main class="max-w-3xl mx-auto px-4 pt-28 min-h-screen">
     {
       posts.map((post: any) => (
         <div class="mb-12">
           <a
             href={'/blog/' + post.slug}
-            class="text-sky-700 hover:underline"
+            class="text-link hover:text-link-hover hover:underline"
             data-astro-prefetch
           >
             <h2 class="text-2xl font-bold mb-4">{post.data.title}</h2>
