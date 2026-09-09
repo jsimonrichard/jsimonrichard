@@ -6,6 +6,15 @@ homepage and the Typst CV. `bun run build` (and `bun run dev`) compile
 Typst 0.15+ plus Noto Sans and Libertinus Serif must be on PATH; the build
 fails if they are missing.
 
+GitHub Actions builds the site (including the CV) and deploys `dist` as a
+Workers static-assets project (`wrangler.jsonc`). Pushes to `main` run
+`wrangler deploy` (jsimonrichard.com). Other branches, including `dev`,
+upload a Worker version with a preview URL. Pull requests only build.
+
+Required GitHub secrets: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`.
+The old Cloudflare Pages Git integration should be removed so it does not
+build without Typst.
+
 ## To-Do
 
 - [x] Home page

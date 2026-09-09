@@ -1,0 +1,24 @@
+{
+  "name": "jsimonrichard",
+  // Assets-only Worker: Astro writes the site to dist/.
+  "compatibility_date": "2026-09-08",
+  "workers_dev": true,
+  "preview_urls": true,
+  "routes": [
+    {
+      "pattern": "jsimonrichard.com",
+      "custom_domain": true,
+    },
+    {
+      "pattern": "www.jsimonrichard.com",
+      "custom_domain": true,
+    },
+  ],
+  "assets": {
+    "directory": "./dist",
+    "html_handling": "auto-trailing-slash",
+  },
+  "observability": {
+    "enabled": true,
+  },
+}
