@@ -1,28 +1,34 @@
-# J. Simon Richard's Resume Website
+# J. Simon Richard
 
-Public site content in `src/content/resume-*` is the source for both the
-homepage and the Typst CV. `bun run build` (and `bun run dev`) compile
-`resume/resume.typ` to `/resume.pdf`. Side projects stay on the site only.
-Typst 0.15+ plus Noto Sans and Libertinus Serif must be on PATH; the build
-fails if they are missing.
+I'm a **second-year PhD student at Purdue University**. I study how formal methods can improve LLM reasoning — verifying AI-generated code, and using LLMs to make formal methods more accessible.
 
-GitHub Actions builds the site (including the CV) and deploys `dist` as a
-Workers static-assets project (`wrangler.jsonc`). Pushes to `main` run
-`wrangler deploy` (jsimonrichard.com). Other branches, including `dev`,
-upload a Worker version with a preview URL. Pull requests only build.
+**Interests:** LLM reasoning · formal program verification · specification generation · programming languages · agentic software engineering
 
-Required GitHub secrets: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`.
-The old Cloudflare Pages Git integration should be removed so it does not
-build without Typst.
+**[jsimonrichard.com](https://jsimonrichard.com)** · **[CV](https://jsimonrichard.com/resume.pdf)** · **[LinkedIn](https://www.linkedin.com/in/jsimonrichard/)** · **[Email](mailto:jsimonrichard@gmail.com)**
 
-## To-Do
+### Currently
 
-- [x] Home page
-- [x] Resume content (managed for home page and printable resume)
-- [x] Printable-resume
-- [x] Markdown blog with working interactive elements
-- [x] Blog posts with PDF attachments
-- [x] GitHub build action
-- [x] Better mobile `<Layout />`
-- [x] Update favicon
-- [x] Make CI more specific so it doesn't trigger on README updates
+- Ph.D. in Computer Science at Purdue (expected 2030) — LLMs & formal methods
+- Graduate Teaching Assistant at Purdue
+- Building tools for agentic software engineering ([Agent Dev Lab](https://agent-dev-lab.com), [hypr-taskspace](https://github.com/jsimonrichard/hypr-taskspace))
+
+### Highlights
+
+- GRP Intern — Cyber Security, The Boeing Company (2026)
+
+### Side projects
+
+- **[Agent Dev Lab](https://agent-dev-lab.com)** — TypeScript framework for writing agents as ordinary code, with a live run dashboard
+- **[Praxis Books](https://praxis-books.com)** — platform for interactive books — write exercises into the manuscript, ship versions like software, and license copies to readers
+- **[ProseMark](https://prosemark.com)** — toolkit for WYSIWYM markdown editors (incl. VS Code extension)
+- **[hypr-taskspace](https://github.com/jsimonrichard/hypr-taskspace)** — one Hyprland taskspace per task
+- **Alder** — unpublished high-assurance language with optional Lean proofs
+
+---
+
+<details>
+<summary>About this repository</summary>
+
+This repo powers [jsimonrichard.com](https://jsimonrichard.com). Content in `src/content/resume-*` feeds the homepage and Typst CV (`bun run build` → `/resume.pdf`). Deployed to Cloudflare Workers via GitHub Actions.
+
+</details>
