@@ -9,6 +9,7 @@ const publicDir = join(root, 'public');
 const dataPath = join(resumeDir, 'data.json');
 const typstPath = join(resumeDir, 'resume.typ');
 const bibPath = join(resumeDir, 'personal-publications.bib');
+const fontDir = join(resumeDir, 'fonts');
 const pdfPath = join(publicDir, 'resume.pdf');
 
 const REQUIRED_FONTS = ['Noto Sans', 'Libertinus Serif'] as const;
@@ -270,11 +271,11 @@ async function assertTypst() {
     );
   }
 
-  const fonts = await $`${typst} fonts`.text();
+  const fonts = await $`${typst} fonts --font-path ${fontDir}`.text();
   for (const family of REQUIRED_FONTS) {
     if (!fonts.split('\n').includes(family)) {
       throw new Error(
-        `typst cannot see the "${family}" font. Install it before building the resume.`,
+        `typst cannot see the "${family}" font in ${fontDir}.`,
       );
     }
   }
@@ -292,7 +293,7 @@ async function main() {
   await mkdir(publicDir, { recursive: true });
   await writeFile(dataPath, `${JSON.stringify(data, null, 2)}\n`);
 
-  const result = await $`typst compile ${typstPath} ${pdfPath}`.nothrow();
+  const result = await $`typst compile --font-path ${fontDir} ${typstPath} ${pdfPath}`.nothrow();
   if (result.exitCode !== 0) {
     throw new Error(
       `typst compile failed with exit ${result.exitCode}\n${result.stderr.toString()}\n${result.stdout.toString()}`,
