@@ -62,7 +62,7 @@ function requireStringArray(obj: YamlRecord, key: string, file: string): string[
 
 function markdownToPlainText(markdown: string): string {
   return markdown
-    .replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g, '$1 ($2)')
+    .replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g, '$1: $2')
     .replace(/`([^`]+)`/g, '$1')
     .replace(/\*\*([^*]+)\*\*/g, '$1')
     .replace(/\*([^*]+)\*/g, '$1')
