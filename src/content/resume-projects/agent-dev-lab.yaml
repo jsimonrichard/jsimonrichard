@@ -1,4 +1,4 @@
 name: Agent Dev Lab
 link: https://agent-dev-lab.com
-summary: is a public evaluation environment for coding agents, with TypeScript tooling for writing agents as ordinary code and a live run dashboard.
+summary: is public tooling for building coding agents as ordinary TypeScript code, with a live dashboard for run observability.
 sortIndex: 7
