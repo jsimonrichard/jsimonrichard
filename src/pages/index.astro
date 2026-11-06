@@ -76,7 +76,7 @@ const linkClass = 'text-link hover:text-link-hover hover:underline';
             <p class={metaClass}>{edu.data.location}</p>
             <ul class="list-disc list-outside ml-6">
               {edu.data.notes.map((n: string) => (
-                <li set:html={renderInlineMarkdown(n)} />
+                <li set:html={renderInlineMarkdown(n, { linkClass })} />
               ))}
             </ul>
           </ResumeEntry>
@@ -110,7 +110,7 @@ const linkClass = 'text-link hover:text-link-hover hover:underline';
             </p>
             <ul class="list-disc list-outside ml-6">
               {r.data.notes.map((n: string) => (
-                <li set:html={renderInlineMarkdown(n)} />
+                <li set:html={renderInlineMarkdown(n, { linkClass })} />
               ))}
             </ul>
           </ResumeEntry>
@@ -150,7 +150,7 @@ const linkClass = 'text-link hover:text-link-hover hover:underline';
             <p class={metaClass}>{l.data.location}</p>
             <ul class="list-disc list-outside ml-6">
               {l.data.notes.map((n: string) => (
-                <li set:html={renderInlineMarkdown(n)} />
+                <li set:html={renderInlineMarkdown(n, { linkClass })} />
               ))}
             </ul>
           </ResumeEntry>
@@ -167,7 +167,7 @@ const linkClass = 'text-link hover:text-link-hover hover:underline';
             <p class={metaClass}>{t.data.location}</p>
             <ul class="list-disc list-outside ml-6">
               {t.data.notes.map((n: string) => (
-                <li set:html={renderInlineMarkdown(n)} />
+                <li set:html={renderInlineMarkdown(n, { linkClass })} />
               ))}
             </ul>
           </ResumeEntry>
