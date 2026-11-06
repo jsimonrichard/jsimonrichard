@@ -16,9 +16,27 @@
 }
 #show "|": set text(fill: gray)
 
+#let render-note(note) = {
+  if type(note) == str {
+    return note
+  }
+  if not ("parts" in note) {
+    return note
+  }
+  [
+    #for part in note.parts [
+      #if "href" in part {
+        link(part.href)[#part.text]
+      } else {
+        part.text
+      }
+    ]
+  ]
+}
+
 #let notes(items) = [
   #for note in items [
-    - #note
+    - #render-note(note)
   ]
 ]
 

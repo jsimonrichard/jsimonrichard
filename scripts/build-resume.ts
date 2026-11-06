@@ -20,6 +20,8 @@ const typstCacheDir = join(root, '.cache', 'typst', TYPST_VERSION);
 const typstCacheBin = join(typstCacheDir, 'typst');
 
 type YamlRecord = Record<string, unknown>;
+type ResumeNotePart = { text: string; href?: string };
+type ResumeNote = { parts: ResumeNotePart[] };
 
 function isRecord(value: unknown): value is YamlRecord {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
@@ -60,17 +62,45 @@ function requireStringArray(obj: YamlRecord, key: string, file: string): string[
   return value;
 }
 
-function markdownToPlainText(markdown: string): string {
+function stripInlineFormatting(markdown: string): string {
   return markdown
-    .replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g, '$1: $2')
     .replace(/`([^`]+)`/g, '$1')
     .replace(/\*\*([^*]+)\*\*/g, '$1')
     .replace(/\*([^*]+)\*/g, '$1')
     .replace(/_([^_]+)_/g, '$1');
 }
 
-function requireNoteArray(obj: YamlRecord, key: string, file: string): string[] {
-  return requireStringArray(obj, key, file).map(markdownToPlainText);
+function markdownToNoteParts(markdown: string): ResumeNotePart[] {
+  const linkRegex = /\[([^\]]+)\]\(((?:https?:\/\/|mailto:)[^)\s]+)\)/g;
+  const parts: ResumeNotePart[] = [];
+
+  let cursor = 0;
+  for (const match of markdown.matchAll(linkRegex)) {
+    const [full, label, href] = match;
+    const index = match.index ?? -1;
+    if (index < 0) {
+      continue;
+    }
+
+    const before = markdown.slice(cursor, index);
+    if (before.length > 0) {
+      parts.push({ text: stripInlineFormatting(before) });
+    }
+
+    parts.push({ text: stripInlineFormatting(label), href });
+    cursor = index + full.length;
+  }
+
+  const tail = markdown.slice(cursor);
+  if (tail.length > 0 || parts.length === 0) {
+    parts.push({ text: stripInlineFormatting(tail) });
+  }
+
+  return parts;
+}
+
+function requireNoteArray(obj: YamlRecord, key: string, file: string): ResumeNote[] {
+  return requireStringArray(obj, key, file).map((note) => ({ parts: markdownToNoteParts(note) }));
 }
 
 function parseFrontmatter(raw: string, file: string): YamlRecord {
