@@ -3,10 +3,9 @@ start: May 2025
 end: August 2025
 location: The Sherwin-Williams Company, Cleveland, OH
 notes:
-  - Worked directly with stakeholders to build and launch a NextJS + Snowflake analytics proof-of-concept serving $100M customer portfolio
+  - Built and launched a Next.js + Snowflake analytics proof-of-concept with business stakeholders.
   - Set up CI for Snowflake schema codebase
   - Proved concept for AI-generated KPI reports
   - Deployed/debugged web app & Tekton on Kubernetes
   - Set up frontend tracing with Grafana Faro
-  - Delivered rapid, consistent value
 sortIndex: 3

@@ -1,6 +1,6 @@
 ---
 name: 'Mathematics Research Assistant'
-link: https://doi.org/10.48550/arXiv.2404.02842
+link: https://doi.org/10.1007/s13366-026-00863-9
 sortIndex: 3
 start: August 2023
 end: May 2025

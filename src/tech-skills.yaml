@@ -10,7 +10,7 @@ programmingLanguages:
     - name: Rust
       since: 2020
       level: familiar
-    - name: LEAN 4
+    - name: Lean 4
       since: 2024
       level: familiar
     - name: Java
@@ -48,6 +48,9 @@ tools:
     - name: Docker
       since: 2020
       level: proficient
+    - name: Verus
+      since: 2025
+      level: familiar
     - name: Kubernetes
       months: 3
       level: basic
