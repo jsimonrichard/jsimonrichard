@@ -140,16 +140,18 @@
 
 #let tgray(content) = text(fill: gray.darken(50%), content)
 
-#grid(
-  columns: (1fr,) * data.skills.len(),
-  column-gutter: 1em,
-  ..data.skills.map(group => [
-    == #group.prettyName
-    #for skill in group.list [
-      - #skill.name #tgray[(#skill.detail)]
-    ]
-  ]),
-)
+#block(breakable: false)[
+  #grid(
+    columns: (1fr,) * data.skills.len(),
+    column-gutter: 1em,
+    ..data.skills.map(group => [
+      == #group.prettyName
+      #for skill in group.list [
+        - #skill.name #tgray[(#skill.detail)]
+      ]
+    ]),
+  )
+]
 
 = Other Honors
 
