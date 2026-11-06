@@ -1,4 +1,4 @@
 name: Agent Dev Lab
 link: https://agent-dev-lab.com
-summary: is a TypeScript framework for writing agents as ordinary code and watching the run in a dashboard, instead of drawing a workflow graph.
+summary: is public tooling for building coding agents as ordinary TypeScript code, with a live dashboard for run observability.
 sortIndex: 7
