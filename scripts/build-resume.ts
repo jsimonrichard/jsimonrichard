@@ -13,6 +13,7 @@ const fontDir = join(resumeDir, 'fonts');
 const pdfPath = join(publicDir, 'resume.pdf');
 
 const REQUIRED_FONTS = ['Noto Sans', 'Libertinus Serif'] as const;
+const isCloudflarePages = process.env.CF_PAGES === '1' || process.env.CF_PAGES === 'true';
 
 type YamlRecord = Record<string, unknown>;
 
@@ -263,9 +264,15 @@ async function exportData() {
   };
 }
 
-async function assertTypst() {
+async function assertTypst(): Promise<string | null> {
   const typst = Bun.which('typst');
   if (!typst) {
+    if (isCloudflarePages) {
+      console.warn(
+        'Skipping resume build on Cloudflare Pages: typst is not available in this build environment.',
+      );
+      return null;
+    }
     throw new Error(
       'typst is required to build resume.pdf. Install Typst 0.15+ and keep it on PATH.',
     );
@@ -279,10 +286,14 @@ async function assertTypst() {
       );
     }
   }
+  return typst;
 }
 
 async function main() {
-  await assertTypst();
+  const typst = await assertTypst();
+  if (!typst) {
+    return;
+  }
   try {
     await readFile(bibPath);
   } catch {
