@@ -7,7 +7,7 @@ location: Purdue University, West Lafayette, IN
 advisors:
   - Dr. Abulhair Saparov
 notes:
-  - Develop Verus benchmarks that evaluate agent-generated Rust code, formal specifications, and proofs.
-  - Build LLM agents that generate Rust code, formal specifications, and proofs checked by Verus.
+  - Develop Verus benchmarks that evaluate agents on selecting verification tasks and boundaries, generating specifications, and adding proof annotations.
+  - Build LLM agents that perform these verification tasks in Rust/Verus codebases, rather than focusing on executable Rust generation.
   - Build Agent Dev Lab (https://agent-dev-lab.com), public tooling with run observability for coding-agent development that supports this research.
 ---
