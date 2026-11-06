@@ -54,6 +54,19 @@ function requireStringArray(obj: YamlRecord, key: string, file: string): string[
   return value;
 }
 
+function markdownToPlainText(markdown: string): string {
+  return markdown
+    .replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g, '$1 ($2)')
+    .replace(/`([^`]+)`/g, '$1')
+    .replace(/\*\*([^*]+)\*\*/g, '$1')
+    .replace(/\*([^*]+)\*/g, '$1')
+    .replace(/_([^_]+)_/g, '$1');
+}
+
+function requireNoteArray(obj: YamlRecord, key: string, file: string): string[] {
+  return requireStringArray(obj, key, file).map(markdownToPlainText);
+}
+
 function parseFrontmatter(raw: string, file: string): YamlRecord {
   const match = raw.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
   if (!match) {
@@ -200,7 +213,7 @@ async function exportData() {
       name: requireString(data, 'name', file),
       when: requireString(data, 'graduation', file),
       location: requireString(data, 'location', file),
-      notes: requireStringArray(data, 'notes', file),
+      notes: requireNoteArray(data, 'notes', file),
     };
     const gpa = optionalString(data, 'gpa', file);
     if (gpa !== undefined) {
@@ -216,7 +229,7 @@ async function exportData() {
       end: requireString(data, 'end', file),
       location: requireString(data, 'location', file),
       advisors: requireStringArray(data, 'advisors', file),
-      notes: requireStringArray(data, 'notes', file),
+      notes: requireNoteArray(data, 'notes', file),
     };
     const link = optionalString(data, 'link', file);
     if (link !== undefined) {
@@ -231,7 +244,7 @@ async function exportData() {
       start: requireString(data, 'start', file),
       end: requireString(data, 'end', file),
       location: requireString(data, 'location', file),
-      notes: requireStringArray(data, 'notes', file),
+      notes: requireNoteArray(data, 'notes', file),
     }));
 
   const honors = (await loadEntries('resume-honors')).map(({ file, data }) => ({

@@ -8,6 +8,7 @@ import { sortBySortIndex } from '~/content/config';
 import Bibliography from '~/components/Bibliography.astro';
 import BibItem from '~/components/BibItem.astro';
 import ResumeEntry from '~/components/ResumeEntry.astro';
+import { renderInlineMarkdown } from '~/utils/render-inline-markdown';
 
 const education = await getCollection('resume-education');
 const researchExp = await getCollection('resume-research-experience');
@@ -75,7 +76,7 @@ const linkClass = 'text-link hover:text-link-hover hover:underline';
             <p class={metaClass}>{edu.data.location}</p>
             <ul class="list-disc list-outside ml-6">
               {edu.data.notes.map((n: string) => (
-                <li>{n}</li>
+                <li set:html={renderInlineMarkdown(n)} />
               ))}
             </ul>
           </ResumeEntry>
@@ -109,7 +110,7 @@ const linkClass = 'text-link hover:text-link-hover hover:underline';
             </p>
             <ul class="list-disc list-outside ml-6">
               {r.data.notes.map((n: string) => (
-                <li>{n}</li>
+                <li set:html={renderInlineMarkdown(n)} />
               ))}
             </ul>
           </ResumeEntry>
@@ -149,7 +150,7 @@ const linkClass = 'text-link hover:text-link-hover hover:underline';
             <p class={metaClass}>{l.data.location}</p>
             <ul class="list-disc list-outside ml-6">
               {l.data.notes.map((n: string) => (
-                <li>{n}</li>
+                <li set:html={renderInlineMarkdown(n)} />
               ))}
             </ul>
           </ResumeEntry>
@@ -166,7 +167,7 @@ const linkClass = 'text-link hover:text-link-hover hover:underline';
             <p class={metaClass}>{t.data.location}</p>
             <ul class="list-disc list-outside ml-6">
               {t.data.notes.map((n: string) => (
-                <li>{n}</li>
+                <li set:html={renderInlineMarkdown(n)} />
               ))}
             </ul>
           </ResumeEntry>
