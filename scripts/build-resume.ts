@@ -1,4 +1,5 @@
-import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises';
+import { constants as fsConstants } from 'node:fs';
+import { access, chmod, mkdir, readdir, readFile, writeFile } from 'node:fs/promises';
 import { extname, join } from 'node:path';
 import { $ } from 'bun';
 
@@ -9,11 +10,18 @@ const publicDir = join(root, 'public');
 const dataPath = join(resumeDir, 'data.json');
 const typstPath = join(resumeDir, 'resume.typ');
 const bibPath = join(resumeDir, 'personal-publications.bib');
+const fontDir = join(resumeDir, 'fonts');
 const pdfPath = join(publicDir, 'resume.pdf');
 
 const REQUIRED_FONTS = ['Noto Sans', 'Libertinus Serif'] as const;
+const isCloudflarePages = process.env.CF_PAGES === '1' || process.env.CF_PAGES === 'true';
+const TYPST_VERSION = '0.15.1';
+const typstCacheDir = join(root, '.cache', 'typst', TYPST_VERSION);
+const typstCacheBin = join(typstCacheDir, 'typst');
 
 type YamlRecord = Record<string, unknown>;
+type ResumeNotePart = { text: string; href?: string };
+type ResumeNote = { parts: ResumeNotePart[] };
 
 function isRecord(value: unknown): value is YamlRecord {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
@@ -52,6 +60,47 @@ function requireStringArray(obj: YamlRecord, key: string, file: string): string[
     throw new Error(`${file}: "${key}" must be an array of strings`);
   }
   return value;
+}
+
+function stripInlineFormatting(markdown: string): string {
+  return markdown
+    .replace(/`([^`]+)`/g, '$1')
+    .replace(/\*\*([^*]+)\*\*/g, '$1')
+    .replace(/\*([^*]+)\*/g, '$1')
+    .replace(/_([^_]+)_/g, '$1');
+}
+
+function markdownToNoteParts(markdown: string): ResumeNotePart[] {
+  const linkRegex = /\[([^\]]+)\]\(((?:https?:\/\/|mailto:)[^)\s]+)\)/g;
+  const parts: ResumeNotePart[] = [];
+
+  let cursor = 0;
+  for (const match of markdown.matchAll(linkRegex)) {
+    const [full, label, href] = match;
+    const index = match.index ?? -1;
+    if (index < 0) {
+      continue;
+    }
+
+    const before = markdown.slice(cursor, index);
+    if (before.length > 0) {
+      parts.push({ text: stripInlineFormatting(before) });
+    }
+
+    parts.push({ text: stripInlineFormatting(label), href });
+    cursor = index + full.length;
+  }
+
+  const tail = markdown.slice(cursor);
+  if (tail.length > 0 || parts.length === 0) {
+    parts.push({ text: stripInlineFormatting(tail) });
+  }
+
+  return parts;
+}
+
+function requireNoteArray(obj: YamlRecord, key: string, file: string): ResumeNote[] {
+  return requireStringArray(obj, key, file).map((note) => ({ parts: markdownToNoteParts(note) }));
 }
 
 function parseFrontmatter(raw: string, file: string): YamlRecord {
@@ -200,7 +249,7 @@ async function exportData() {
       name: requireString(data, 'name', file),
       when: requireString(data, 'graduation', file),
       location: requireString(data, 'location', file),
-      notes: requireStringArray(data, 'notes', file),
+      notes: requireNoteArray(data, 'notes', file),
     };
     const gpa = optionalString(data, 'gpa', file);
     if (gpa !== undefined) {
@@ -216,7 +265,7 @@ async function exportData() {
       end: requireString(data, 'end', file),
       location: requireString(data, 'location', file),
       advisors: requireStringArray(data, 'advisors', file),
-      notes: requireStringArray(data, 'notes', file),
+      notes: requireNoteArray(data, 'notes', file),
     };
     const link = optionalString(data, 'link', file);
     if (link !== undefined) {
@@ -231,7 +280,7 @@ async function exportData() {
       start: requireString(data, 'start', file),
       end: requireString(data, 'end', file),
       location: requireString(data, 'location', file),
-      notes: requireStringArray(data, 'notes', file),
+      notes: requireNoteArray(data, 'notes', file),
     }));
 
   const honors = (await loadEntries('resume-honors')).map(({ file, data }) => ({
@@ -249,26 +298,70 @@ async function exportData() {
   };
 }
 
-async function assertTypst() {
-  const typst = Bun.which('typst');
-  if (!typst) {
+async function installTypstForCloudflarePages(): Promise<string> {
+  if (process.platform !== 'linux' || process.arch !== 'x64') {
     throw new Error(
-      'typst is required to build resume.pdf. Install Typst 0.15+ and keep it on PATH.',
+      `Cloudflare Pages fallback typst install is only configured for linux/x64 (got ${process.platform}/${process.arch}).`,
     );
   }
 
-  const fonts = await $`${typst} fonts`.text();
-  for (const family of REQUIRED_FONTS) {
-    if (!fonts.split('\n').includes(family)) {
+  await mkdir(typstCacheDir, { recursive: true });
+  try {
+    await access(typstCacheBin, fsConstants.X_OK);
+    return typstCacheBin;
+  } catch {
+    // typst is not cached yet; download it below.
+  }
+
+  const archivePath = join(typstCacheDir, `typst-${TYPST_VERSION}.tar.xz`);
+  const extractDir = join(typstCacheDir, 'extract');
+  const downloadUrl = `https://github.com/typst/typst/releases/download/v${TYPST_VERSION}/typst-x86_64-unknown-linux-musl.tar.xz`;
+
+  await mkdir(extractDir, { recursive: true });
+  let result = await $`curl -fsSL -o ${archivePath} ${downloadUrl}`.nothrow();
+  if (result.exitCode !== 0) {
+    throw new Error(`failed to download typst from ${downloadUrl}`);
+  }
+  result = await $`tar -xJf ${archivePath} -C ${extractDir}`.nothrow();
+  if (result.exitCode !== 0) {
+    throw new Error(`failed to extract typst archive: ${archivePath}`);
+  }
+
+  const extractedBin = join(extractDir, 'typst-x86_64-unknown-linux-musl', 'typst');
+  result = await $`cp ${extractedBin} ${typstCacheBin}`.nothrow();
+  if (result.exitCode !== 0) {
+    throw new Error(`failed to stage typst binary at ${typstCacheBin}`);
+  }
+
+  await chmod(typstCacheBin, 0o755);
+  return typstCacheBin;
+}
+
+async function assertTypst(): Promise<string> {
+  let typst = Bun.which('typst');
+  if (!typst) {
+    if (isCloudflarePages) {
+      typst = await installTypstForCloudflarePages();
+    } else {
       throw new Error(
-        `typst cannot see the "${family}" font. Install it before building the resume.`,
+        'typst is required to build resume.pdf. Install Typst 0.15+ and keep it on PATH.',
       );
     }
   }
+
+  const fonts = await $`${typst} fonts --font-path ${fontDir}`.text();
+  for (const family of REQUIRED_FONTS) {
+    if (!fonts.split('\n').includes(family)) {
+      throw new Error(
+        `typst cannot see the "${family}" font in ${fontDir}.`,
+      );
+    }
+  }
+  return typst;
 }
 
 async function main() {
-  await assertTypst();
+  const typst = await assertTypst();
   try {
     await readFile(bibPath);
   } catch {
@@ -279,7 +372,7 @@ async function main() {
   await mkdir(publicDir, { recursive: true });
   await writeFile(dataPath, `${JSON.stringify(data, null, 2)}\n`);
 
-  const result = await $`typst compile ${typstPath} ${pdfPath}`.nothrow();
+  const result = await $`${typst} compile --font-path ${fontDir} ${typstPath} ${pdfPath}`.nothrow();
   if (result.exitCode !== 0) {
     throw new Error(
       `typst compile failed with exit ${result.exitCode}\n${result.stderr.toString()}\n${result.stdout.toString()}`,

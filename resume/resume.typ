@@ -16,9 +16,21 @@
 }
 #show "|": set text(fill: gray)
 
+#let render-note(note) = {
+  if type(note) == str {
+    return note
+  }
+  if not ("parts" in note) {
+    return note
+  }
+  note.parts
+    .map(part => if "href" in part { link(part.href)[#part.text] } else { part.text })
+    .join()
+}
+
 #let notes(items) = [
   #for note in items [
-    - #note
+    - #render-note(note)
   ]
 ]
 
@@ -128,16 +140,18 @@
 
 #let tgray(content) = text(fill: gray.darken(50%), content)
 
-#grid(
-  columns: (1fr,) * data.skills.len(),
-  column-gutter: 1em,
-  ..data.skills.map(group => [
-    == #group.prettyName
-    #for skill in group.list [
-      - #skill.name #tgray[(#skill.detail)]
-    ]
-  ]),
-)
+#block(breakable: false)[
+  #grid(
+    columns: (1fr,) * data.skills.len(),
+    column-gutter: 1em,
+    ..data.skills.map(group => [
+      == #group.prettyName
+      #for skill in group.list [
+        - #skill.name #tgray[(#skill.detail)]
+      ]
+    ]),
+  )
+]
 
 = Other Honors
 

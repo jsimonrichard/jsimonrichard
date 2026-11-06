@@ -9,7 +9,7 @@
     "predev": "bun run resume",
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "bun run resume && astro check && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
