@@ -23,15 +23,9 @@
   if not ("parts" in note) {
     return note
   }
-  [
-    #for part in note.parts [
-      #if "href" in part {
-        link(part.href)[#part.text]
-      } else {
-        part.text
-      }
-    ]
-  ]
+  note.parts
+    .map(part => if "href" in part { link(part.href)[#part.text] } else { part.text })
+    .join()
 }
 
 #let notes(items) = [
