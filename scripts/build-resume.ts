@@ -1,4 +1,5 @@
-import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises';
+import { constants as fsConstants } from 'node:fs';
+import { access, chmod, mkdir, readdir, readFile, writeFile } from 'node:fs/promises';
 import { extname, join } from 'node:path';
 import { $ } from 'bun';
 
@@ -14,6 +15,9 @@ const pdfPath = join(publicDir, 'resume.pdf');
 
 const REQUIRED_FONTS = ['Noto Sans', 'Libertinus Serif'] as const;
 const isCloudflarePages = process.env.CF_PAGES === '1' || process.env.CF_PAGES === 'true';
+const TYPST_VERSION = '0.15.1';
+const typstCacheDir = join(root, '.cache', 'typst', TYPST_VERSION);
+const typstCacheBin = join(typstCacheDir, 'typst');
 
 type YamlRecord = Record<string, unknown>;
 
@@ -264,18 +268,55 @@ async function exportData() {
   };
 }
 
-async function assertTypst(): Promise<string | null> {
-  const typst = Bun.which('typst');
+async function installTypstForCloudflarePages(): Promise<string> {
+  if (process.platform !== 'linux' || process.arch !== 'x64') {
+    throw new Error(
+      `Cloudflare Pages fallback typst install is only configured for linux/x64 (got ${process.platform}/${process.arch}).`,
+    );
+  }
+
+  await mkdir(typstCacheDir, { recursive: true });
+  try {
+    await access(typstCacheBin, fsConstants.X_OK);
+    return typstCacheBin;
+  } catch {
+    // typst is not cached yet; download it below.
+  }
+
+  const archivePath = join(typstCacheDir, `typst-${TYPST_VERSION}.tar.xz`);
+  const extractDir = join(typstCacheDir, 'extract');
+  const downloadUrl = `https://github.com/typst/typst/releases/download/v${TYPST_VERSION}/typst-x86_64-unknown-linux-musl.tar.xz`;
+
+  await mkdir(extractDir, { recursive: true });
+  let result = await $`curl -fsSL -o ${archivePath} ${downloadUrl}`.nothrow();
+  if (result.exitCode !== 0) {
+    throw new Error(`failed to download typst from ${downloadUrl}`);
+  }
+  result = await $`tar -xJf ${archivePath} -C ${extractDir}`.nothrow();
+  if (result.exitCode !== 0) {
+    throw new Error(`failed to extract typst archive: ${archivePath}`);
+  }
+
+  const extractedBin = join(extractDir, 'typst-x86_64-unknown-linux-musl', 'typst');
+  result = await $`cp ${extractedBin} ${typstCacheBin}`.nothrow();
+  if (result.exitCode !== 0) {
+    throw new Error(`failed to stage typst binary at ${typstCacheBin}`);
+  }
+
+  await chmod(typstCacheBin, 0o755);
+  return typstCacheBin;
+}
+
+async function assertTypst(): Promise<string> {
+  let typst = Bun.which('typst');
   if (!typst) {
     if (isCloudflarePages) {
-      console.warn(
-        'Skipping resume build on Cloudflare Pages: typst is not available in this build environment.',
+      typst = await installTypstForCloudflarePages();
+    } else {
+      throw new Error(
+        'typst is required to build resume.pdf. Install Typst 0.15+ and keep it on PATH.',
       );
-      return null;
     }
-    throw new Error(
-      'typst is required to build resume.pdf. Install Typst 0.15+ and keep it on PATH.',
-    );
   }
 
   const fonts = await $`${typst} fonts --font-path ${fontDir}`.text();
@@ -291,9 +332,6 @@ async function assertTypst(): Promise<string | null> {
 
 async function main() {
   const typst = await assertTypst();
-  if (!typst) {
-    return;
-  }
   try {
     await readFile(bibPath);
   } catch {
@@ -304,7 +342,7 @@ async function main() {
   await mkdir(publicDir, { recursive: true });
   await writeFile(dataPath, `${JSON.stringify(data, null, 2)}\n`);
 
-  const result = await $`typst compile --font-path ${fontDir} ${typstPath} ${pdfPath}`.nothrow();
+  const result = await $`${typst} compile --font-path ${fontDir} ${typstPath} ${pdfPath}`.nothrow();
   if (result.exitCode !== 0) {
     throw new Error(
       `typst compile failed with exit ${result.exitCode}\n${result.stderr.toString()}\n${result.stdout.toString()}`,

@@ -25,7 +25,6 @@ jobs:
         with:
           typst-version: 0.15.1
       - run: bun install --frozen-lockfile
-      - run: bun run resume
       - run: bun run build
       - name: Deploy production Worker
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
